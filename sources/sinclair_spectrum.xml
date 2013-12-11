@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<data>
+	<machine name="Sinclair Spectrum" type="Computer">
+		<description>
+			<text><![CDATA[
+		The ZX Spectrum is an 8-bit personal home computer released in the United Kingdom in 1982 by Sinclair Research Ltd.
+		It was among the first mainstream audience home computers in the UK, similar in significance to the Commodore 64 in the USA.
+		]]></text>
+			<source_url>http://en.wikipedia.org/wiki/ZX_Spectrum</source_url>
+		</description>
+
+		<emulator name="Speccy">
+			<description>
+				<text><![CDATA[
+			Speccy emulates 16kB, 48kB, and 128kB versions of Sinclair ZX Spectrum, as well as Spectrum +2, +2A, and +3, as well as Timex Sinclair models.
+				]]></text>
+				<source_url>http://fms.komkon.org/Speccy</source_url>
+			</description>
+			<platform name="Windows">
+					<source_url start_with="Speccy" end_with="Windows-bin.zip">http://fms.komkon.org/Speccy/</source_url>
+			</platform>
+			<platform name="Linux">
+					<source_url start_with="Speccy" end_with="Ubuntu-bin.tgz">http://fms.komkon.org/Speccy/</source_url>
+			</platform>
+			<platform name="Android">
+					<source_url>https://play.google.com/store/apps/details?id=com.fms.speccy.deluxe</source_url>
+			</platform>
+		</emulator>
+
+		<emulator name="Fuse">
+			<description>
+				<text><![CDATA[
+			Fuse (the Free Unix Spectrum Emulator) was originally a ZX Spectrum emulator for Unix. However, it has now also been ported to Mac OS X, Windows, the Wii, AmigaOS...
+			]]></text>
+				<source_url>http://fuse-emulator.sourceforge.net</source_url>
+			</description>
+			<platform name="Windows">
+					<source_url>http://sourceforge.net/projects/fuse-emulator/files/latest/download</source_url>
+			</platform>
+			<platform name="Debian">
+					<source_url>http://packages.debian.org/search?keywords=fuse-emulator</source_url>
+			</platform>
+			<platform name="OS X">
+					<source_url>http://sourceforge.net/projects/fuse-for-macosx/files/latest/download</source_url>
+			</platform>
+			<platform name="Wii">
+					<source_url>http://wiibrew.org/wiki/Fuse</source_url>
+			</platform>
+			<platform name="AmigaOS4">
+					<source_url>http://aminet.net/package/misc/emu/fuse.lha</source_url>
+			</platform>
+		</emulator>
+	</machine>
+</data>

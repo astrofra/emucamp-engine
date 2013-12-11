@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<data>
+	<machine name="Sega Megadrive" type="Console">
+		<description>
+			<text><![CDATA[
+			The Sega Mega Drive (Mega Doraibu), called the Sega Genesis in North America is a 16-bit video game console made by Sega.<br><br>
+			Designed by an R&D team supervised by Masami Ishikawa, the Genesis hardware was adapted from Sega's System 16 arcade board, centered around a Motorola 68000 processor as a primary CPU and a Zilog Z80 as a secondary processor.
+			]]></text>
+			<source_url>http://simple.wikipedia.org/wiki/Sega_Mega_Drive</source_url>
+		</description>
+		<emulator name="Gens">
+			<description>
+				<text><![CDATA[
+				Gens is an open-source Sega Megadrive emulator. It works on Windows and needs Directx 7.0 or higher.
+				]]></text>
+				<source_url>http://www.gens.me/about.shtml</source_url>
+			</description>
+			<platform name="Windows">
+					<source_url start_with = "gens-win32-bin" end_with = ".zip">http://www.gens.me/downloads.shtml</source_url>
+			</platform>
+		</emulator>
+		
+		<emulator name="Genesis Plus">
+			<description>
+				<text><![CDATA[
+				Genesis Plus features very accurate emulation of the original Sega Genesis, even to the point that some software which has problems on the real hardware (Sonic Crackers, for example) exhibits the same behaviour under emulation.
+				]]></text>
+				<source_url>http://www.bannister.org/software/gplus.htm</source_url>
+			</description>
+			<platform name="OS X">
+					<source_url>http://www.bannister.org/cgi-bin/download.cgi?gplus</source_url>
+			</platform>
+		</emulator>
+		
+		<emulator name="Genesis Plus-GX">
+			<description>
+				<text><![CDATA[
+				an enhanced port of Genesis Plus, an open-source Sega Mega Drive / Genesis emulator, now also emulating SG-1000, Master System, Game Gear and Sega/Mega CD hardware, running on Gamecube / Wii consoles.
+				]]></text>
+				<source_url>http://code.google.com/p/genplus-gx/</source_url>
+			</description>
+			<platform name="Wii/GameCube">
+					<source_url>http://code.google.com/p/genplus-gx/downloads/list</source_url>
+			</platform>
+		</emulator>
+
+		<emulator name="Kega Fusion">
+			<description>
+				<text><![CDATA[
+				Fusion is a Sega SG1000, SC3000, SF7000, Master System, Game Gear, Genesis/Megadrive, SVP, Pico, SegaCD/MegaCD and 32X emulator for Win9x/ME/2000/XP/Vista/Win7, Mac OSX(Intel), and Linux.
+				]]></text>
+				<source_url>http://www.eidolons-inn.net/tiki-index.php?page=kega</source_url>
+			</description>
+			<platform name="Windows">
+					<source_url>http://www.eidolons-inn.net/tiki-download_file.php?fileId=570</source_url>
+			</platform>
+			<platform name="OS X">
+					<source_url>http://www.eidolons-inn.net/tiki-download_file.php?fileId=573</source_url>
+			</platform>
+			<platform name="Linux">
+					<source_url>http://www.eidolons-inn.net/tiki-download_file.php?fileId=572</source_url>
+			</platform>
+		</emulator>
+	</machine>
+</data>

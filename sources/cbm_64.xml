@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<data>
+	<machine name="Commodore 64" type="Computer">
+		<description>
+			<text><![CDATA[
+			The Commodore 64 was a bestselling, 8-bit home computer from the 1980s. It was created by Commodore International, and it entered the market in 1982. Around 17 million units are believed to have been sold.
+			]]></text>
+			<source_url>http://simple.wikipedia.org/wiki/Commodore_64</source_url>
+		</description>
+
+		<emulator name="Vice">
+			<description>
+				<text><![CDATA[
+				The software program VICE, standing for VersatIle Commodore Emulator, is a freeware and cross platform an emulator for Commodore's 8-bit computers, running on Amiga, Unix, MS-DOS, Win32, Mac OS X, OS/2, Acorn RISC OS, and BeOS host machines. VICE is free software, released under the GNU General Public Licence.
+				]]></text>
+				<source_url>http://en.wikipedia.org/wiki/VICE</source_url>
+			</description>
+			<platform name="Windows x86">
+					<source_url start_with = "WinVICE" end_with = "-x86.zip">http://vice-emu.sourceforge.net/index.html#download</source_url>
+			</platform>
+			<platform name="Windows x64">
+					<source_url start_with = "WinVICE" end_with = "-x64.zip">http://vice-emu.sourceforge.net/index.html#download</source_url>
+			</platform>
+			<platform name="OS X">
+					<source_url start_with = "vice-macosx-cocoa-i386" end_with = ".dmg">http://vice-emu.sourceforge.net/macosx.html</source_url>
+			</platform>
+		</emulator>
+
+		<emulator name="Frodo">
+			<description>
+				<text><![CDATA[
+				Frodo V4.1 is a free, portable C64 emulator for BeOS, Unix, MacOS, AmigaOS, RiscOS and WinNT/95 systems.
+				]]></text>
+				<source_url>http://frodo.cebix.net/</source_url>
+			</description>
+			<platform name="Windows">
+					<source_url>ftp://ftp.zimmers.net/pub/cbm/crossplatform/emulators/Frodo/frodo4_1.win32.zip</source_url>
+			</platform>
+			<platform name="AmigaOS3">
+					<source_url start_with = "FrodoV" end_with = "Amiga.lha">http://frodo.cebix.net/</source_url>
+			</platform>
+			<platform name="OS X">
+					<source_url>http://www.bannister.org/cgi-bin/download.cgi?frodo</source_url>
+			</platform>
+		</emulator>
+
+	</machine>
+</data>

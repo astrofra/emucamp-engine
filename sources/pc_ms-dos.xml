@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<data>
+	<machine name="PC MS-DOS" type="Environment">
+		<description>
+			<text><![CDATA[
+			MS-DOS is an operating system for x86-based personal computers. It  was the main operating system for IBM PC compatible personal computers during the 1980s to the mid-1990.
+			]]></text>
+			<source_url>http://en.wikipedia.org/wiki/MS-DOS</source_url>
+		</description>
+		
+		<emulator name="ScummVM">
+			<description>
+				<text><![CDATA[
+				ScummVM is a collection of game engine recreations. Originally designed to play LucasArts adventure games that use the SCUMM system (the VM in the name stands for virtual machine), it now also supports a variety of non-SCUMM games by companies like Revolution Software and Adventure Soft.
+				]]></text>
+				<source_url>http://en.wikipedia.org/wiki/ScummVM</source_url>
+			</description>
+			<platform name="Windows">
+					<source_url>http://sourceforge.net/projects/scummvm/files/latest/download</source_url>
+			</platform>
+			<platform name="Android">
+					<source_url>https://play.google.com/store/apps/details?id=org.scummvm.scummvm</source_url>
+			</platform>
+		</emulator>
+
+		<emulator name="DosBox">
+			<description>
+				<text><![CDATA[
+				DOSBox is emulator software that emulates an IBM PC compatible computer running the older operating system, MS-DOS. Many IBM PC compatible graphics and sound cards are also emulated.
+				]]></text>
+				<source_url>http://en.wikipedia.org/wiki/DOSBox</source_url>
+			</description>
+			<platform name="Windows">
+					<source_url>http://sourceforge.net/projects/dosbox/files/latest/download</source_url>
+			</platform>
+			<platform name="Debian">
+					<source_url>http://packages.debian.org/search?keywords=dosbox</source_url>
+			</platform>
+			<platform name="AmigaOS3">
+					<source_url>http://aminet.net/package/misc/emu/DOSBox_AGA</source_url>
+			</platform>
+		</emulator>
+		
+		<emulator name="Boxer">
+			<description>
+				<text><![CDATA[
+				Boxer, based on DosBox, plays all the MS-DOS games on Mac OS X. Just drag-drop the games onto Boxer, and it will be playing in minutes.
+]]></text>
+				<source_url>http://boxerapp.com/</source_url>
+			</description>
+			<platform name="OS X">
+					<source_url>http://boxerapp.com/download/latest</source_url>
+			</platform>
+		</emulator>	
+
+	</machine>
+</data>

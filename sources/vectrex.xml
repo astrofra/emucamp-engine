@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<data>
+	<machine name="GCE Vectrex" type="Console">
+		<description>
+			<text><![CDATA[
+			 The Vectrex, unlike other non-portable video game consoles which connected to televisions and rendered raster graphics, has an integrated vector monitor which displays vector graphics. It is monochrome and uses plastic screen overlays to simulate color and various static graphics and decorations.
+			 ]]></text>
+			<source_url>http://en.wikipedia.org/wiki/Vectrex</source_url>
+		</description>
+		
+		<emulator name="Vecx">
+			<description>
+				<text><![CDATA[
+				Vecx can run just about all the Vectrex software. It was originaly written by Valavan Mmanohararajah and then ported to various platforms using SDL/GL.]]></text>
+				<source_url>https://github.com/jhawthorn/vecx</source_url>
+			</description>
+			<platform name="Windows">
+					<source_url start_with="VecXGL_" end_with=".zip">http://jum.pdroms.de/emulators/emul.html</source_url>
+			</platform>
+			<platform name="OS X">
+					<source_url>http://www.bannister.org/cgi-bin/download.cgi?vecx</source_url>
+			</platform>
+			<platform name="MorphOS">
+					<source_url>http://jupp3.binaryriot.org/releases/ports/vecxgl.lha</source_url>
+			</platform>
+		</emulator>
+
+		<emulator name="ParaJVE">
+			<description>
+				<text><![CDATA[
+				ParaJVE is an advanced emulator for the GCE Vectrex game console, written in Java 1.5. Its development started in early 2006, and the emulation is now mature enough to deliver a rendering close to the real machine.
+				]]></text>
+				<source_url>http://www.vectrex.fr/ParaJVE/</source_url>
+			</description>
+			<platform name="Windows">
+					<source_url>http://www.vectrex.fr/ParaJVE/release/download.php</source_url>
+			</platform>
+			<platform name="OS X">
+					<source_url>http://www.vectrex.fr/ParaJVE/release/download.php</source_url>
+			</platform>
+			<platform name="Linux">
+					<source_url>http://www.vectrex.fr/ParaJVE/release/download.php</source_url>
+			</platform>
+		</emulator>
+
+	</machine>
+</data>

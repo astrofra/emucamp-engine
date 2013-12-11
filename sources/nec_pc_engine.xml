@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<data>
+	<machine name="Nec PC Engine" type="Console">
+		<description>
+			<text><![CDATA[
+			 The TurboGrafx-16 Entertainment SuperSystem, originally known in Japan as the PC Engine, is a video game console joint-developed by Hudson Soft and NEC. It was the first console released in the 16-bit era, albeit still utilizing an 8-bit CPU.
+			 ]]></text>
+			<source_url>http://en.wikipedia.org/wiki/TurboGrafx-16</source_url>
+		</description>
+
+		<emulator name="MagicEngine">
+			<description>
+				<text><![CDATA[
+				MagicEngine emulates the PC-Engine almost perfectly. It's actually available for three operating systems (Dos, Windows, OS X).
+				]]></text>
+				<source_url>http://www.magicengine.com/</source_url>
+			</description>
+			<platform name="Windows">
+					<source_url start_with="files/me" end_with="-demo.zip">http://www.magicengine.com/uk_download_main.html</source_url>
+			</platform>
+			<platform name="OS X">
+					<source_url>http://www.magicengine.com/uk_download_main.html</source_url>
+			</platform>
+		</emulator>
+		
+		<emulator name="Ootake">
+			<description>
+				<text><![CDATA[
+				PC Engine (TurboGrafx 16) emulator.
+				]]></text>
+				<source_url>http://www.ouma.jp/ootake/</source_url>
+			</description>
+			<platform name="Windows">
+					<source_url start_with="Ootake" end_with=".exe">http://www.ouma.jp/file/?M=D</source_url>
+			</platform>
+		</emulator>
+		
+		<emulator name="Hu-Go!">
+			<description>
+				<text><![CDATA[
+				Hu-Go! is a fork of FPCE, with pieces of code inspired by other emulators, including Xpce.
+				]]></text>
+				<source_url>http://www.zeograd.com/parse.php?src=hugof</source_url>
+			</description>
+			<platform name="Windows">
+					<source_url>http://www.zeograd.com/hugo_download.php</source_url>
+			</platform>
+		</emulator>
+
+	</machine>
+</data>

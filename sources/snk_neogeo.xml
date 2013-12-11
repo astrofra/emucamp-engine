@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<data>
+	<machine name="SNK NeoGeo" type="Console">
+		<description>
+			<text><![CDATA[
+			 The Neo Geo is a cartridge-based arcade system board and home video game console released on January 31, 1990 by Japanese game company SNK Playmore. 
+			 ]]></text>
+			<source_url>http://en.wikipedia.org/wiki/Neo_Geo_%28system%29</source_url>
+		</description>
+		<emulator name="Kawaks">
+			<description>
+				<text><![CDATA[
+				Kawaks emulator for the Windows operating system that the CPS-1 CPS-2, and systems of play Neo Geo.
+				]]></text>
+				<source_url>http://www.kawaks.net/</source_url>
+			</description>
+			<platform name="Windows">
+					<source_url start_with="Kawaks_set" end_with=".exe">http://www.kawaks.net/winkawaks_down.html</source_url>
+			</platform>
+		</emulator>
+
+	</machine>
+</data>

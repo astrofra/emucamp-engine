@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<link href='http://fonts.googleapis.com/css?family=Homenaje|Dosis' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" type="text/css" media="all" href="extern/bootstrap/css/bootstrap.css">
+    <style>
+      body {
+font-family: 'Homenaje', sans-serif;
+font-family: 'Dosis', sans-serif;
+      }
+    </style>
+	</head>
+<body>
+    <div class="container">
+    &nbsp;
+    </div>
+    <div class="container">
+        <!-- begin_header -->
+        <div class="jumbotron">
+            <div class="row-fluid">
+            <table>
+                <tr>
+                    <td>
+						<div class="span1"><a href="index.html"><img src="assets/logo_emu_camp_100px.png"></a></div>
+                    </td>
+                    <td>
+						<div class="span9"><h1>&nbsp;Emulation Camp</h1></div>
+                    </td>
+				</tr>
+            </table>
+            </div>
+        </div>
+        <!-- end_header -->
+    </div>
+		<div class="container"><div class="machine">
+            <div><h3>@machine_name</h3></div>
+            <div>@machine_description</div>
+            <div style="text-align:right;;margin-right:10px;"><a href="@machine_description_source_url" target="_blank">@machine_description_source</a></div>
+        </div></div>
+
+        <div class="container">
+            <div><h3>Emulators</h3></div>
+            #for @emulator in @emulator_list:
+            <!-- begin_emulator -->
+            <div class="container" style="border-left: 4px solid #f0f0f0;">
+                <div><h4 style="line-height: 0.4";>@emulator.name</h4></div>
+                <!-- begin_emulator_description -->
+                <div>@emulator.emulator_description</div>
+                <div style="text-align:right;margin-right:30px;"><a href="@emulator.emulator_description_source_url" target="_blank">@emulator.emulator_description_source</a></div>
+				<!-- end_emulator_description -->
+				<div><center>&nbsp;</center></div>
+                <div><table width="100%">
+					#for @emulator_version in @emulator.emulator_version_list:
+                	<!-- begin_emulator_version -->
+                	<tr>
+                        <td width="10%">@emulator_version.emulator_platform</td>
+                        <td width="30%">
+                        #if (@emulator_version.emulator_size > 0)
+                        	<a href="@emulator_version.emulator_download_url"><button type="button" class="btn btn-primary btn-xs">@emulator_version.emulator_filename</button></a>
+                        #else
+                        	Not mirrored.
+                        #end
+                        </td>
+                        <td width="20%"><a href="@emulator_version.emulator_download_page" target="_blank">@emulator_version.emulator_download_page_truncated</a></td>
+                        <td width="10%">
+                        #if (@emulator_version.emulator_size > 0)
+                        	@emulator_version.emulator_size
+                        #else
+                        	&nbsp;
+                        #end
+                        </td>
+                        <td width="10% nowrap">@emulator_version.emulator_updated_on</td>
+                    </tr>
+					<!-- end_emulator_version -->
+					#end
+                    </table>
+                 </div>
+            </div>
+            </td>
+            </tr>
+            </table>
+            <div>&nbsp;<br>&nbsp;</div>
+            <!-- end_emulator -->  
+        	#end         
+            <center><div style="width:150px;"><hr></div></center>           
+        </div>
+    </div>
+    <div class="container"><div>&nbsp;</div>
+   <center><img class="img-rounded" style="align:center;" src="assets/machine_@{machine_filename}.jpg" width="250px"></center>
+    </div>
+	<!-- begin_footer -->
+    <div class="container">
+    <hr>
+    <div class="modal-footer" style="text-align:center">emucamp.com | Emulation Camp | Created as SMS Camp in 1997 | Powered by the <a href="http://code.google.com/p/emucamp-engine/">emucamp-engine</a></div>
+    </div>
+	<!-- begin_footer -->
+</body>
+</html>

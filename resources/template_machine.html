@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<link href='http://fonts.googleapis.com/css?family=Homenaje|Dosis' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" type="text/css" media="all" href="extern/bootstrap/css/bootstrap.css">
+    <style>
+      body {
+font-family: 'Homenaje', sans-serif;
+font-family: 'Dosis', sans-serif;
+      }
+    </style>
+	<meta charset="utf-8">
+	<META NAME="description" CONTENT="Retrograming the @machine_name on the most usual platforms.">
+	<META NAME="keywords" CONTENT="emulation, retrograming, @machine_name, binary, download, sourceforge">
+	<title>Emulation Camp, emulators for the @machine_name</title>
+	</head>
+<body>
+    <div class="container">
+    &nbsp;
+    </div>
+    <div class="container">
+        <!-- begin_header -->
+        <div class="jumbotron">
+            <div class="row-fluid">
+            <table>
+                <tr>
+                    <td>
+						<div class="span1"><a href="index.html"><img src="assets/logo_emu_camp_100px.png"></a></div>
+                    </td>
+                    <td>
+						<div class="span9"><h1>&nbsp;Emulation Camp</h1></div>
+                    </td>
+				</tr>
+            </table>
+            </div>
+        </div>
+        <!-- end_header -->
+    </div>
+		<div class="container"><div class="machine">
+            <div><h3>@machine_name</h3></div>
+            <div>@machine_description</div>
+            <div style="text-align:right;;margin-right:10px;"><a href="@machine_description_source_url" target="_blank">@machine_description_source</a></div>
+        </div></div>
+
+        <div class="container">
+            <div><h3>Emulators</h3></div>
+            #for @emulator in @emulator_list:
+            <!-- begin_emulator -->
+            <div class="container" style="border-left: 4px solid #f0f0f0;">
+                <div><h4 style="line-height: 0.4";>@emulator.name</h4></div>
+                <!-- begin_emulator_description -->
+                <div>@emulator.emulator_description</div>
+                <div style="text-align:right;margin-right:30px;"><a href="@emulator.emulator_description_source_url" target="_blank">@emulator.emulator_description_source</a></div>
+				<!-- end_emulator_description -->
+				<div><center>&nbsp;</center></div>
+                <div><table width="100%">
+					#for @emulator_version in @emulator.emulator_version_list:
+                	<!-- begin_emulator_version -->
+                	<tr>
+                        <td width="10%">@emulator_version.emulator_platform</td>
+                        <td width="30%">
+                        #if (@emulator_version.emulator_size > 0)
+                        	<a href="@emulator_version.emulator_download_url"><button type="button" class="btn btn-primary btn-xs">@emulator_version.emulator_filename</button></a>
+                        #else
+							<a href="@emulator_version.emulator_download_page" target="_blank"><button type="button" class="btn btn-primary btn-xs" style="background-color: #808080; border-color: #707070;">Not mirrored.</button></a>
+                        #end
+                        </td>
+                        <td width="20%"><a href="@emulator_version.emulator_download_page" target="_blank">@emulator_version.emulator_download_page_truncated</a></td>
+                        <td width="10%">
+                        #if (@emulator_version.emulator_size > 0)
+                        	@emulator_version.emulator_size
+                        #else
+                        	&nbsp;
+                        #end
+                        </td>
+                        <td width="10% nowrap">@emulator_version.emulator_updated_on</td>
+                    </tr>
+					<!-- end_emulator_version -->
+					#end
+                    </table>
+                 </div>
+            </div>
+            </td>
+            </tr>
+            </table>
+            <div>&nbsp;<br>&nbsp;</div>
+            <!-- end_emulator -->  
+        	#end         
+            <center><div style="width:150px;"><hr></div></center>           
+        </div>
+    </div>
+    <div class="container"><div>&nbsp;</div>
+   <center>
+	<table with="250px">
+		<tr><td with="250px"><img class="img-rounded" style="align:center;" src="assets/machine_@{machine_filename}.jpg" width="250px"></td></tr>
+		<tr><td align="right" with="250px"><h6>(Photo Wikipedia.org)</h6></td></tr>
+	</table>
+   </center>
+    </div>
+	<!-- begin_footer -->
+    <div class="container">
+    <hr>
+    <div class="modal-footer" style="text-align:center">emucamp.com | Emulation Camp | Created as SMS Camp in 1997 | Powered by the <a href="http://code.google.com/p/emucamp-engine/" target="_blank">emucamp-engine</a></div>
+    </div>
+	<!-- begin_footer -->
+</body>
+</html>

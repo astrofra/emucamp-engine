@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<data>
+	<machine name="Commodore Amiga" type="Computer">
+		<description>
+			<text><![CDATA[
+			The Amiga was a line of personal computers that Commodore International produced during the 1980s and early 1990s. The first Amiga computer, the Amiga 1000, possessed a HAM mode enabled the machine to display 4096 colors, a chip that enabled it to play back four channels of stereo at once, an operating system with multitasking, and a graphical user interface at a time that these features were uncommon or not as developed as Amiga's.
+			]]></text>
+			<source_url>http://simple.wikipedia.org/wiki/Amiga</source_url>
+		</description>
+
+		<emulator name="WinUAE">
+			<description>
+				<text><![CDATA[
+				UAE is a computer emulator which emulates the hardware of the Commodore Amiga range of computers. Released under the GNU General Public License, UAE is free software.
+				]]></text>
+				<source_url>http://en.wikipedia.org/wiki/UAE_%28emulator%29</source_url>
+			</description>
+			<platform name="Windows">
+					<source_url start_with = "InstallWin" end_with = ".exe">http://www.winuae.net/frames/download.html</source_url>
+			</platform>
+		</emulator>
+
+		<emulator name="FS-UAE">
+			<description>
+				<text><![CDATA[
+				FS-UAE is an Amiga emulator for Windows, Linux and Mac OS Xbased on UAE/WinUAE, with a focus on emulating games, though it also emulates high-end Amigas.
+				]]></text>
+				<source_url>http://fs-uae.net/features</source_url>
+			</description>
+			<platform name="Windows">
+				<source_url start_with="stable/" end_with = ".exe">http://fs-uae.net/download</source_url>
+			</platform>
+			<platform name="OS X">
+				<source_url start_with = "stable/" end_with = "osx.tar.gz">http://fs-uae.net/download</source_url>
+			</platform>
+			<platform name="Ubuntu32">
+				<source_url start_with = "stable/" end_with = "_i386.deb">http://fs-uae.net/download</source_url>
+			</platform>
+		</emulator>
+
+		<emulator name="Fellow">
+			<description>
+				<text><![CDATA[
+				Fellow is an emulator designed to run software written for the Amiga computer platform. Released under the GNU General Public License, Fellow is free software.
+				]]></text>
+				<source_url>http://en.wikipedia.org/wiki/Fellow_%28computing%29</source_url>
+			</description>
+			<platform name="Windows">
+				<source_url>http://sourceforge.net/projects/fellow/files/latest/download?source=files</source_url>
+			</platform>
+		</emulator>
+	</machine>
+</data>

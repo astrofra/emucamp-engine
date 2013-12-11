@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<data>
+	<machine name="Arcade" type="Arcade">
+		<description>
+			<text><![CDATA[An arcade game (or coin-op) is a coin-operated entertainment machine, usually installed in public businesses, such as restaurants, bars, and particularly amusement arcades. Most arcade games are video games, pinball machines, electro-mechanical games, redemption games, and merchandisers.
+			]]></text>
+			<source_url>http://en.wikipedia.org/wiki/Arcade_game</source_url>
+		</description>
+		<emulator name="Mame">
+			<description>
+				<text><![CDATA[
+				MAME (an acronym of Multiple Arcade Machine Emulator) is an emulator application designed to recreate the hardware of arcade game systems in software on modern personal computers and other platforms.
+				]]></text>
+				<source_url>http://en.wikipedia.org/wiki/MAME</source_url>
+			</description>
+			<platform name="Windows">
+				<source_url start_with = "downloader.php?file=releases/mame" end_with = ".exe">http://www.mamedev.org/release.html</source_url>
+			</platform>
+			<platform name="OS X">
+				<source_url>http://sourceforge.net/projects/mameosx/files/latest/download</source_url>
+			</platform>
+		</emulator>
+		
+		<emulator name="FB Alpha">
+			<description>
+				<text><![CDATA[
+				FB Alpha (formerly FinalBurn Alpha) is a multi-arcade emulator. It emulated various systems from the Capcom CPS-1 to the Toaplan machines and the Neo Geo as well.
+				]]></text>
+				<source_url>http://www.barryharris.me.uk/fba.php</source_url>
+			</description>
+			<platform name="Windows">
+				<source_url start_with = "fba_" end_with = ".7z">http://www.barryharris.me.uk/fba.php</source_url>
+			</platform>
+			<platform name="WindowsXP">
+				<source_url start_with = "fbaxp_" end_with = ".7z">http://www.barryharris.me.uk/fba.php</source_url>
+			</platform>
+		</emulator>
+
+	</machine>
+</data>

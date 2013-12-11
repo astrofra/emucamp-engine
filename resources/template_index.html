@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<link href='http://fonts.googleapis.com/css?family=Homenaje|Dosis' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" type="text/css" media="all" href="extern/bootstrap/css/bootstrap.css">
+    <style>
+      body {
+font-family: 'Homenaje', sans-serif;
+font-family: 'Dosis', sans-serif;
+      }
+    body,td,th {
+	font-family: Dosis, sans-serif;
+}
+h1,h2,h3,h4,h5,h6 {
+	font-family: Homenaje, sans-serif;
+}
+    </style>
+	<meta charset="utf-8">
+	<META NAME="description" CONTENT="EmuCamp.com, an initiative to reference the retrogaming emulators available on the most usual platforms.">
+	<META NAME="keywords" CONTENT="emucamp, emulation, retrograming, amiga, atari, spectrum, amstrad, neogeo, nes, snes, mxs, pcengine, arcade, mame, sega">
+	<title>Emulation Camp, yet another retrogaming resource.</title>
+	</head>
+<body>
+    <div class="container">
+    &nbsp;
+    </div>
+    <div class="container">
+        <div class="jumbotron">
+			<div align = "middle" style="padding-top: 0px; padding-bottom: 16px;">
+			<img src="assets/logo_emu_camp_300px.png">
+            <div class="row"><h1>Emulation Camp</h1></div>
+			<div class="row"><h4 style="line-height: 0.1;">&nbsp;Yet Another Retrogaming Resource</h4></div>
+            </div> <div style="line-height:110%; padding-bottom:4px;"><center><table>
+            	<!--	computers	-->
+            	<tr><td><center>
+            	#for @machine in @machine_list.computer:
+                	<a href="@machine.page_url"><button type="button" class="btn btn-primary btn-xs">@machine.name</button></a>
+                #end
+            	<!--	consoles	-->
+            	#for @machine in @machine_list.console:
+                	<a href="@machine.page_url"><button type="button" class="btn btn-primary btn-xs" style="background-color: #50518a; border-color: #3e3f73;">@machine.name</button></a>
+                #end
+            	<!--	arcade	-->
+            	#for @machine in @machine_list.arcade:
+                	<a href="@machine.page_url"><button type="button" class="btn btn-primary btn-xs" style="background-color: #901451; border-color: #731041;">@machine.name</button></a>
+                #end
+            	<!--	environment	-->
+            	#for @machine in @machine_list.environment:
+                	<a href="@machine.page_url"><button type="button" class="btn btn-primary btn-xs" style="background-color: #00907b; border-color: #006a5b;">@machine.name</button></a>
+                #end
+            	</center></td></tr>
+                </table></center></div>
+        </div>
+       
+	</div>
+	<!-- $begin_footer -->
+    <div class="modal-footer" style="text-align:center">emucamp.com | Emulation Camp | Created as SMS Camp in 1997 | Powered by the <a href="http://code.google.com/p/emucamp-engine/" target="_blank">emucamp-engine</a></div>
+	<!-- $begin_footer -->
+</body>
+</html>
