@@ -21,7 +21,9 @@ from quik import FileLoader
 def	InitMimeDetection():
 	mimetypes.init()
 	mimetypes.add_type('application/x-debian', '.deb')
+	mimetypes.add_type('application/x-windows', '.msi')
 	mimetypes.add_type('application/x-amigaos', '.lha')
+	mimetypes.add_type('application/x-osx', '.dmg')
 
 def	MainEmucampEngine():
 

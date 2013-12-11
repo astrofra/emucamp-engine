@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<data>
+	<machine name="Sinclair QL" type="Computer" release_date="1984">
+		<description>
+			<text><![CDATA[
+		The Sinclair QL (for Quantum Leap), is a personal computer launched by Sinclair Research in 1984, as an upper-end addition to the Sinclair ZX Spectrum. The QL was aimed at the serious home user and professional and executive users markets from small to large businesses and higher educational establishments.
+		]]></text>
+			<source_url>http://en.wikipedia.org/wiki/Sinclair_QL</source_url>
+		</description>
+		
+		<emulator name="QLAY2">
+			<description>
+				<text><![CDATA[
+			QLAY2 is a Sinclair QL Emulator. It's an update of QLAY (for MSDOS) and QLAYW (for Windows 3).
+			]]></text>
+				<source_url>http://www.terdina.net/ql/q-emulator.html</source_url>
+			</description>
+			<platform name="Windows">
+					<source_url start_with="/QL/QLAY2/QLAY2-Fu" end_with=".zip">http://www.jadiam.org/QL/QLAY2</source_url>
+			</platform>
+		</emulator>
+
+		<emulator name="Q-emuLator">
+			<description>
+				<text><![CDATA[
+			Q-emuLator is a software emulator of the QL, running as an application in the Windows and Mac OS environments.
+It has an interpreter of the 68008's instructions, and emulates the basic QL's hardware, redirecting input and output to the Mac's or PC's video, keyboard, mouse, disks, sound hardware and serial ports. 						]]></text>
+				<source_url>http://www.terdina.net/ql/q-emulator.html</source_url>
+			</description>
+			<platform name="Windows">
+					<source_url start_with="win/qemu" end_with=".msi">http://www.terdina.net/ql/winql.html</source_url>
+			</platform>
+			<platform name="OS X">
+					<source_url start_with="mac/qemu" end_with=".dmg">http://www.terdina.net/ql/MacQL.html</source_url>
+			</platform>
+		</emulator>
+		
+		<emulator name="QL Clone">
+			<description>
+				<text><![CDATA[
+			A software QDOS emulator for the Amiga.]]></text>
+				<source_url>http://aminet.net/package/misc/emu/QDOS4amiga1</source_url>
+			</description>
+			<platform name="AmigaOS">
+					<source_url>http://aminet.net/misc/emu/QDOS4amiga1.lha</source_url>
+			</platform>
+			<platform name="Support disk">
+					<source_url>http://aminet.net/misc/emu/QDOS4amiga3.lha</source_url>
+			</platform>
+		</emulator>
+
+	</machine>
+</data>
