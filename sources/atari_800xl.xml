@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<data>
+	<machine name="Atari 800/XL" type="Computer" release_date="1979" discontinued="1992">
+		<description>
+			<text><![CDATA[
+			The Atari 8-bit family is a series of 8-bit home computers based on the MOS Technology 6502 CPU running at 1.79 MHz and were the first home computers designed with custom co-processor chips.
+			]]></text>
+			<source_url>http://en.wikipedia.org/wiki/Atari_8-bit_family</source_url>
+		</description>
+		
+		<emulator name="Atari800">
+			<description>
+				<text><![CDATA[
+				Atari800 is the emulator of Atari 8-bit computer systems and 5200 game console for Unix, Linux, Amiga, MS-DOS, Atari TT/Falcon, MS-Windows, MS WinCE, Sega Dreamcast, Android and other systems supported by the SDL library.]]></text>
+				<source_url>http://atari800.sourceforge.net/</source_url>
+			</description>
+			<platform name="XL Bios">
+					<source_url>http://sourceforge.net/projects/atari800/files/ROM/Original%20XL%20ROM/xf25.zip/download</source_url>
+			</platform>
+			<platform name="Windows">
+					<source_url>http://sourceforge.net/projects/atari800/files/latest/download</source_url>
+			</platform>
+		</emulator>
+
+		<emulator name="Altirra">
+			<description>
+				<text><![CDATA[
+				An 8-bit Atari computer emulator created by the author of the famous 'VirtualDub' with emulation quality in mind, sometimes over speed and polish. It's a system emulator and debugger instead of a games machine, so there is some setup involved.
+				]]></text>
+				<source_url>http://www.virtualdub.org/altirra.html</source_url>
+			</description>
+			<platform name="Windows">
+					<source_url start_with = "Altirra-" end_with = ".zip">http://www.virtualdub.org/altirra.html</source_url>
+			</platform>
+		</emulator>
+		
+	</machine>
+</data>

@@ -1,11 +1,11 @@
 source_root			= 'sources/'
 site_root			= '../www/'
-machine_list		= sorted(['pc_ms-dos', 'nec_pc_engine', 'arcade', 'vectrex' ,'sega_gamegear', 'sinclair_spectrum', 'snk_neogeo', 'cbm_amiga', 'cbm_64', 'amstrad_cpc', 'atari_st', 'sega_megadrive', 'nintendo_nes'])
+machine_list		= sorted(['atari_800xl', 'pc_ms-dos', 'nec_pc_engine', 'arcade', 'vectrex' ,'sega_gamegear', 'sinclair_spectrum', 'snk_neogeo', 'cbm_amiga', 'cbm_64', 'amstrad_cpc', 'atari_st', 'sega_megadrive', 'nintendo_nes'])
 resources_root		= 'resources'
 resources_folders	= ['assets', 'extern']
 
 g_test_mode			= False
-g_create_index		= False
+g_create_index		= True
 
 input_pages			= {'machine':'template_machine.html', 'index':'template_index.html'	}
 output_pages		= {'machine':{}	}
