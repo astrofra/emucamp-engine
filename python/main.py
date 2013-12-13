@@ -145,6 +145,13 @@ def	MainEmucampEngine():
 		f = open(os.path.join(site_root, 'index.html'), 'w')
 		f.write(html_output)
 		f.close()
+		
+	##	Builds the about page
+	template_about = quik_loader.load_template(input_pages['about'])
+	html_output = template_about.render(quik_interface, quik_loader).encode('utf-8')
+	f = open(os.path.join(site_root, 'about.html'), 'w')
+	f.write(html_output)
+	f.close()
 			
 	##	soup = BeautifulSoup(html_doc)
 			

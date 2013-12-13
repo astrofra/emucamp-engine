@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<data>
+	<machine name="Sega MasterSystem/GameGear" type="Console">
+		<description>
+			<text><![CDATA[
+			The Sega Master System is a video game console made in 1986. It was not very popular in North America and Japan but was very popular in Brazil. One of the most popular game of the Sega Master System was Sonic the Hedgehog.
+			<br><br>
+			 The Sega Game Gear is a handheld video game system which was based on the technology found in the Master System. It was released in Japan in 1990, and then released later in Europe, the United States and Australia. 
+			 ]]></text>
+			<source_url>http://en.wikipedia.org/wiki/Master_System</source_url>
+		</description>
+		
+		<emulator name="MEKA">
+			<description>
+				<text><![CDATA[
+				 	MEKA is a multi-machine emulator for MS-Windows and GNU/Linux. It supports the SG-1000, the Sega Mark III, the Master System, the Game Gear and is compatible with the Z80 based Coleco consoles.
+				]]></text>
+				<source_url>http://www.smspower.org/meka/</source_url>
+			</description>
+			<platform name="Windows">
+					<source_url start_with="mekaw" end_with=".zip">http://www.smspower.org/meka/download.shtml</source_url>
+			</platform>
+			<platform name="Linux">
+					<source_url start_with="mekanix" end_with=".tgz">http://www.smspower.org/meka/download.shtml</source_url>
+			</platform>
+		</emulator>
+		
+		<emulator name="SMS Plus">
+			<description>
+				<text><![CDATA[
+				SMS Plus is a freeware, open-source, portable emulator for the Sega Master System and Game Gear consoles.
+				]]></text>
+				<source_url>http://cgfm2.emuviews.com/smsplus.php</source_url>
+			</description>
+			<platform name="OS X">
+					<source_url>SMS Plus</source_url>
+			</platform>
+		</emulator>
+		
+		<emulator name="MasterGear">
+			<description>
+				<text><![CDATA[
+				MasterGear (MG) is a program that emulates 8bit SEGA videogames on your computer. It runs games made for SEGA MasterSystem (Mark3 in Japan) and GameGear, as well as their predecessors: SG1000, SC3000, SF7000, and Mark2.
+				]]></text>
+				<source_url>http://fms.komkon.org/MG/</source_url>
+			</description>
+			<platform name="Android">
+					<source_url>https://market.android.com/details?id=com.fms.mg</source_url>
+			</platform>
+			<platform name="Linux">
+					<source_url start_with="MG" end_with="-Ubuntu-bin.tgz">http://fms.komkon.org/MG/</source_url>
+			</platform>
+		</emulator>
+
+	</machine>
+</data>

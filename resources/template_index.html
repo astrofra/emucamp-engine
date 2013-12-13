@@ -16,8 +16,12 @@ h1,h2,h3,h4,h5,h6 {
 }
     </style>
 	<meta charset="utf-8">
-	<META NAME="description" CONTENT="EmuCamp.com, an initiative to reference the retrogaming emulators available on the most usual platforms.">
-	<META NAME="keywords" CONTENT="emucamp, emulation, retrograming, amiga, atari, spectrum, amstrad, neogeo, nes, snes, mxs, pcengine, arcade, mame, sega">
+	<META NAME="description" CONTENT="EmuCamp.com, latest emulators available on the most usual platforms.">
+	<META NAME="keywords" CONTENT="emucamp, emulation, retrograming, 
+	#for @machine in @machine_list.computer: @machine.name ,
+	#end
+	demos, legal roms
+	">
 	<title>Emulation Camp, yet another retrogaming resource.</title>
 	</head>
 <body>
@@ -54,7 +58,7 @@ h1,h2,h3,h4,h5,h6 {
        
 	</div>
 	<!-- $begin_footer -->
-    <div class="modal-footer" style="text-align:center">emucamp.com | Emulation Camp | Created as SMS Camp in 1997 | Powered by the <a href="http://code.google.com/p/emucamp-engine/" target="_blank">emucamp-engine</a></div>
-	<!-- $begin_footer -->
+		#include("page_footer.html")
+<!-- $begin_footer -->
 </body>
 </html>
