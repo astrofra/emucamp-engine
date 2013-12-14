@@ -26,7 +26,7 @@
 			<description>
 				<text><![CDATA[
 			Marcel O Cinq, a Thomson MO5 emulator for PC. The original developer used Thomson computers as a child, and was highly motivated to get things working exactly as he remembered them.]]></text>
-				<source_url>http://www.alternative-system.com/specific/homepage2/mo5/mo5.html/</source_url>
+				<source_url>http://www.alternative-system.com/specific/homepage2/mo5/mo5.html</source_url>
 			</description>
 			<platform name="Windows">
 					<source_url start_with="mo5v" end_with=".zip">http://www.alternative-system.com/specific/homepage2/mo5/mo5.html</source_url>
