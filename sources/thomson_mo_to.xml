@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<data>
+	<machine name="Thomson TO/MO" type="Computer" release_date="1982" discontinued="1989">
+		<description>
+			<text><![CDATA[
+		The Thomson TO/MO is a range of home computers introduced in France in the 80's to compete against systems such as the ZX Spectrum and Commodore 64.
+		<br>
+		The Thomson MO5 runs on a Motorola 6809E processor clocked at 1 MHz. It originally featured 48kB of RAM, a 40x25 text display, and built-in Microsoft BASIC.
+		]]></text>
+			<source_url>http://en.wikipedia.org/wiki/Thomson_MO5</source_url>
+		</description>
+		
+		<emulator name="DCMOTO">
+			<description>
+				<text><![CDATA[
+			DCMOTO emulates the Thomson computer series : MO5, MO5E, MO5NR, MO6, T9000, TO7, TO7/70, TO8, TO8D, TO9, TO9+ and Olivetti Prodest PC128.
+				]]></text>
+				<source_url>http://dcmoto.free.fr/</source_url>
+			</description>
+			<platform name="Windows">
+					<source_url start_with="dcmoto_" end_with=".zip">http://dcmoto.free.fr/emulateur/index.html</source_url>
+			</platform>
+		</emulator>
+		
+		<emulator name="Marcel O Cinq">
+			<description>
+				<text><![CDATA[
+			Marcel O Cinq, a Thomson MO5 emulator for PC. The original developer used Thomson computers as a child, and was highly motivated to get things working exactly as he remembered them.]]></text>
+				<source_url>http://www.alternative-system.com/specific/homepage2/mo5/mo5.html/</source_url>
+			</description>
+			<platform name="Windows">
+					<source_url start_with="mo5v" end_with=".zip">http://www.alternative-system.com/specific/homepage2/mo5/mo5.html</source_url>
+			</platform>
+			<platform name="OS X">
+					<source_url>http://www.bannister.org/cgi-bin/download.cgi?mo5</source_url>
+			</platform>
+		</emulator>
+		
+		<emulator name="FunzyTo7">
+			<description>
+				<text><![CDATA[
+			An emulator for the TO7 and TO7-70. The Windows version includes a graphics interface, and the emulation handles the original CPU speed and the audio as well.]]></text>
+				<source_url>http://www.sylvain-huet.com/hacks/</source_url>
+			</description>
+			<platform name="Windows">
+					<source_url>http://www.sylvain-huet.com/hacks/rsc/funzyto7-win32.zip</source_url>
+			</platform>
+		</emulator>
+
+	</machine>
+</data>

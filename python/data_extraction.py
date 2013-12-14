@@ -103,9 +103,9 @@ def	DownloadEmulatorBinary(xml_branch, extract_local_path):
 					return {	'emulator_local_filename':download_result['emulator_local_filename'], 'emulator_filename':download_result['emulator_filename'], 'emulator_size':download_result['emulator_size'], 
 								'emulator_download_page':download_page_url, 'emulator_updated_on':download_result['emulator_updated_on']}
 
-			return False
+			return None
 		else:
-			return False
+			return None
 			
 def	GenericBinaryDownload(download_url, local_path):
 	##	Is this an emulator binary ?
