@@ -71,24 +71,15 @@ def	MainEmucampEngine():
 						machine_root_path = os.path.join(site_root, ConformStringToFilename(machine_name))
 						SafeMakedir(machine_root_path)
 						
+						found_a_description = False
+						
 						for machine_child in machine:
 							##	Is this the description of the machine ?
 							if (machine_child.tag == 'description'):
 								quik_interface['machine_description'] = ExtractText(machine_child, machine_root_path)
 								quik_interface['machine_description_source_url'] = ExtractSourceURL(machine_child, machine_root_path)
 								quik_interface['machine_description_source'] = quik_interface['machine_description_source_url']
-							else:
-								try:
-									wiki_page = wikipedia.page(machine_name)
-									quik_interface['machine_description'] = wikipedia.summary(machine_name, sentences = 3)
-									quik_interface['machine_description_source_url'] = wiki_page.url
-									quik_interface['machine_description_source'] = wiki_page.url
-								except wikipedia.exceptions.DisambiguationError as e:
-									print e.options
-									quik_interface['machine_description'] = "No description found :'("
-									quik_interface['machine_description_source_url'] = ""
-									quik_interface['machine_description_source'] = ""
-									pass
+								found_a_description = True
 	
 							##	Is this an emulator for this machine ?
 							if (machine_child.tag == 'emulator'):
@@ -136,7 +127,20 @@ def	MainEmucampEngine():
 																							'emulator_updated_on':download_result['emulator_updated_on']
 																							})
 										
-								(quik_interface['emulator_list']).append(current_emulator)										
+								(quik_interface['emulator_list']).append(current_emulator)
+								
+						if not(found_a_description):
+							try:
+								wiki_page = wikipedia.page(machine_name)
+								quik_interface['machine_description'] = wikipedia.summary(machine_name, sentences = 3)
+								quik_interface['machine_description_source_url'] = wiki_page.url
+								quik_interface['machine_description_source'] = wiki_page.url
+							except wikipedia.exceptions.DisambiguationError as e:
+								print e.options
+								quik_interface['machine_description'] = "No description found :'("
+								quik_interface['machine_description_source_url'] = ""
+								quik_interface['machine_description_source'] = ""
+								pass										
 							
 						##	Creates the new 'machine' page
 						##	Render the new html page
