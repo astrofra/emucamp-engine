@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<data>
+	<machine name="Atari Lynx" type="Console" release_date="1989" discontinued="1994">
+		<emulator name="Handy">
+			<description>
+				<text><![CDATA[
+				'Handy' is an Atari Lynx Emulator, named after the original name of the Lynx project that was started at Epyx and then finished by Atari.
+				Currently Handy is available for Windows95/98/NT/2000/XP/Macintosh/Linux/AmigaPPC/Acorn.
+				]]></text>
+				<source_url>http://handy.sourceforge.net/</source_url>
+			</description>
+			<platform name="Lynx BIOS">
+					<source_url>http://www.atariage.com/Lynx/roms/LynxBoot.zip</source_url>
+			</platform>
+			<platform name="Windows">
+					<source_url>http://sourceforge.net/projects/handy/</source_url>
+			</platform>
+			<platform name="OS X">
+					<source_url>http://www.bannister.org/cgi-bin/download.cgi?handy</source_url>
+			</platform>
+			<platform name="Amiga">
+					<source_url>http://aminet.net/misc/emu/Handy095.lha</source_url>
+			</platform>
+		</emulator>
+
+	</machine>
+</data>

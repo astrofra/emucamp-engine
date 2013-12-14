@@ -15,6 +15,9 @@ def	SafeMakedir(dirpath):
 		os.makedirs(dirpath)
 		
 def	ConvertByteSizeToString(byte_size):
+	if (byte_size != 0 and byte_size < 1024):
+		byte_size = 1024
+
 	if (byte_size < (1024 * 1024)):
 		byte_size = str(byte_size / 1024) + ' ' + 'KB'
 	else:

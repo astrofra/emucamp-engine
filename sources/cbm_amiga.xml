@@ -4,6 +4,8 @@
 		<description>
 			<text><![CDATA[
 			The Amiga was a line of personal computers that Commodore International produced during the 1980s and early 1990s. The first Amiga computer, the Amiga 1000, possessed a HAM mode enabled the machine to display 4096 colors, a chip that enabled it to play back four channels of stereo at once, an operating system with multitasking, and a graphical user interface at a time that these features were uncommon or not as developed as Amiga's.
+			<br>
+			An Amiga Kickstart ROM (still under copyright) is required to run the emulators below, except 'Amiga Forever' that is licenced to sell a legal version of the Kickstart.
 			]]></text>
 			<source_url>http://simple.wikipedia.org/wiki/Amiga</source_url>
 		</description>
@@ -47,6 +49,20 @@
 			</description>
 			<platform name="Windows">
 				<source_url>http://sourceforge.net/projects/fellow/files/latest/download?source=files</source_url>
+			</platform>
+		</emulator>
+		
+		<emulator name="Amiga Forever">
+			<description>
+				<text><![CDATA[
+				Amiga Forever is an Amiga preservation, emulation and support package which allows Amiga software to run on non-Amiga hardware legally and without complex configuration]]></text>
+				<source_url>http://www.amigaforever.com/</source_url>
+			</description>
+			<platform name="Windows">
+				<source_url>http://www.amigaforever.com/</source_url>
+			</platform>
+			<platform name="Android">
+				<source_url>https://play.google.com/store/apps/details?id=com.cloanto.amigaforever.essentials</source_url>
 			</platform>
 		</emulator>
 	</machine>

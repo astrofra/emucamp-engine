@@ -7,6 +7,7 @@ import urllib2
 import urlparse
 import mimetypes
 import xml.etree.ElementTree as ET
+import wikipedia
 
 from utils import *
 from data_extraction import *
@@ -76,6 +77,18 @@ def	MainEmucampEngine():
 								quik_interface['machine_description'] = ExtractText(machine_child, machine_root_path)
 								quik_interface['machine_description_source_url'] = ExtractSourceURL(machine_child, machine_root_path)
 								quik_interface['machine_description_source'] = quik_interface['machine_description_source_url']
+							else:
+								try:
+									wiki_page = wikipedia.page(machine_name)
+									quik_interface['machine_description'] = wikipedia.summary(machine_name, sentences = 3)
+									quik_interface['machine_description_source_url'] = wiki_page.url
+									quik_interface['machine_description_source'] = wiki_page.url
+								except wikipedia.exceptions.DisambiguationError as e:
+									print e.options
+									quik_interface['machine_description'] = "No description found :'("
+									quik_interface['machine_description_source_url'] = ""
+									quik_interface['machine_description_source'] = ""
+									pass
 	
 							##	Is this an emulator for this machine ?
 							if (machine_child.tag == 'emulator'):
