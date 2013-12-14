@@ -1,6 +1,6 @@
 source_root			= 'sources/'
 site_root			= '../www/'
-machine_list		= sorted(['thomson_mo_to', 'sega_mastersystem-gamegear', 'atari_800xl', 'pc_ms-dos', 'nec_pc_engine', 'arcade', 'vectrex', 'sinclair_ql', 'sinclair_spectrum', 'snk_neogeo', 'cbm_amiga', 'cbm_64', 'amstrad_cpc', 'atari_st', 'sega_megadrive', 'nintendo_nes'])
+machine_list		= sorted(['msx', 'thomson_mo_to', 'sega_mastersystem-gamegear', 'atari_800xl', 'pc_ms-dos', 'nec_pc_engine', 'arcade', 'vectrex', 'sinclair_ql', 'sinclair_spectrum', 'snk_neogeo', 'cbm_amiga', 'cbm_64', 'amstrad_cpc', 'atari_st', 'sega_megadrive', 'nintendo_nes'])
 resources_root		= 'resources'
 resources_folders	= ['assets', 'extern']
 

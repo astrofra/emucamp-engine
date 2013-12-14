@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<data>
+	<machine name="MSX" type="Computer" release_date="1983" discontinued="1995">
+		<description>
+			<text><![CDATA[
+			 MSX was the name of a standardized home 8bit computer architecture. It is said that Microsoft Japan led the project as an attempt to create unified standards among hardware makers.
+			 ]]></text>
+			<source_url>http://en.wikipedia.org/wiki/Vectrex</source_url>
+		</description>
+		
+		<emulator name="blueMSX">
+			<description>
+				<text><![CDATA[
+				blueMSX is a portable open source MSX emulator that uses an emulation model to achieve the highest level of accuracy possible.
+				]]></text>
+				<source_url>http://www.bluemsx.com/</source_url>
+			</description>
+			<platform name="Windows">
+					<source_url start_with="blueMSXv" end_with=".zip">http://www.vik.cc/bluemsx/download.html</source_url>
+			</platform>
+		</emulator>
+		
+		<emulator name="fMSX">
+			<description>
+				<text><![CDATA[
+				fMSX emulates the MSX, MSX2, and MSX2+ 8bit home computers. It runs MSX/MSX2/MSX2+ software on many different platforms including Windows (Shareware), OS X, AmigaOS, etc.
+				]]></text>
+				<source_url>http://fms.komkon.org/fMSX/</source_url>
+			</description>
+			<platform name="Android">
+					<source_url>https://play.google.com/store/apps/details?id=com.fms.fmsx</source_url>
+			</platform>
+			<platform name="OS X">
+					<source_url>http://www.bannister.org/cgi-bin/download.cgi?fmsx</source_url>
+			</platform>
+			<platform name="AmigaOS">
+					<source_url>http://aminet.net/misc/emu/fMSX.lha</source_url>
+			</platform>
+		</emulator>
+		
+		<emulator name="openMSX">
+			<description>
+				<text><![CDATA[
+				openMSX is an open source MSX emulator. It uses a distinctive emulation model to achieve the highest level of accuracy possible. It is available for multiple platforms including POSIX and Microsoft Windows operating systems and emulates a large amount of MSX (related) hardware.]]></text>
+				<source_url>http://en.wikipedia.org/wiki/OpenMSX</source_url>
+			</description>
+			<platform name="C-Bios">
+					<source_url>http://sourceforge.net/projects/cbios/</source_url>
+			</platform>
+			<platform name="Windows">
+					<source_url>http://sourceforge.net/projects/openmsx/</source_url>
+			</platform>
+		</emulator>
+
+	</machine>
+</data>
