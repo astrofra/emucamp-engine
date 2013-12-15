@@ -51,6 +51,12 @@ def	DownloadEmulatorBinary(xml_branch, extract_local_path):
 			download_page_url = child.text
 			if (download_page_url != None):
 				print('DownloadEmulatorBinary() : download_page_url = ' + download_page_url)
+
+				if (download_page_url.find('sourceforge.net') > -1):
+					download_result = GenericBinaryDownload(download_page_url, extract_local_path, force_mime = True)
+					return {	'emulator_local_filename':download_result['emulator_local_filename'], 'emulator_filename':download_result['emulator_filename'], 'emulator_size':download_result['emulator_size'], 
+								'emulator_download_page':download_page_url, 'emulator_updated_on':download_result['emulator_updated_on']}
+
 				download_page_url = download_page_url.strip()
 				start_with = child.get('start_with')
 				end_with = child.get('end_with')
@@ -107,14 +113,15 @@ def	DownloadEmulatorBinary(xml_branch, extract_local_path):
 				return {	'emulator_local_filename':download_result['emulator_local_filename'], 'emulator_filename':download_result['emulator_filename'], 'emulator_size':download_result['emulator_size'], 
 							'emulator_download_page':download_page_url, 'emulator_updated_on':download_result['emulator_updated_on']}
 			
-def	GenericBinaryDownload(download_url, local_path):
+def	GenericBinaryDownload(download_url, local_path, force_mime = False):
 	print('GenericBinaryDownload() download_url = ' + download_url + ', local_path = ' + local_path)
 	##	Is this an emulator binary ?
 	mime = mimetypes.guess_type(download_url)
 	download_type =	None
 
-	if ((mime[0] != None) and (mime[0].find('application') > -1)):
-		print('DownloadEmulatorBinary() : mime type = ' + mime[0])
+	if (force_mime or ((mime[0] != None) and (mime[0].find('application') > -1))):
+		if (mime[0] != None):
+			print('DownloadEmulatorBinary() : mime type = ' + mime[0])
 		download_type = 'binary'
 	else:
 		logging.warning('GenericBinaryDownload() : mime type is unknown for url : ' + download_url)
@@ -180,30 +187,42 @@ def	GenericBinaryDownload(download_url, local_path):
 				emulator_updated_on = str(file_date[2]) + '/' + str(file_date[1]) + '/' + str(file_date[0])
 			else:
 				emulator_updated_on = ' ' 
-	
-			##	Read the bytes, chunk by chunk
-			CHUNK = 128 * 1024
-			byte_size = 0
-			with open(local_filename, 'wb') as fp:
-				while True:
-					chunk = req.read(CHUNK)
-					print '.',
-					if not chunk:
-						break
-					fp.write(chunk)
-					byte_size = fp.tell()
-					if ((g_test_mode) and (byte_size > 16)):
-						break
-			print('\n')
-			
-			##	Get the size of the file
-			byte_size = ConvertByteSizeToString(byte_size)
-	
-			f = open(os.path.join(local_path, 'file_size.txt'), 'w')
-			f.write(byte_size)
-			f.close()
+
+			if force_mime:
+				file_url = req.geturl()
+				print('req.geturl() = ' + file_url)
+				filename, file_extension = os.path.splitext(os.path.basename(urlparse.urlsplit(file_url).path))
+				filename = filename + file_extension
+				local_filename = os.path.join(local_path, filename)
+				if (local_filename[-1] == '/') or (local_filename[-1] == '\\'):
+					local_filename = None
+
+			if local_filename != None:
+				print('GenericBinaryDownload() : local_filename = ' + local_filename)
+		
+				##	Read the bytes, chunk by chunk
+				CHUNK = 128 * 1024
+				byte_size = 0
+				with open(local_filename, 'wb') as fp:
+					while True:
+						chunk = req.read(CHUNK)
+						print '.',
+						if not chunk:
+							break
+						fp.write(chunk)
+						byte_size = fp.tell()
+						if ((g_test_mode) and (byte_size > 16)):
+							break
+				print('\n')
 				
-			return {'emulator_local_filename':local_filename, 'emulator_filename':filename, 'emulator_size':byte_size, 'emulator_updated_on':emulator_updated_on}
+				##	Get the size of the file
+				byte_size = ConvertByteSizeToString(byte_size)
+		
+				f = open(os.path.join(local_path, 'file_size.txt'), 'w')
+				f.write(byte_size)
+				f.close()
+					
+				return {'emulator_local_filename':local_filename, 'emulator_filename':filename, 'emulator_size':byte_size, 'emulator_updated_on':emulator_updated_on}
 
 	##	Something went wrong
 	logging.warning('GenericBinaryDownload() : Cannot download ' + download_url)
