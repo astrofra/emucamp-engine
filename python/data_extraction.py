@@ -45,10 +45,12 @@ def	ExtractSourceURL(xml_branch, extract_local_path, file_name = 'source.url'):
 	return None
 			
 def	DownloadEmulatorBinary(xml_branch, extract_local_path):
+	print('DownloadEmulatorBinary() extract_local_path = ' + extract_local_path)
 	for child in xml_branch:
 		if (child.tag == 'source_url'):
 			download_page_url = child.text
 			if (download_page_url != None):
+				print('DownloadEmulatorBinary() : download_page_url = ' + download_page_url)
 				download_page_url = download_page_url.strip()
 				start_with = child.get('start_with')
 				end_with = child.get('end_with')
@@ -57,6 +59,7 @@ def	DownloadEmulatorBinary(xml_branch, extract_local_path):
 				if ((start_with != None) and (end_with != None)):
 					start_with = start_with.strip()
 					end_with = end_with.strip()
+					print('DownloadEmulatorBinary() found a start and end tags.')
 					logging.debug('DownloadEmulatorBinary() : download_page_url = ' + download_page_url)
 					logging.debug('start_with = ' + start_with)
 					logging.debug('end_with = ' + end_with)
@@ -97,17 +100,15 @@ def	DownloadEmulatorBinary(xml_branch, extract_local_path):
 									download_result = GenericBinaryDownload(download_url, extract_local_path)
 									return {	'emulator_local_filename':download_result['emulator_local_filename'], 'emulator_filename':download_result['emulator_filename'], 'emulator_size':download_result['emulator_size'], 
 												'emulator_download_page':download_page_url, 'emulator_updated_on':download_result['emulator_updated_on']}
-				else:
-					##	The binary can be downloaded directly from the url
-					download_result = GenericBinaryDownload(download_page_url, extract_local_path)
-					return {	'emulator_local_filename':download_result['emulator_local_filename'], 'emulator_filename':download_result['emulator_filename'], 'emulator_size':download_result['emulator_size'], 
-								'emulator_download_page':download_page_url, 'emulator_updated_on':download_result['emulator_updated_on']}
 
-			return None
-		else:
-			return None
+				##	Fallback, the binary can be downloaded directly from the url
+				logging.warning('DownloadEmulatorBinary() Trying the direct URL to download the binary.')
+				download_result = GenericBinaryDownload(download_page_url, extract_local_path)
+				return {	'emulator_local_filename':download_result['emulator_local_filename'], 'emulator_filename':download_result['emulator_filename'], 'emulator_size':download_result['emulator_size'], 
+							'emulator_download_page':download_page_url, 'emulator_updated_on':download_result['emulator_updated_on']}
 			
 def	GenericBinaryDownload(download_url, local_path):
+	print('GenericBinaryDownload() download_url = ' + download_url + ', local_path = ' + local_path)
 	##	Is this an emulator binary ?
 	mime = mimetypes.guess_type(download_url)
 	download_type =	None

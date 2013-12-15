@@ -1,0 +1,1 @@
+The file 'setup.py' must be located at the root of this folder.
