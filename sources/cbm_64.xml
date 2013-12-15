@@ -15,14 +15,11 @@
 				]]></text>
 				<source_url>http://en.wikipedia.org/wiki/VICE</source_url>
 			</description>
-			<platform name="Windows x86">
-					<source_url start_with = "WinVICE" end_with = "-x86.zip">http://vice-emu.sourceforge.net/index.html#download</source_url>
-			</platform>
-			<platform name="Windows x64">
-					<source_url start_with = "WinVICE" end_with = "-x64.zip">http://vice-emu.sourceforge.net/index.html#download</source_url>
+			<platform name="Windows">
+					<source_url>http://vice-emu.sourceforge.net/index.html#download</source_url>
 			</platform>
 			<platform name="OS X">
-					<source_url start_with = "vice-macosx-cocoa-i386" end_with = ".dmg">http://vice-emu.sourceforge.net/macosx.html</source_url>
+					<source_url>http://vice-emu.sourceforge.net/macosx.html</source_url>
 			</platform>
 		</emulator>
 
