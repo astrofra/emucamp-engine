@@ -194,7 +194,7 @@ def	GenericBinaryDownload(download_url, local_path, force_mime = False):
 				filename, file_extension = os.path.splitext(os.path.basename(urlparse.urlsplit(file_url).path))
 				filename = filename + file_extension
 				local_filename = os.path.join(local_path, filename)
-				if (local_filename[-1] == '/') or (local_filename[-1] == '\\'):
+				if (local_filename[-1] == '/') or (local_filename[-1] == '\\' or (local_filename.find('.html') > -1)):
 					local_filename = None
 
 			if local_filename != None:
