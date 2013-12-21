@@ -16,7 +16,7 @@
 				<source_url>http://en.wikipedia.org/wiki/ScummVM</source_url>
 			</description>
 			<platform name="Windows">
-					<source_url>http://sourceforge.net/projects/scummvm/files/latest/download</source_url>
+					<source_url>http://sourceforge.net/projects/scummvm/</source_url>
 			</platform>
 			<platform name="Android">
 					<source_url>https://play.google.com/store/apps/details?id=org.scummvm.scummvm</source_url>
@@ -31,13 +31,13 @@
 				<source_url>http://en.wikipedia.org/wiki/DOSBox</source_url>
 			</description>
 			<platform name="Windows">
-					<source_url>http://sourceforge.net/projects/dosbox/files/latest/download</source_url>
+					<source_url>http://sourceforge.net/projects/dosbox/</source_url>
 			</platform>
 			<platform name="Debian">
 					<source_url>http://packages.debian.org/search?keywords=dosbox</source_url>
 			</platform>
 			<platform name="AmigaOS3">
-					<source_url>http://aminet.net/package/misc/emu/DOSBox_AGA</source_url>
+					<source_url>http://aminet.net/misc/emu/DOSBox_AGA.zip</source_url>
 			</platform>
 		</emulator>
 		
