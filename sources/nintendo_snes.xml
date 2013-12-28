@@ -6,7 +6,7 @@
 			<description>
 				<text><![CDATA[
 				Snes9x is a portable, freeware Super Nintendo Entertainment System (SNES) emulator. Snes9x is coded in C++, with three assembler CPU emulation cores on the i386 Linux and Windows ports.]]></text>
-				<source_url>http://www.zsnes.com/</source_url>
+				<source_url>http://www.snes9x.com/</source_url>
 			</description>
 			<platform name="Windows">
 					<source_url start_with="snes9x-" end_with=".zip" >http://www.lysator.liu.se/snes9x/</source_url>
@@ -26,7 +26,7 @@
 				<source_url>http://www.zsnes.com/</source_url>
 			</description>
 			<platform name="Windows">
-					<source_url>http://sourceforge.net/projects/zsnes/files/latest/download</source_url>
+					<source_url>http://sourceforge.net/projects/zsnes/</source_url>
 			</platform>
 		</emulator>
 

@@ -141,19 +141,21 @@ def	GenericBinaryDownload(download_url, local_path, force_mime = False):
 			##	Search for the actual filename using another technique
 			filename = 'Binary'
 			bin_ext = '.exe'
-			if (download_url.find(bin_ext) > -1):
-				##	There's a binary filename inside the url
-				url_split_by_dot = string.split(string.replace(string.replace(download_url, '/', '.'), '?', '.'), '.')
-				extension_idx = 0
-				for url_split_part in url_split_by_dot:
-					logging.debug('GenericBinaryDownload() : url_split_part = ' + url_split_part)
-					if url_split_part == bin_ext:
+			for bin_ext in ['.exe', '.zip', '.rar', '.dmg', '.gz', '.deb', '.lha', '.bin', '.prg', '.apk']:
+				if (download_url.find(bin_ext) > -1):
+					##	There's a binary filename inside the url
+					url_split_by_dot = string.split(string.replace(string.replace(download_url, '/', '.'), '?', '.'), '.')
+					extension_idx = 0
+					for url_split_part in url_split_by_dot:
+						logging.debug('GenericBinaryDownload() : url_split_part = ' + url_split_part)
+						if url_split_part == bin_ext:
+							break
+						extension_idx += 1
+						
+					if (extension_idx > 1):
+						filename = url_split_by_dot[extension_idx - 2] + bin_ext
+						print('Alternate filename found : ' + filename)
 						break
-					extension_idx += 1
-					
-				if (extension_idx > 1):
-					filename = url_split_by_dot[extension_idx - 2] + bin_ext
-					print('Alternate filename found : ' + filename)
 
 		logging.debug('GenericBinaryDownload() : filename = ' + filename)
 

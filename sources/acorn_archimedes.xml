@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<data>
+	<machine name="Acorn Archimedes" type="Computer" release_date="1987" discontinued="1995">
+
+		<emulator name="ArcEm">
+			<description>
+				<text><![CDATA[
+				ArcEm is a portable open-source emulator for the Acorn Archimedes. It's capable of running multiple operating systems including RISC OS and ARM Linux.]]></text>
+				<source_url>http://arcem.sourceforge.net</source_url>
+			</description>
+			<platform name="RiscOS ROM">
+					<source_url>http://home.tiscali.nl/~jandboer/support2.zip</source_url>
+			</platform>
+			<platform name="Windows">
+					<source_url>http://sourceforge.net/projects/arcem/files/latest/download</source_url>
+			</platform>
+			<platform name="OS X">
+					<source_url>http://sourceforge.net/projects/arcem/files/arcem/</source_url>
+			</platform>
+			<platform name="AmigaOS4">
+					<source_url>http://aminet.net/misc/emu/arcem_os4.lha</source_url>
+			</platform>
+		</emulator>
+
+		<emulator name="RPCEmu">
+			<description>
+				<text><![CDATA[
+				RPCEmu emulates an Acorn Risc PC and A7000 on multiple platforms including Windows, Linux and Mac OS X
+				]]></text>
+				<source_url>http://www.marutan.net/rpcemuspoon</source_url>
+			</description>
+			<platform name="RiscOS ROM">
+					<source_url>http://rolf.yuss.org/~aaront/riscos3_71.zip</source_url>
+			</platform>
+			<platform name="Windows">
+					<source_url start_with="rpcemu-win32-" end_with=".zip">http://marutan.net/rpcemuspoon/</source_url>
+			</platform>
+			<platform name="OS X">
+					<source_url>http://www.devrx.org/software/rpcemu/rpcemu-spoon-0.8.9-fjd-beta1.zip</source_url>
+			</platform>
+		</emulator>
+
+	</machine>
+</data>

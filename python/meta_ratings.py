@@ -1,14 +1,11 @@
 import os
 import time
 import logging
-import urllib2
-import urlparse
-import mimetypes
-import xml.etree.ElementTree as ET
+import duckduckgo
+import string
 
 from utils import *
-from data_extraction import *
-from bs4 import BeautifulSoup
+
 
 def ComputeMetaRatings(object_common_name = 'MAME', topic_keyword_array = ['arcade', 'emulator']):
 	print('ComputeMetaRatings() object_common_name = ' + object_common_name)
@@ -16,4 +13,17 @@ def ComputeMetaRatings(object_common_name = 'MAME', topic_keyword_array = ['arca
 	for s_keyword in topic_keyword_array:
 		seach_string = seach_string + ' ' + s_keyword
 
-ComputeMetaRatings('MAME', ['arcade', 'emulator'])
+	##seach_string = string.replace(seach_string, ' ', ',')
+
+	print('seach_string = ' + seach_string)
+
+	r = duckduckgo.query(seach_string)
+	print(r.type)
+	print(r.answer.text)
+
+	if (r.type == 'answer'):
+		for result in r.results:
+			print('url found : ' + result.url)
+
+
+ComputeMetaRatings('what is the best', ['arcade', 'emulator', '?'])
