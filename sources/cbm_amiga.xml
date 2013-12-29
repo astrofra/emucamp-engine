@@ -18,7 +18,7 @@
 				<source_url>http://en.wikipedia.org/wiki/UAE_%28emulator%29</source_url>
 			</description>
 			<platform name="Windows">
-					<source_url start_with = "InstallWin" end_with = ".exe">http://www.winuae.net/frames/download.html</source_url>
+					<source_url start_with = "InstallWin" end_with = ".msi">http://www.winuae.net/frames/download.html</source_url>
 			</platform>
 		</emulator>
 
