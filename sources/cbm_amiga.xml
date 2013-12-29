@@ -65,5 +65,17 @@
 				<source_url>https://play.google.com/store/apps/details?id=com.cloanto.amigaforever.essentials</source_url>
 			</platform>
 		</emulator>
+
+		<emulator name="SAE">
+			<description>
+				<text><![CDATA[
+				 SAE, an experimental Amiga emulator in pure JavaScript and HTML5. SAE is based on WinUAE and does use the AROS-kickstart replacement. It works directly in your browser and doesn't require an original Amiga Kickstart Rom.
+				]]></text>
+				<source_url>http://scriptedamigaemulator.net/</source_url>
+			</description>
+			<platform name="Javascript">
+				<source_url>http://scriptedamigaemulator.net/</source_url>
+			</platform>
+		</emulator>
 	</machine>
 </data>

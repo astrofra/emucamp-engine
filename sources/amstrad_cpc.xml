@@ -7,6 +7,7 @@
 			]]></text>
 			<source_url>http://en.wikipedia.org/wiki/Amstrad_CPC</source_url>
 		</description>
+
 		<emulator name="WinAPE">
 			<description>
 				<text><![CDATA[
@@ -18,6 +19,7 @@
 					<source_url start_with="download/" end_with=".zip">http://www.winape.net/downloads.jsp</source_url>
 			</platform>
 		</emulator>
+
 		<emulator name="Arnold">
 			<description>
 				<text><![CDATA[
@@ -39,5 +41,18 @@ Arnold aims for maximum emulation accuracy across the whole CPC and CPC+ range, 
 				<source_url start_with="Arn" end_with=".lha">http://hirudov.com/amiga/Arnold.php</source_url>
 			</platform>
 		</emulator>
+
+		<emulator name="CPCBox">
+			<description>
+				<text><![CDATA[
+			CPCBox is an emulator for the Amstrad CPC. It runs directly on your web browser, without requiring any plugin. You don't have to download, decompress, install & update a CPC emulator anymore. CPCBox renders all those menial and time consuming work unnecessary..
+				]]></text>
+				<source_url>http://www.cpcbox.com/</source_url>
+			</description>
+			<platform name="Javascript">
+					<source_url>http://www.cpcbox.com/</source_url>
+			</platform>
+		</emulator>
+
 	</machine>
 </data>
