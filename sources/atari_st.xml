@@ -22,6 +22,9 @@
 			<platform name="Windows">
 					<source_url start_with = "steem_v" end_with = ".zip">http://steem.atari.st/download.htm</source_url>
 			</platform>
+			<platform name="Windows SSE">
+					<source_url start_with = "Steem" end_with = "Win32.zip">http://ataristeven.t15.org/Steem.htm</source_url>
+			</platform>
 			<platform name="Linux">
 					<source_url start_with = "xsteem_v" end_with = ".tar.gz">http://steem.atari.st/download.htm</source_url>
 			</platform>
@@ -36,6 +39,39 @@
 			</description>
 			<platform name="Windows">
 					<source_url start_with = "SainT" end_with = ".zip">http://leonard.oxg.free.fr/SainT/saint.html</source_url>
+			</platform>
+		</emulator>
+
+		<emulator name="Hatari">
+			<description>
+				<text><![CDATA[
+				Hatari is an Atari ST/STE/TT/Falcon emulator for GNU/Linux, BSD, Mac OS X, Windows and other systems which are supported by the SDL library.
+				]]></text>
+				<source_url>http://hatari.tuxfamily.org/</source_url>
+			</description>
+			<platform name="EmuTOS (Firmware)">
+					<source_url>http://sourceforge.net/projects/emutos/files/latest/download</source_url>
+			</platform>
+			<platform name="Windows">
+					<source_url>http://download.tuxfamily.org/hatari/</source_url>
+			</platform>
+			<platform name="OS X">
+					<source_url>http://download.tuxfamily.org/hatari/</source_url>
+			</platform>
+			<platform name="Linux">
+					<source_url>http://download.tuxfamily.org/hatari/</source_url>
+			</platform>
+		</emulator>
+
+		<emulator name="EstyJS">
+			<description>
+				<text><![CDATA[
+				EstyJS is a javascript based emulator for the Atari ST. It was inspired by the succesfull release of the Acorn Electron emulator ElkJS. .
+				]]></text>
+				<source_url>http://estyjs.azurewebsites.net/</source_url>
+			</description>
+			<platform name="Javascript">
+					<source_url>http://estyjs.azurewebsites.net/</source_url>
 			</platform>
 		</emulator>
 		
