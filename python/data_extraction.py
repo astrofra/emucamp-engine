@@ -157,6 +157,8 @@ def	GenericBinaryDownload(download_url, local_path, force_mime = False):
 						print('Alternate filename found : ' + filename)
 						break
 
+		filename = string.replace(filename, '%20', ' ')
+
 		logging.debug('GenericBinaryDownload() : filename = ' + filename)
 
 		##	Download the file
