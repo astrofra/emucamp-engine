@@ -24,6 +24,7 @@ def	InitMimeDetection():
 	mimetypes.add_type('application/x-debian', '.deb')
 	mimetypes.add_type('application/x-windows', '.msi')
 	mimetypes.add_type('application/x-amigaos', '.lha')
+	mimetypes.add_type('application/x-amigaos', '.lzx')
 	mimetypes.add_type('application/x-osx', '.dmg')
 
 def	MainEmucampEngine():

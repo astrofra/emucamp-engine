@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<data>
+	<machine name="Oric" type="Computer" release_date="1983" discontinued="1990">
+		<description>
+			<text><![CDATA[
+			Oric was the name used by Tangerine Computer Systems for a series of home computers, including the original Oric-1, its successor the Oric Atmos and the later Oric Stratos/IQ164 and Oric Telestrat models.<br>
+<br>
+With the success of the Sinclair ZX Spectrum, Tangerine's backers had suggested a home computer and Tangerine formed Oric Products International Ltd to develop and release the Oric-1 in 1983. Further computers in the Oric range were released through to 1987 with Eastern European clones being produced into the 1990s.
+			]]></text>
+			<source_url>http://en.wikipedia.org/wiki/Oric_Atmos</source_url>
+		</description>
+
+		<emulator name="Oricutron">
+			<description>
+				<text><![CDATA[
+				Oricutron (formerly known as Oriculator) is an emulator for the Oric series of computers, and the Pravetz 8D. It is written in plain C, and uses SDL. It is designed to be portable. 
+				]]></text>
+				<source_url>http://code.google.com/p/oriculator/</source_url>
+			</description>
+			<platform name="Windows">
+					<source_url start_with="Oricutron_win32" end_with=".zip">http://www.petergordon.org.uk/oricutron/</source_url>
+			</platform>
+			<platform name="OS X">
+					<source_url start_with="Oricutron_osx" end_with=".zip">http://www.petergordon.org.uk/oricutron/</source_url>
+			</platform>
+			<platform name="AmigaOS4">
+					<source_url start_with="Oricutron_os4" end_with=".lha">http://www.petergordon.org.uk/oricutron/</source_url>
+			</platform>
+		</emulator>
+
+		<emulator name="Amoric">
+			<description>
+				<text><![CDATA[
+				Amoric is a low-level emulator for Amiga with kickstart 2.04 or higher and with a 68020 or faster CPU.
+
+To run Amoric at a correct speed, you'll need at least a 68030/50MHz, but to get a really oric feeling, a 68040 is better. 
+				]]></text>
+				<source_url>http://jffabre.free.fr/amiga/amoric.html</source_url>
+			</description>
+			<platform name="AmigaOS">
+					<source_url>http://aminet.net/misc/emu/AmoricV1_5.lha</source_url>
+			</platform>
+		</emulator>
+
+	</machine>
+</data>
