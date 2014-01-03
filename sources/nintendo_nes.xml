@@ -16,7 +16,19 @@
 				<source_url>http://www.fceux.com</source_url>
 			</description>
 			<platform name="Windows">
-					<source_url>http://sourceforge.net/projects/fceultra/files/latest/download</source_url>
+					<source_url>http://sourceforge.net/projects/fceultra/</source_url>
+			</platform>
+		</emulator>
+
+		<emulator name="RockNES">
+			<description>
+				<text><![CDATA[
+				NES emulator and NSF music player for Windows..
+				]]></text>
+				<source_url>http://rocknes.web.fc2.com/</source_url>
+			</description>
+			<platform name="Windows">
+					<source_url start_with="rnes" end_with=".zip">http://rocknes.web.fc2.com/</source_url>
 			</platform>
 		</emulator>
 		

@@ -1,9 +1,9 @@
 source_root			= 'sources/'
 site_root			= '../www/'
-machine_list		= sorted([	'cbm_amiga',
+machine_list		= sorted([	'nintendo_nes',
 								'google_android', 'amstrad_cpc', 'nintendo_snes', 'pc_ms-dos', 'nintendo_gameboy', 'sega_mastersystem-gamegear', 
 								'atari_lynx', 'msx', 'thomson_mo_to', 'atari_800xl', 'nec_pc_engine', 'arcade', 'vectrex', 'sinclair_ql', 
-								'sinclair_spectrum', 'snk_neogeo', 'acorn_archimedes', 'cbm_64', 'atari_st', 'sega_megadrive', 'nintendo_nes'
+								'sinclair_spectrum', 'snk_neogeo', 'acorn_archimedes', 'cbm_64', 'cbm_amiga', 'sega_megadrive', 'atari_st'
 								])
 
 resources_root		= 'resources'
