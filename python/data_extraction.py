@@ -201,7 +201,8 @@ def generic_binary_download(download_url, local_path, force_mime = False):
 			url_info = req.info()
 			file_date = url_info.getdate('last-modified')
 			if file_date is not None:
-				emulator_updated_on = str(file_date[2]) + '/' + str(file_date[1]) + '/' + str(file_date[0])
+				# Date using the ISO format.
+				emulator_updated_on = str(file_date[0]) + '-' + str(file_date[1]) + '-' + str(file_date[2])
 			else:
 				emulator_updated_on = ' ' 
 
@@ -238,8 +239,13 @@ def generic_binary_download(download_url, local_path, force_mime = False):
 				f = open(os.path.join(local_path, 'file_size.txt'), 'w')
 				f.write(byte_size)
 				f.close()
+
+				if emulator_updated_on != ' ':
+					f = open(os.path.join(local_path, 'updated_on.txt'), 'w')
+					f.write(emulator_updated_on)
+					f.close()
 					
-				return {'emulator_local_filename':local_filename, 'emulator_filename':filename, 'emulator_size':byte_size, 'emulator_updated_on':emulator_updated_on}
+				return {'emulator_local_filename': local_filename, 'emulator_filename': filename, 'emulator_size': byte_size, 'emulator_updated_on': emulator_updated_on}
 
 	##	Something went wrong
 	logging.warning('GenericBinaryDownload() : Cannot download ' + download_url)

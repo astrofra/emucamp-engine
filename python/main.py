@@ -152,6 +152,8 @@ def main_emucamp_engine():
 						
 						print('-------------------------------------')
 
+	##	Builds the main index
+	##  Loop through the whole list of machine
 	for machine_name in machine_list:
 		tree = parse_machine_from_xml_source(machine_name)
 		if tree is not None:
@@ -167,7 +169,7 @@ def main_emucamp_engine():
 
 						(quik_interface['machine_list'][machine_type.lower()]).append({'name':machine_name, 'page_url':conform_string_to_filename(machine_name) + '.html'})
 
-	##	Builds the main index
+	##  Generates the Index page based on the whole list
 	if g_create_index and len(machine_list) > 0:
 		template_index = quik_loader.load_template(input_pages['index'])
 		html_output = template_index.render(quik_interface, quik_loader).encode('utf-8')
