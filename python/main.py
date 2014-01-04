@@ -41,7 +41,12 @@ def main_emucamp_engine():
 	quik_loader = FileLoader(resources_root)
 	
 	##	Main 'machines' loop
-	for machine_name in machine_list:
+	if len(machine_update_only) > 0:
+		download_machine_list = machine_update_only
+	else:
+		download_machine_list = machine_list
+
+	for machine_name in download_machine_list:
 		tree = parse_machine_from_xml_source(machine_name)
 		if tree is not None:
 			root = tree.getroot()
@@ -145,11 +150,23 @@ def main_emucamp_engine():
 						f.write(html_output)
 						f.close()
 						
-						(quik_interface['machine_list'][machine_type.lower()]).append({'name':machine_name, 'page_url':conform_string_to_filename(machine_name) + '.html'})
-						
 						print('-------------------------------------')
-						
-	
+
+	for machine_name in machine_list:
+		tree = parse_machine_from_xml_source(machine_name)
+		if tree is not None:
+			root = tree.getroot()
+			if root.tag == 'data':
+				for child in root:
+					logging.debug('child.tag = ' + child.tag)
+					##	Look for a 'machine'
+					if child.tag == 'machine':
+						machine = child
+						machine_name = machine.get('name')
+						machine_type = machine.get('type')
+
+						(quik_interface['machine_list'][machine_type.lower()]).append({'name':machine_name, 'page_url':conform_string_to_filename(machine_name) + '.html'})
+
 	##	Builds the main index
 	if g_create_index and len(machine_list) > 0:
 		template_index = quik_loader.load_template(input_pages['index'])

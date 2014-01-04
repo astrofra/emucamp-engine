@@ -1,10 +1,12 @@
 source_root			= 'sources/'
 site_root			= '../www/'
-machine_list		= sorted([	'oric'
-								,'google_android', 'amstrad_cpc', 'nintendo_snes', 'pc_ms-dos', 'nintendo_gameboy', 'sega_mastersystem-gamegear',
+
+machine_list		= sorted([	'oric','google_android', 'amstrad_cpc', 'nintendo_snes', 'pc_ms-dos', 'nintendo_gameboy', 'sega_mastersystem-gamegear',
 								'atari_lynx', 'msx', 'thomson_mo_to', 'atari_800xl', 'nec_pc_engine', 'arcade', 'vectrex', 'sinclair_ql',
 								'nintendo_nes', 'sinclair_spectrum', 'snk_neogeo', 'acorn_archimedes', 'cbm_64', 'cbm_amiga', 'sega_megadrive', 'atari_st'
 								])
+
+machine_update_only = ['oric']
 
 resources_root		= 'resources'
 resources_folders	= ['assets', 'extern']
