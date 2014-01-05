@@ -204,7 +204,7 @@ def generic_binary_download(download_url, local_path, force_mime = False):
 			file_date = url_info.getdate('last-modified')
 			if file_date is not None:
 				# Date using the ISO format.
-				emulator_updated_on = str(file_date[0]) + '-' + str(file_date[1]) + '-' + str(file_date[2])
+				emulator_updated_on = str(file_date[0]) + '-' + str(file_date[1]).zfill(2) + '-' + str(file_date[2]).zfill(2)
 			else:
 				emulator_updated_on = ' ' 
 

@@ -9,6 +9,7 @@ from data_extraction import *
 from globals import *
 from quik import FileLoader
 from data_caching import *
+from operator import itemgetter
 
 ##-------------------------
 ##	Start to build the site
@@ -182,6 +183,12 @@ def main_emucamp_engine():
 
 	##  Generates the Index page based on the whole list
 	if g_create_index and len(machine_list) > 0:
+
+		##  Sort the list of updates by date.
+		if len(quik_interface['emulator_update_list']) > 0:
+			sorted_emulator_update_list = sorted(quik_interface['emulator_update_list'], key = itemgetter('updated_on'), reverse = True)
+			quik_interface['emulator_update_list'] = sorted_emulator_update_list[0:5]
+
 		template_index = quik_loader.load_template(input_pages['index'])
 		html_output = template_index.render(quik_interface, quik_loader).encode('utf-8')
 		f = open(os.path.join(site_root, 'index.html'), 'w')

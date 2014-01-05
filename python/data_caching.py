@@ -15,16 +15,20 @@ def cache_fetch_emulators_update(machine_site_path):
 				updated_on = str(f.read())
 				inferred_emulator_platform = string.replace(root, '\\', '/').split('/')[-1]
 				inferred_emulator_platform = string.replace(inferred_emulator_platform, '_', ' ')
-				inferred_emulator_platform = inferred_emulator_platform[0].upper() + inferred_emulator_platform[1:]
+				inferred_emulator_platform = inferred_emulator_platform.title()
 
 				inferred_emulator_name = string.replace(root, '\\', '/').split('/')[-2]
 				inferred_emulator_name = string.replace(inferred_emulator_name, '_', ' ')
-				inferred_emulator_name = inferred_emulator_name[0].upper() + inferred_emulator_name[1:]
+				inferred_emulator_name = inferred_emulator_name.title()
 
 				inferred_machine_name = string.replace(root, '\\', '/').split('/')[-3]
 				inferred_machine_name = string.replace(inferred_machine_name, '_', ' ')
-				inferred_machine_name = inferred_machine_name[0].upper() + inferred_machine_name[1:]
+				inferred_machine_name = inferred_machine_name.title()
 
-				emulator_list.append({'emulator_name': inferred_emulator_name, 'machine_name': inferred_machine_name, 'emulator_platform': inferred_emulator_platform, 'updated_on': updated_on})
+				if inferred_emulator_platform.lower().find('firmware') == -1 \
+					and inferred_emulator_platform.lower().find('bios') == -1 \
+					and inferred_emulator_platform.lower().find('kickstart') == -1 \
+					and inferred_emulator_platform.lower().find('rom') == -1:
+					emulator_list.append({'emulator_name': inferred_emulator_name, 'machine_name': inferred_machine_name, 'emulator_platform': inferred_emulator_platform, 'updated_on': updated_on})
 
 	return  emulator_list
