@@ -18,6 +18,6 @@ input_pages			= {'machine':'template_machine.html', 'index':'template_index.html
 output_pages		= {'machine':{}	}
 
 quik_interface		= {	'machine_name':None, 'machine_filename':None, 'machine_type':None, 'machine_description_source_url':None, 'machine_description_source':None,
-						'emulator_list':[], 'machine_list':{'computer':[], 'console':[], 'arcade':[], 'environment':[]}
-						
+						'emulator_list':[], 'machine_list':{'computer':[], 'console':[], 'arcade':[], 'environment':[]},
+						'emulator_update_list': []
 						}

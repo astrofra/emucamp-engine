@@ -176,7 +176,9 @@ def main_emucamp_engine():
 							##  Add this machine into the main list
 							(quik_interface['machine_list'][machine_type.lower()]).append({'name': machine_name, 'page_url': machine_site_path + '.html'})
 							##  Fetch the latest downloaded emulators
-							cache_fetch_emulators_update(machine_site_path)
+							tmp_emulator_update_list = cache_fetch_emulators_update(machine_site_path)
+							for _update in tmp_emulator_update_list:
+								quik_interface['emulator_update_list'].append(_update)
 
 	##  Generates the Index page based on the whole list
 	if g_create_index and len(machine_list) > 0:

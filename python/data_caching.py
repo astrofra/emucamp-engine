@@ -21,6 +21,10 @@ def cache_fetch_emulators_update(machine_site_path):
 				inferred_emulator_name = string.replace(inferred_emulator_name, '_', ' ')
 				inferred_emulator_name = inferred_emulator_name[0].upper() + inferred_emulator_name[1:]
 
-				emulator_list.append({'emulator_name': inferred_emulator_name, 'emulator_platform': inferred_emulator_platform, 'updated_on': updated_on})
+				inferred_machine_name = string.replace(root, '\\', '/').split('/')[-3]
+				inferred_machine_name = string.replace(inferred_machine_name, '_', ' ')
+				inferred_machine_name = inferred_machine_name[0].upper() + inferred_machine_name[1:]
+
+				emulator_list.append({'emulator_name': inferred_emulator_name, 'machine_name': inferred_machine_name, 'emulator_platform': inferred_emulator_platform, 'updated_on': updated_on})
 
 	return  emulator_list
