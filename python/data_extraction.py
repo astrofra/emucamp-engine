@@ -1,3 +1,5 @@
+# set of functions in charge of the data extraction (emulators...) from the listed web url
+
 import logging
 import urllib2
 import time

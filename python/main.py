@@ -8,6 +8,7 @@ from utils import *
 from data_extraction import *
 from globals import *
 from quik import FileLoader
+from data_caching import *
 
 ##-------------------------
 ##	Start to build the site
@@ -152,6 +153,9 @@ def main_emucamp_engine():
 						
 						print('-------------------------------------')
 
+	##
+	## index.html
+	##
 	##	Builds the main index
 	##  Loop through the whole list of machine
 	for machine_name in machine_list:
@@ -167,7 +171,12 @@ def main_emucamp_engine():
 						machine_name = machine.get('name')
 						machine_type = machine.get('type')
 
-						(quik_interface['machine_list'][machine_type.lower()]).append({'name':machine_name, 'page_url':conform_string_to_filename(machine_name) + '.html'})
+						machine_site_path = os.path.join(site_root, conform_string_to_filename(machine_name))
+						if os.path.exists(machine_site_path):
+							##  Add this machine into the main list
+							(quik_interface['machine_list'][machine_type.lower()]).append({'name': machine_name, 'page_url': machine_site_path + '.html'})
+							##  Fetch the latest downloaded emulators
+							cache_fetch_emulators_update(machine_site_path)
 
 	##  Generates the Index page based on the whole list
 	if g_create_index and len(machine_list) > 0:
@@ -176,7 +185,10 @@ def main_emucamp_engine():
 		f = open(os.path.join(site_root, 'index.html'), 'w')
 		f.write(html_output)
 		f.close()
-		
+
+	##
+	## about.html
+	##
 	##	Builds the about page
 	template_about = quik_loader.load_template(input_pages['about'])
 	html_output = template_about.render(quik_interface, quik_loader).encode('utf-8')
