@@ -61,7 +61,7 @@ h1,h2,h3,h4,h5,h6 {
         <div class="machine">
             <center>
             #for @emulator_update in @emulator_update_list:
-                @emulator_update.emulator_name, @emulator_update.machine_name emulator for @emulator_update.emulator_platform was updated on @emulator_update.updated_on.<br>
+                @emulator_update.emulator_name, <a href="@emulator_update.machine_url">@emulator_update.machine_name</a> emulator for @emulator_update.emulator_platform was updated on @emulator_update.updated_on.<br>
             #end
             </center>
         </div>

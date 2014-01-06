@@ -25,10 +25,15 @@ def cache_fetch_emulators_update(machine_site_path):
 				inferred_machine_name = string.replace(inferred_machine_name, '_', ' ')
 				inferred_machine_name = inferred_machine_name.title()
 
+				inferred_machine_url = string.replace(root, '\\', '/').split('/')[-3]
+				inferred_machine_url += '.html'
+
 				if inferred_emulator_platform.lower().find('firmware') == -1 \
 					and inferred_emulator_platform.lower().find('bios') == -1 \
 					and inferred_emulator_platform.lower().find('kickstart') == -1 \
 					and inferred_emulator_platform.lower().find('rom') == -1:
-					emulator_list.append({'emulator_name': inferred_emulator_name, 'machine_name': inferred_machine_name, 'emulator_platform': inferred_emulator_platform, 'updated_on': updated_on})
+					emulator_list.append({'emulator_name': inferred_emulator_name, 'machine_name': inferred_machine_name,
+					                      'emulator_platform': inferred_emulator_platform, 'updated_on': updated_on,
+					                      'machine_url': inferred_machine_url})
 
 	return  emulator_list

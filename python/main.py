@@ -175,7 +175,7 @@ def main_emucamp_engine():
 						machine_site_path = os.path.join(site_root, conform_string_to_filename(machine_name))
 						if os.path.exists(machine_site_path):
 							##  Add this machine into the main list
-							(quik_interface['machine_list'][machine_type.lower()]).append({'name': machine_name, 'page_url': machine_site_path + '.html'})
+							(quik_interface['machine_list'][machine_type.lower()]).append({'name': machine_name, 'page_url': conform_string_to_filename(machine_name) + '.html'})
 							##  Fetch the latest downloaded emulators
 							tmp_emulator_update_list = cache_fetch_emulators_update(machine_site_path)
 							for _update in tmp_emulator_update_list:
