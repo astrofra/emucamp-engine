@@ -112,7 +112,7 @@ def main_emucamp_engine():
 										platform_root_path = os.path.join(emulator_root_path, conform_string_to_filename(platform_name))
 										safe_makedir(platform_root_path)
 										extract_source_url(platform, platform_root_path, 'download_page.url')
-										
+
 										##	Tries to download the binary
 										download_result = download_emulator_binary(platform, platform_root_path)
 										if download_result['emulator_local_filename'] is not None:
@@ -121,12 +121,12 @@ def main_emucamp_engine():
 											emulator_download_url = None
 										
 										(current_emulator['emulator_version_list']).append({'emulator_platform':platform_name, 
-																							'emulator_filename':download_result['emulator_filename'],
-																							'emulator_download_url':emulator_download_url,
-																							'emulator_size':download_result['emulator_size'],
-																							'emulator_download_page':download_result['emulator_download_page'],
-																							'emulator_download_page_truncated':urlparse.urlsplit(download_result['emulator_download_page']).netloc,
-																							'emulator_updated_on':download_result['emulator_updated_on']
+																							'emulator_filename': download_result['emulator_filename'],
+																							'emulator_download_url': emulator_download_url,
+																							'emulator_size': download_result['emulator_size'],
+																							'emulator_download_page': download_result['emulator_download_page'],
+																							'emulator_download_page_truncated': urlparse.urlsplit(download_result['emulator_download_page']).netloc,
+																							'emulator_updated_on': download_result['emulator_updated_on']
 																							})
 										
 								(quik_interface['emulator_list']).append(current_emulator)

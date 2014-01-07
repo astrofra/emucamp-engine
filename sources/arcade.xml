@@ -20,6 +20,25 @@
 				<source_url>http://sourceforge.net/projects/mameosx/files/latest/download</source_url>
 			</platform>
 		</emulator>
+
+		<emulator name="Raine">
+			<description>
+				<text><![CDATA[
+				Raine is an emulator, it emulates some M68000 and M68020 arcade games and is mainly focused on Taito and Jaleco games hardware. It if started as an experiment with the Rainbow Islands
+romset, it is now able to emulate many nice games, including new additions from Cave and other companies.
+				]]></text>
+				<source_url>http://rainemu.swishparty.co.uk/</source_url>
+			</description>
+			<platform name="Windows">
+				<source_url>http://rainemu.swishparty.co.uk/html/download/latest.html</source_url>
+			</platform>
+			<platform name="OS X">
+				<source_url>http://rainemu.swishparty.co.uk/html/download/macos.html</source_url>
+			</platform>
+			<platform name="Linux">
+				<source_url>http://rainemu.swishparty.co.uk/html/archive/debian/</source_url>
+			</platform>
+		</emulator>
 		
 		<emulator name="FB Alpha">
 			<description>

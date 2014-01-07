@@ -25,5 +25,37 @@
 			</platform>
 		</emulator>
 
+		<emulator name="KIGB">
+			<description>
+				<text><![CDATA[
+				One of the most accurate emulators for Gameboy, Gameboy Color and Super Gameboy for Windows, Linux and OS X.]]></text>
+				<source_url>http://kigb.emuunlim.com/</source_url>
+			</description>
+			<platform name="Windows">
+					<source_url start_with="kigb_wi" end_with=".zip">http://kigb.emuunlim.com/downloads.htm</source_url>
+			</platform>
+
+			<platform name="Linux">
+					<source_url start_with="kigb_li" end_with=".tar.gz">http://kigb.emuunlim.com/downloads.htm</source_url>
+			</platform>
+
+			<platform name="OS X">
+					<source_url>http://www.bannister.org/cgi-bin/download.cgi?kigb</source_url>
+			</platform>
+
+		</emulator>
+
+		<emulator name="GBA.js">
+			<description>
+				<text><![CDATA[
+				Game Boy Advance in the Browser.<br>
+				For legal reasons, GBA.js is presented without any included games. The emulation if fairly decent, though. Most games run and are playable.]]></text>
+				<source_url>http://jpfau.github.io/gbajs/</source_url>
+			</description>
+			<platform name="Javascript">
+					<source_url>http://jpfau.github.io/gbajs/</source_url>
+			</platform>
+		</emulator>
+
 	</machine>
 </data>

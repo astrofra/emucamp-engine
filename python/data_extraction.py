@@ -139,7 +139,7 @@ def generic_binary_download(download_url, local_path, force_mime = False):
 	else:
 		logging.warning('GenericBinaryDownload() : mime type is unknown for url : ' + download_url)
 		
-	if download_type == 'binary':
+	if local_path.lower().find('javascript') == -1 and download_type == 'binary':
 		##	Store the download url
 		f = open(os.path.join(local_path, 'binary.url'), 'w')
 		f.write(download_url)
