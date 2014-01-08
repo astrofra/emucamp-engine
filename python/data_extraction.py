@@ -13,7 +13,7 @@ from bs4 import BeautifulSoup
 
 
 def parse_machine_from_xml_source(machine_name):
-	machine_desc_filename = source_root + machine_name + ".xml"
+	machine_desc_filename = SOURCE_ROOT + machine_name + ".xml"
 	if os.path.exists(machine_desc_filename):
 		tree = ET.parse(machine_desc_filename)
 		return tree
@@ -105,13 +105,13 @@ def download_emulator_binary(xml_branch, extract_local_path):
 						for link in soup.find_all('a'):
 							download_url = link.get('href')
 							if download_url is not None:
-								logging.debug('DownloadEmulatorBinary() download_url = ' + download_url)	
+								logging.debug('DownloadEmulatorBinary() download_url = ' + download_url)
 								start_index = string.find(download_url, start_with)
 								end_index = string.find(download_url, end_with)
 								if end_index > start_index > -1:
 									download_url = urlparse.urljoin(download_page_url, download_url)
 									logging.debug('download_url = ' + download_url)
-									
+
 									download_result = generic_binary_download(download_url, extract_local_path)
 									return {	'emulator_local_filename':download_result['emulator_local_filename'],
 									            'emulator_filename':download_result['emulator_filename'],
@@ -122,7 +122,7 @@ def download_emulator_binary(xml_branch, extract_local_path):
 				##	Fallback, the binary can be downloaded directly from the url
 				logging.warning('DownloadEmulatorBinary() Trying the direct URL to download the binary.')
 				download_result = generic_binary_download(download_page_url, extract_local_path)
-				return {	'emulator_local_filename':download_result['emulator_local_filename'], 'emulator_filename':download_result['emulator_filename'], 'emulator_size':download_result['emulator_size'], 
+				return {	'emulator_local_filename':download_result['emulator_local_filename'], 'emulator_filename':download_result['emulator_filename'], 'emulator_size':download_result['emulator_size'],
 							'emulator_download_page':download_page_url, 'emulator_updated_on':download_result['emulator_updated_on']}
 
 
@@ -138,13 +138,13 @@ def generic_binary_download(download_url, local_path, force_mime = False):
 		download_type = 'binary'
 	else:
 		logging.warning('GenericBinaryDownload() : mime type is unknown for url : ' + download_url)
-		
+
 	if local_path.lower().find('javascript') == -1 and download_type == 'binary':
 		##	Store the download url
 		f = open(os.path.join(local_path, 'binary.url'), 'w')
 		f.write(download_url)
 		f.close()
-		
+
 		##	Get the filename of the binary
 		file_radical, file_ext = os.path.splitext(os.path.basename(urlparse.urlsplit(download_url).path))
 		filename = file_radical + file_ext
@@ -164,7 +164,7 @@ def generic_binary_download(download_url, local_path, force_mime = False):
 						if url_split_part == bin_ext:
 							break
 						extension_idx += 1
-						
+
 					if extension_idx > 1:
 						filename = url_split_by_dot[extension_idx - 2] + bin_ext
 						print('Alternate filename found : ' + filename)
@@ -178,7 +178,7 @@ def generic_binary_download(download_url, local_path, force_mime = False):
 		##	Open the url
 		local_filename = os.path.join(local_path, filename)
 		logging.debug('GenericBinaryDownload() : download_url = ' + download_url)
-		
+
 		urlopen_retry = 0
 		req = None
 
@@ -191,9 +191,9 @@ def generic_binary_download(download_url, local_path, force_mime = False):
 				req = None
 				time.sleep(2)
 				pass
-			
+
 			urlopen_retry += 1
-			
+
 			if req is not None:
 				break
 
@@ -206,7 +206,7 @@ def generic_binary_download(download_url, local_path, force_mime = False):
 				# Date using the ISO format.
 				emulator_updated_on = str(file_date[0]) + '-' + str(file_date[1]).zfill(2) + '-' + str(file_date[2]).zfill(2)
 			else:
-				emulator_updated_on = ' ' 
+				emulator_updated_on = ' '
 
 			if force_mime:
 				file_url = req.geturl()
@@ -219,7 +219,7 @@ def generic_binary_download(download_url, local_path, force_mime = False):
 
 			if local_filename is not None:
 				print('GenericBinaryDownload() : local_filename = ' + local_filename)
-		
+
 				##	Read the bytes, chunk by chunk
 				CHUNK = 128 * 1024
 				byte_size = 0
@@ -231,13 +231,13 @@ def generic_binary_download(download_url, local_path, force_mime = False):
 							break
 						fp.write(chunk)
 						byte_size = fp.tell()
-						if g_test_mode and byte_size > 16:
+						if G_TEST_MODE and byte_size > 16:
 							break
 				print('\n')
-				
+
 				##	Get the size of the file
 				byte_size = format_byte_size_to_string(byte_size)
-		
+
 				f = open(os.path.join(local_path, 'file_size.txt'), 'w')
 				f.write(byte_size)
 				f.close()
@@ -246,7 +246,7 @@ def generic_binary_download(download_url, local_path, force_mime = False):
 					f = open(os.path.join(local_path, 'updated_on.txt'), 'w')
 					f.write(emulator_updated_on)
 					f.close()
-					
+
 				return {'emulator_local_filename': local_filename, 'emulator_filename': filename, 'emulator_size': byte_size, 'emulator_updated_on': emulator_updated_on}
 
 	##	Something went wrong
