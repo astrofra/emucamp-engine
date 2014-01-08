@@ -1,7 +1,7 @@
 emucamp-engine
 ==============
 
-A scripted toolchain to automatically update a database of listed emulators, including each binary of each version. 
+A scripted toolchain to automatically update a database of listed emulators, including each binary of each version.
 
 The project is divided in two parts :
 
@@ -26,10 +26,45 @@ The binaries could be either :
  - directly linked to the original emulator's site
  - downloaded from the site and hosted on emucamp.net
  - found by the visitors by following an external link to the original emulator's website
- 
+
+1.a Setup
+---------
+
+You need python and pip.
+Get python on http://www.python.org/
+Get pip on http://www.pip-installer.org/
+
+Once you have python and pip installed, you can run:
+```bash
+pip install requirements.txt
+```
+It will install the python modules required by the project.
+
+1.b Run
+-------
+
+To update the website, run:
+```bash
+python python/main.py
+```
+
+To update the meta ratings, run:
+```bash
+python python/meta_ratings.py
+```
+
+Under Windows you can run the provided bat scripts:
+```bash
+start.bat
+```
+and
+```bash
+start_meta_ratings.bat
+```
+
  2. The website
 ===============
 
  The website is a static site (pure HTML, no PHP, no SQL). Everything is built on the local machine that runs the engine, and then uploaded to a given location.
- 
- The files is a mix or html, css, png and binary files.  
+
+ The files is a mix or html, css, png and binary files.
