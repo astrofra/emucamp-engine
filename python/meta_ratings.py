@@ -26,4 +26,6 @@ def ComputeMetaRatings(object_common_name = 'MAME', topic_keyword_array = ['arca
 			print('url found : ' + result.url)
 
 
-ComputeMetaRatings('what is the best', ['arcade', 'emulator', '?'])
+# If the script is not imported, execute the main function
+if __name__ == "__main__":
+	ComputeMetaRatings('what is the best', ['arcade', 'emulator', '?'])

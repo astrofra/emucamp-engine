@@ -28,20 +28,20 @@ def init_mime_detection():
 def main_emucamp_engine():
 
 	logging.info('Emucamp-Engine')
-	
+
 	##	Copy the Twitter Boostrap to the www root
-	for resource_folder in resources_folders:
-		extern_dest = os.path.join(site_root, resource_folder)
+	for resource_folder in RESOURCES_FOLDERS:
+		extern_dest = os.path.join(SITE_ROOT, resource_folder)
 		if os.path.exists(extern_dest):
 			shutil.rmtree(extern_dest)
-		shutil.copytree(os.path.join(resources_root, resource_folder), extern_dest)
+		shutil.copytree(os.path.join(RESOURCES_ROOT, resource_folder), extern_dest)
 
 	##	Initialize the mime type for further detection
 	init_mime_detection()
-	
+
 	##	Initialize the template handler (Quik)
-	quik_loader = FileLoader(resources_root)
-	
+	quik_loader = FileLoader(RESOURCES_ROOT)
+
 	##	Main 'machines' loop
 	if len(machine_update_only) > 0:
 		download_machine_list = machine_update_only
@@ -63,18 +63,18 @@ def main_emucamp_engine():
 						print('Found this machine : ' + machine_name)
 						print('-------------------------------------')
 						##	Creates a new html template
-						template_machine = quik_loader.load_template(input_pages['machine'])
-						
+						template_machine = quik_loader.load_template(INPUT_PAGES['machine'])
+
 						quik_interface['machine_name'] = machine_name
 						quik_interface['machine_filename'] = conform_string_to_filename(machine_name)
 						quik_interface['emulator_list'] = []
-						
+
 						##	Creates the folder to store the machine's data
-						machine_root_path = os.path.join(site_root, conform_string_to_filename(machine_name))
+						machine_root_path = os.path.join(SITE_ROOT, conform_string_to_filename(machine_name))
 						safe_makedir(machine_root_path)
-						
+
 						found_a_description = False
-						
+
 						for machine_child in machine:
 							##	Is this the description of the machine ?
 							if machine_child.tag == 'description':
@@ -82,20 +82,20 @@ def main_emucamp_engine():
 								quik_interface['machine_description_source_url'] = extract_source_url(machine_child, machine_root_path)
 								quik_interface['machine_description_source'] = quik_interface['machine_description_source_url']
 								found_a_description = True
-	
+
 							##	Is this an emulator for this machine ?
 							if machine_child.tag == 'emulator':
 								emulator = machine_child
-								
+
 								##	What is the name of this emulator
 								emulator_name = emulator.get('name')
-								
+
 								emulator_root_path = os.path.join(machine_root_path, conform_string_to_filename(emulator_name))
 								safe_makedir(emulator_root_path)
-								
+
 								current_emulator = {	'name': emulator_name, 'emulator_description': None,
 														'emulator_version_list':[]	}
-								
+
 								##	Is this an emulator for this machine
 								for emulator_child in emulator:
 									##	Is this the description of this emulator ?
@@ -103,12 +103,12 @@ def main_emucamp_engine():
 										current_emulator['emulator_description'] = extract_text(emulator_child, emulator_root_path)
 										current_emulator['emulator_description_source_url'] = extract_source_url(emulator_child, emulator_root_path)
 										current_emulator['emulator_description_source'] = current_emulator['emulator_description_source_url']
-										
+
 									if emulator_child.tag == 'platform':
 										platform = emulator_child
 										platform_name = platform.get('name')
 										print(emulator_name + ', found a version for the ' + platform_name + ' platform.')
-										
+
 										platform_root_path = os.path.join(emulator_root_path, conform_string_to_filename(platform_name))
 										safe_makedir(platform_root_path)
 										extract_source_url(platform, platform_root_path, 'download_page.url')
@@ -119,8 +119,8 @@ def main_emucamp_engine():
 											emulator_download_url = conform_string_to_filename(machine_name) + '/' +  conform_string_to_filename(emulator_name) + '/' + conform_string_to_filename(platform_name) + '/' + download_result['emulator_filename']
 										else:
 											emulator_download_url = None
-										
-										(current_emulator['emulator_version_list']).append({'emulator_platform':platform_name, 
+
+										(current_emulator['emulator_version_list']).append({'emulator_platform':platform_name,
 																							'emulator_filename': download_result['emulator_filename'],
 																							'emulator_download_url': emulator_download_url,
 																							'emulator_size': download_result['emulator_size'],
@@ -128,9 +128,9 @@ def main_emucamp_engine():
 																							'emulator_download_page_truncated': urlparse.urlsplit(download_result['emulator_download_page']).netloc,
 																							'emulator_updated_on': download_result['emulator_updated_on']
 																							})
-										
+
 								(quik_interface['emulator_list']).append(current_emulator)
-								
+
 						if not found_a_description:
 							try:
 								wiki_page = wikipedia.page(machine_name)
@@ -142,16 +142,16 @@ def main_emucamp_engine():
 								quik_interface['machine_description'] = "No description found :'("
 								quik_interface['machine_description_source_url'] = ""
 								quik_interface['machine_description_source'] = ""
-								pass										
-							
+								pass
+
 						##	Creates the new 'machine' page
 						##	Render the new html page
 						html_output = template_machine.render(quik_interface, quik_loader).encode('utf-8')
 						##	Saves the page as a html file
-						f = open(os.path.join(site_root, conform_string_to_filename(machine_name) + '.html'), 'w')
+						f = open(os.path.join(SITE_ROOT, conform_string_to_filename(machine_name) + '.html'), 'w')
 						f.write(html_output)
 						f.close()
-						
+
 						print('-------------------------------------')
 
 	##
@@ -172,7 +172,7 @@ def main_emucamp_engine():
 						machine_name = machine.get('name')
 						machine_type = machine.get('type')
 
-						machine_site_path = os.path.join(site_root, conform_string_to_filename(machine_name))
+						machine_site_path = os.path.join(SITE_ROOT, conform_string_to_filename(machine_name))
 						if os.path.exists(machine_site_path):
 							##  Add this machine into the main list
 							(quik_interface['machine_list'][machine_type.lower()]).append({'name': machine_name, 'page_url': conform_string_to_filename(machine_name) + '.html'})
@@ -182,16 +182,16 @@ def main_emucamp_engine():
 								quik_interface['emulator_update_list'].append(_update)
 
 	##  Generates the Index page based on the whole list
-	if g_create_index and len(machine_list) > 0:
+	if G_CREATE_INDEX and len(machine_list) > 0:
 
 		##  Sort the list of updates by date.
 		if len(quik_interface['emulator_update_list']) > 0:
 			sorted_emulator_update_list = sorted(quik_interface['emulator_update_list'], key = itemgetter('updated_on'), reverse = True)
 			quik_interface['emulator_update_list'] = sorted_emulator_update_list[0:5]
 
-		template_index = quik_loader.load_template(input_pages['index'])
+		template_index = quik_loader.load_template(INPUT_PAGES['index'])
 		html_output = template_index.render(quik_interface, quik_loader).encode('utf-8')
-		f = open(os.path.join(site_root, 'index.html'), 'w')
+		f = open(os.path.join(SITE_ROOT, 'index.html'), 'w')
 		f.write(html_output)
 		f.close()
 
@@ -199,13 +199,14 @@ def main_emucamp_engine():
 	## about.html
 	##
 	##	Builds the about page
-	template_about = quik_loader.load_template(input_pages['about'])
+	template_about = quik_loader.load_template(INPUT_PAGES['about'])
 	html_output = template_about.render(quik_interface, quik_loader).encode('utf-8')
-	f = open(os.path.join(site_root, 'about.html'), 'w')
+	f = open(os.path.join(SITE_ROOT, 'about.html'), 'w')
 	f.write(html_output)
 	f.close()
-			
+
 	##	soup = BeautifulSoup(html_doc)
-			
-main_emucamp_engine()
-		
+
+# If the script is not imported, execute the main function
+if __name__ == "__main__":
+	main_emucamp_engine()
