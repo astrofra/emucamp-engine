@@ -28,6 +28,21 @@ With the success of the Sinclair ZX Spectrum, Tangerine's backers had suggested 
 			</platform>
 		</emulator>
 
+		<emulator name="Euphoric">
+			<description>
+				<text><![CDATA[
+				Euphoric is a Dos/Windows emulator for the Oric computer. It was later ported to OS X.
+				]]></text>
+				<source_url>http://oric.free.fr/emulator.html</source_url>
+			</description>
+			<platform name="Windows">
+					<source_url>http://oric.free.fr/EMULATORS/Euphoric.zip</source_url>
+			</platform>
+			<platform name="OS X">
+					<source_url>http://www.bannister.org/cgi-bin/download.cgi?oric</source_url>
+			</platform>
+		</emulator>
+
 		<emulator name="Amoric">
 			<description>
 				<text><![CDATA[
