@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<data>
+	<machine name="Apple II" type="Computer" release_date="1977" discontinued="1988">
+
+		<emulator name="AppleWin">
+			<description>
+				<text><![CDATA[
+				AppleWin is an Apple IIe Emulator for Windows]]></text>
+				<source_url>http://applewin.berlios.de/</source_url>
+			</description>
+			<platform name="Windows">
+					<source_url start_with="AppleWin" end_with=".zip">http://applewin.berlios.de/</source_url>
+			</platform>
+		</emulator>
+
+		<emulator name="Virtual II">
+			<description>
+				<text><![CDATA[
+				Virtual ][ is a program that emulates the vintage Apple II computer on your Mac.<br>
+				Virtual ][ lets you play the old Apple games, because it supports all graphics modes, lets you control the game paddles with a USB game pad or mouse and emulates the internal speaker.<br>
+				Virtual ][ requires an Intel Mac with Mac OS X 10.6 "Snow Leopard" or better.]]></text>
+				<source_url>http://www.virtualii.com/</source_url>
+			</description>
+			<platform name="OS X">
+					<source_url start_with="Virtua" end_with=".dmg">http://www.virtualii.com/</source_url>
+			</platform>
+		</emulator>
+
+		<emulator name="Apple2000e">
+			<description>
+				<text><![CDATA[
+				Apple2000e is an Apple 2/2e emulator for the Amiga computer. It requires a 68020 CPU or higher.
+				]]></text>
+				<source_url>http://aminet.net/package/misc/emu/Apple2000e</source_url>
+			</description>
+			<platform name="AmigaOS">
+					<source_url>http://aminet.net/misc/emu/Apple2000e.lha</source_url>
+			</platform>
+		</emulator>
+
+		<emulator name="AppleIIjs">
+			<description>
+				<text><![CDATA[
+				Apple AppleIIjs is an Apple II and Apple IIe emulator written entirely in JavaScript and HTML5.
+				It supports the most recent versions of Google Chrome, Safari, Firefox, and Opera.
+				]]></text>
+				<source_url>http://www.scullinsteel.com/apple2/about.html</source_url>
+			</description>
+			<platform name="Javascript">
+					<source_url>http://www.scullinsteel.com/apple//e</source_url>
+			</platform>
+		</emulator>
+
+	</machine>
+</data>
