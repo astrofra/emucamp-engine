@@ -74,5 +74,18 @@
 			</platform>
 		</emulator>
 
+		<emulator name="JSNES">
+			<description>
+				<text><![CDATA[
+				JSNES is a port of vNES to JavaScript. The video is output on a canvas element, and the sound is played with dynamicaudio.js.<br>
+The source is available on GitHub.
+				]]></text>
+				<source_url>http://fir.sh/projects/jsnes/</source_url>
+			</description>
+			<platform name="Javascript">
+					<source_url>http://fir.sh/projects/jsnes/</source_url>
+			</platform>
+		</emulator>
+
 	</machine>
 </data>

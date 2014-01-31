@@ -33,7 +33,7 @@
 				<source_url>http://cgfm2.emuviews.com/smsplus.php</source_url>
 			</description>
 			<platform name="OS X">
-					<source_url>SMS Plus</source_url>
+					<source_url>http://www.bannister.org/cgi-bin/download.cgi?sms</source_url>
 			</platform>
 		</emulator>
 		
