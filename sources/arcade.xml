@@ -21,6 +21,24 @@
 			</platform>
 		</emulator>
 
+		<emulator name="Supermodel3">
+			<description>
+				<text><![CDATA[
+				Supermodel emulates Sega Model 3 arcade platform, allowing you to play a number of ground-breaking arcade classics. It uses OpenGL and the SDL library, and can run on Windows, Linux, and Mac OS X.
+				]]></text>
+				<source_url>http://www.supermodel3.com/</source_url>
+			</description>
+			<platform name="Windows64">
+				<source_url start_with = "Supermodel_" end_with = "Win64.zip">http://www.supermodel3.com/Download.html</source_url>
+			</platform>
+			<platform name="Windows32">
+				<source_url start_with = "Supermodel_" end_with = "Win32.zip">http://www.supermodel3.com/Download.html</source_url>
+			</platform>
+			<platform name="OS X">
+				<source_url start_with = "Supermodel_" end_with = "OSX.tgz">http://www.supermodel3.com/Download.html</source_url>
+			</platform>
+		</emulator>
+
 		<emulator name="Raine">
 			<description>
 				<text><![CDATA[
@@ -52,6 +70,18 @@ romset, it is now able to emulate many nice games, including new additions from 
 			</platform>
 			<platform name="WindowsXP">
 				<source_url start_with = "fbaxp_" end_with = ".7z">http://www.barryharris.me.uk/fba.php</source_url>
+			</platform>
+		</emulator>
+
+		<emulator name="AAE">
+			<description>
+				<text><![CDATA[
+				Another Arcade Emulator is a primarily vector based arcade system emulator written using C and OpenGL. It strives to recreate the experience of playing the games as they were in the arcade, and requires the original game ROMS in order to run. In some cases copies of the original sound files and artwork are required to complete the emulation experience. It provides for simulation options that are not available in MAME, and offers several features that are not available in MAME due to their arcade preservation charter, such as advanced hardware based drawing and motion blur.
+				]]></text>
+				<source_url>http://pages.suddenlink.net/aae/</source_url>
+			</description>
+			<platform name="Windows">
+				<source_url start_with="aae0" end_with=".zip">http://pages.suddenlink.net/aae/</source_url>
 			</platform>
 		</emulator>
 

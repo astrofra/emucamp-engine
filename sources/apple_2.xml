@@ -13,6 +13,23 @@
 			</platform>
 		</emulator>
 
+		<emulator name="KEGS32">
+			<description>
+				<text><![CDATA[
+				KEGS32 An Apple IIgs emulator. It is based on the Kent Dickey's KEGS for UNIX.]]></text>
+				<source_url>http://www.emaculation.com/kegs32.htm</source_url>
+			</description>
+			<platform name="BIOS ROM">
+					<source_url start_with="rom" end_with=".zip">http://www.whatisthe2gs.apple2.org.za/</source_url>
+			</platform>
+			<platform name="Windows">
+					<source_url start_with="kegs32" end_with=".zip">http://www.emaculation.com/kegs32.htm</source_url>
+			</platform>
+			<platform name="OS X">
+					<source_url start_with="kegs." end_with=".tar.gz">http://kegs.sourceforge.net/</source_url>
+			</platform>
+		</emulator>
+
 		<emulator name="Virtual II">
 			<description>
 				<text><![CDATA[

@@ -42,6 +42,19 @@ Arnold aims for maximum emulation accuracy across the whole CPC and CPC+ range, 
 			</platform>
 		</emulator>
 
+		<emulator name="XCPC">
+			<description>
+				<text><![CDATA[
+XCPC is a portable Amstrad CPC 464/664/6128 emulator written in C.
+XCPC is designed to run on any POSIX compliant system, including Unix, Linux, BSD and having an X11 server.. 
+				]]></text>
+				<source_url>http://xcpc.sourceforge.net/</source_url>
+			</description>
+			<platform name="Linux">
+				<source_url>http://sourceforge.net/projects/xcpc/files/latest/download</source_url>
+			</platform>
+		</emulator>
+
 		<emulator name="CPCBox">
 			<description>
 				<text><![CDATA[
