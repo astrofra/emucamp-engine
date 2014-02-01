@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<data>
+	<machine name="Sega Saturn" type="Console">
+
+		<emulator name="SSF">
+			<description>
+				<text><![CDATA[
+				SSF is certainly the most complete emulators for the Sega Saturn console. Indeed, it almost completely emulates the various components of this machine.
+				]]></text>
+				<source_url>http://www7a.biglobe.ne.jp/~phantasy/ssf/</source_url>
+			</description>
+			<platform name="Bios">
+					<source_url start_with="Sega%20Saturn%20BIOS" end_with=".zip">http://www.emuparadise.me/biosfiles/bios.html</source_url>
+			</platform>
+			<platform name="Windows">
+					<source_url start_with="SSF_" end_with=".zip">http://www7a.biglobe.ne.jp/~phantasy/ssf/</source_url>
+			</platform>
+		</emulator>
+
+		<emulator name="Yabause">
+			<description>
+				<text><![CDATA[
+				Yabause is a Sega Saturn emulator under GNU GPL. It currently runs on FreeBSD, GNU/Linux, Mac OS X, Windows, Dreamcast, PSP and Wii.
+Yabause support booting games using Saturn cds or iso files.
+				]]></text>
+				<source_url>http://yabause.org/</source_url>
+			</description>
+			<platform name="Bios">
+					<source_url start_with="Sega%20Saturn%20BIOS" end_with=".zip">http://www.emuparadise.me/biosfiles/bios.html</source_url>
+			</platform>
+			<platform name="Windows32">
+					<source_url start_with="yabause" end_with="-win32.exe/download">http://yabause.org/download/</source_url>
+			</platform>
+			<platform name="Windows64">
+					<source_url start_with="yabause" end_with="-win64.exe/download">http://yabause.org/download/</source_url>
+			</platform>
+			<platform name="OS X">
+					<source_url start_with="yabause" end_with=".dmg">http://yabause.org/download/</source_url>
+			</platform>
+		</emulator>
+
+	</machine>
+</data>

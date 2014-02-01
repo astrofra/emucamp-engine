@@ -13,10 +13,10 @@
 				<text><![CDATA[
 				ScummVM is a collection of game engine recreations. Originally designed to play LucasArts adventure games that use the SCUMM system (the VM in the name stands for virtual machine), it now also supports a variety of non-SCUMM games by companies like Revolution Software and Adventure Soft.
 				]]></text>
-				<source_url>http://en.wikipedia.org/wiki/ScummVM</source_url>
+				<source_url start_with="http://prdownloads.sourceforge.net/scummvm/scummvm-1.6.0-win32.exe?download">http://en.wikipedia.org/wiki/ScummVM</source_url>
 			</description>
 			<platform name="Windows">
-					<source_url>http://sourceforge.net/projects/scummvm/</source_url>
+					<source_url start_with="scummvm" end_with="-win32.exe?download">http://www.scummvm.org/downloads/</source_url>
 			</platform>
 			<platform name="Android">
 					<source_url>https://play.google.com/store/apps/details?id=org.scummvm.scummvm</source_url>
