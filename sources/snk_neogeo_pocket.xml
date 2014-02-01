@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<data>
+	<machine name="SNK NeoGeo Pocket" type="Console">
+
+		<description>
+			<text><![CDATA[
+			 The Neo Geo Pocket is a monochrome handheld video game console released by SNK. It was the company's first handheld system and is part of the Neo Geo family. It debuted in Japan in late 1998, however never saw a western release, being exclusive to Japan and smaller Asian markets such as Hong Kong.<br>
+<br>
+The Neo Geo Pocket is considered to be an unsuccessful console. Lower than expected sales resulted in its discontinuation in 1999, and was immediately succeeded by the Neo Geo Pocket Color, a full color device allowing the system to compete more easily with the dominant Game Boy Color handheld. 
+			 ]]></text>
+			<source_url>http://en.wikipedia.org/wiki/Neo-Geo_Pocket</source_url>
+		</description>		
+
+		<emulator name="NeoPocott">
+			<description>
+				<text><![CDATA[
+				Kawaks emulator for the Windows operating system that the CPS-1 CPS-2, and systems of play Neo Geo.
+				]]></text>
+				<source_url>http://neopocott.emuunlim.com</source_url>
+			</description>
+			<platform name="Windows">
+					<source_url start_with="neopocott-" end_with=".zip">http://neopocott.emuunlim.com/download.html</source_url>
+			</platform>
+			<platform name="OS X">
+					<source_url>http://www.bannister.org/cgi-bin/download.cgi?neopocott</source_url>
+			</platform>
+		</emulator>
+
+		<emulator name="NeoGPC">
+			<description>
+				<text><![CDATA[
+				NeoGPC is a NeoGeo Pocket Color emulator with the intention of becoming accurate enough to emulate the NGPC bios and properly run all games and homebrew.
+				]]></text>
+				<source_url>https://code.google.com/p/neogpc/</source_url>
+			</description>
+			<platform name="Windows">
+					<source_url start_with="NeoGPC" end_with=".zip">https://code.google.com/p/neogpc/downloads/list</source_url>
+			</platform>
+		</emulator>
+
+	</machine>
+</data>
