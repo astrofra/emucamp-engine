@@ -6,7 +6,7 @@ machine_list		= sorted([	'apple_2', 'oric','google_android', 'amstrad_cpc', 'nin
 								'nintendo_nes', 'sinclair_spectrum', 'snk_neogeo', 'acorn_archimedes', 'cbm_64', 'cbm_amiga', 'sega_megadrive', 'sega_saturn', 'atari_st'
 								])
 
-machine_update_only = ['sega_saturn']
+machine_update_only = ['oric']
 
 RESOURCES_ROOT		= 'resources'
 RESOURCES_FOLDERS	= ['assets', 'extern']
