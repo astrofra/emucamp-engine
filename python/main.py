@@ -188,10 +188,17 @@ def main_emucamp_engine():
 		if len(quik_interface['emulator_update_list']) > 0:
 			sorted_emulator_update_list = sorted(quik_interface['emulator_update_list'], key = itemgetter('updated_on'), reverse = True)
 			quik_interface['emulator_update_list'] = sorted_emulator_update_list[0:5]
+			quik_interface['emulator_full_update_list'] = sorted_emulator_update_list
 
 		template_index = quik_loader.load_template(INPUT_PAGES['index'])
 		html_output = template_index.render(quik_interface, quik_loader).encode('utf-8')
 		f = open(os.path.join(SITE_ROOT, 'index.html'), 'w')
+		f.write(html_output)
+		f.close()
+
+		template_index = quik_loader.load_template(INPUT_PAGES['update_log'])
+		html_output = template_index.render(quik_interface, quik_loader).encode('utf-8')
+		f = open(os.path.join(SITE_ROOT, 'update_log.html'), 'w')
 		f.write(html_output)
 		f.close()
 

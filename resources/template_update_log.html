@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<link href='http://fonts.googleapis.com/css?family=Homenaje|Dosis' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" type="text/css" media="all" href="extern/bootstrap/css/bootstrap.css">
+    <style>
+      body {
+font-family: 'Homenaje', sans-serif;
+font-family: 'Dosis', sans-serif;
+      }
+    </style>
+	<meta charset="utf-8">
+	<META NAME="description" CONTENT="@machine_name emulators on the most usual platforms.">
+	<META NAME="keywords" CONTENT="emulation, @machine_name, retrograming, binary, download, sourceforge">
+	<title>Emulation Camp, emulators for the @machine_name</title>
+	</head>
+<body>
+    <div class="container">
+    &nbsp;
+    </div>
+    <div class="container">
+        <!-- begin_header -->
+        <div class="jumbotron">
+            <div class="row-fluid">
+            <table>
+                <tr>
+                    <td>
+						<div class="span1"><a href="index.html"><img src="assets/logo_emu_camp_100px.png"></a></div>
+                    </td>
+                    <td>
+						<div class="span9"><h1>&nbsp;Emulation Camp</h1></div>
+                    </td>
+				</tr>
+            </table>
+            </div>
+        </div>
+        <!-- end_header -->
+    </div>
+
+ 	<!-- $begin_log -->
+    <div class="container">
+        <div class="machine">
+            <div><h3 style="margin-top:4px;">Update Log</h3></div>
+             <div><h4 style="line-height: 0.4;";>Release dates of each emulator found on Emulation Camp.</h4></div>
+            <center>
+            #for @emulator_update in @emulator_full_update_list:
+                @emulator_update.emulator_name, <a href="@emulator_update.machine_url">@emulator_update.machine_name</a> emulator for @emulator_update.emulator_platform was updated on @emulator_update.updated_on.<br>
+            #end
+            </center>
+        </div>
+    </div>
+    <!-- $end_log -->
+
+	<!-- begin_footer -->
+		#include("page_footer.html")
+	<!-- begin_footer -->
+</body>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-46658038-1', 'emucamp.com');
+  ga('send', 'pageview');
+
+</script>
+</html>

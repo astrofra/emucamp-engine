@@ -6,7 +6,7 @@ machine_list		= sorted([	'apple_2', 'oric','google_android', 'amstrad_cpc', 'nin
 								'nintendo_nes', 'sinclair_spectrum', 'snk_neogeo', 'acorn_archimedes', 'cbm_64', 'cbm_amiga', 'sega_megadrive', 'atari_st'
 								])
 
-machine_update_only = ['apple_2']
+machine_update_only = ['oric']
 
 RESOURCES_ROOT		= 'resources'
 RESOURCES_FOLDERS	= ['assets', 'extern']
@@ -14,10 +14,10 @@ RESOURCES_FOLDERS	= ['assets', 'extern']
 G_TEST_MODE			= False
 G_CREATE_INDEX		= True
 
-INPUT_PAGES			= {'machine':'template_machine.html', 'index':'template_index.html', 'about':'about.html'	}
+INPUT_PAGES			= {'machine':'template_machine.html', 'index':'template_index.html', 'update_log':'template_update_log.html', 'about':'about.html'	}
 OUTPUT_PAGES		= {'machine':{}	}
 
 quik_interface		= {	'machine_name':None, 'machine_filename':None, 'machine_type':None, 'machine_description_source_url':None, 'machine_description_source':None,
 						'emulator_list':[], 'machine_list':{'computer':[], 'console':[], 'arcade':[], 'environment':[]},
-						'emulator_update_list': []
+						'emulator_update_list': [], 'emulator_full_update_list': []
 						}
