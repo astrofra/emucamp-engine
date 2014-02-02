@@ -43,5 +43,18 @@
 			</platform>
 		</emulator>
 
+		<emulator name="JSVecX">
+			<description>
+				<text><![CDATA[
+JSVecX is a JavaScript port of the VecX Vectrex emulator.
+The rendering in this port relies on the HTML5 Canvas element. The port is pretty CPU intensive, so you will need a modern computer with Google Chrome, Firefox, Opera, or a recent version of Safari.
+				]]></text>
+				<source_url>http://www.twitchasylum.com/jsvecx/</source_url>
+			</description>
+			<platform name="Javascript">
+					<source_url>http://www.twitchasylum.com/jsvecx/</source_url>
+			</platform>
+		</emulator>
+
 	</machine>
 </data>

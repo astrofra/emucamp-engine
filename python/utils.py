@@ -3,6 +3,14 @@
 import os
 import string
 
+def read_text_content_or_return_none(fname):
+	if os.path.exists(fname):
+		if os.path.getsize(fname) > 0:
+			f = open(fname, 'r')
+			return f.read()
+
+	return None
+
 def	conform_string_to_filename(str):
 	str = str.replace(' ', '_')
 	valid_chars = "-_%s%s" % (string.ascii_letters, string.digits)

@@ -23,6 +23,7 @@ def init_mime_detection():
 	mimetypes.add_type('application/x-amigaos', '.lha')
 	mimetypes.add_type('application/x-amigaos', '.lzx')
 	mimetypes.add_type('application/x-osx', '.dmg')
+	mimetypes.add_type('application/x-android', '.apk')
 
 
 def main_emucamp_engine():
@@ -118,7 +119,16 @@ def main_emucamp_engine():
 										if download_result['emulator_local_filename'] is not None:
 											emulator_download_url = conform_string_to_filename(machine_name) + '/' +  conform_string_to_filename(emulator_name) + '/' + conform_string_to_filename(platform_name) + '/' + download_result['emulator_filename']
 										else:
-											emulator_download_url = None
+											##  Fetch the previous binary from disk
+											previous_download_result = fetch_previous_binary_from_disk(platform, platform_root_path)
+											if previous_download_result is not None:    ## UNFINISHED
+												download_result['emulator_filename'] = previous_download_result['emulator_filename']
+												download_result['emulator_size'] = previous_download_result['emulator_size']
+												# download_result['emulator_download_page'] = '' ## previous_download_result['emulator_download_page']
+												emulator_download_url = platform_root_path + '/' + previous_download_result['emulator_filename']
+												download_result['emulator_updated_on'] = previous_download_result['emulator_updated_on']
+											else:
+												emulator_download_url = None
 
 										(current_emulator['emulator_version_list']).append({'emulator_platform':platform_name,
 																							'emulator_filename': download_result['emulator_filename'],

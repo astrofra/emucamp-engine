@@ -55,7 +55,7 @@
 				<source_url>http://www.qmtpro.com/~nes/nintendulator</source_url>
 			</description>
 			<platform name="Windows">
-					<source_url start_with="nintendulator_bin_" end_with=".zip">http://www.qmtpro.com/~nes/nintendulator</source_url>
+					<source_url start_with="nintendulator_bin_" end_with=".zip">http://www.qmtpro.com/~nes/nintendulator/</source_url>
 			</platform>
 		</emulator>
 

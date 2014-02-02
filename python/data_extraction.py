@@ -145,7 +145,7 @@ def generic_binary_download(download_url, local_path, force_mime = False):
 		f.write(download_url)
 		f.close()
 
-		##	Get the filename of the binary
+		#	Get the filename of the binary
 		file_radical, file_ext = os.path.splitext(os.path.basename(urlparse.urlsplit(download_url).path))
 		filename = file_radical + file_ext
 		if filename.find('.php') > -1:
@@ -234,6 +234,13 @@ def generic_binary_download(download_url, local_path, force_mime = False):
 						if G_TEST_MODE and byte_size > 16:
 							break
 				print('\n')
+
+				##	Store the download url
+				if (len(filename) > 0):
+					if filename.find('.htm') == -1 and filename.find('.php') == -1 and filename.find('.cgi') == -1:
+						f = open(os.path.join(local_path, 'binary_filename.txt'), 'w')
+						f.write(filename)
+						f.close()
 
 				##	Get the size of the file
 				byte_size = format_byte_size_to_string(byte_size)

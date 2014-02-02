@@ -1,9 +1,21 @@
 #   Set of functions in charge of reading the data saved locally
 
+from utils import *
 import string
 import os
 import logging
 
+def fetch_previous_binary_from_disk(platform, platform_root_path):
+	logging.warning('fetch_previous_binary_from_disk() platform_root_path = ' + platform_root_path)
+	download_result = None
+	binary_filename = read_text_content_or_return_none(os.path.join(platform_root_path, 'binary_filename.txt'))
+	if binary_filename is not None:
+		download_result = {'emulator_updated_on':read_text_content_or_return_none(os.path.join(platform_root_path, 'updated_on.txt')),
+		                   'emulator_size':read_text_content_or_return_none(os.path.join(platform_root_path, 'file_size.txt')),
+		                   'emulator_filename':binary_filename
+		}
+
+	return  download_result
 
 def cache_fetch_emulators_update(machine_site_path):
 	logging.info('cache_fetch_emulators_update() path = ' + machine_site_path)
