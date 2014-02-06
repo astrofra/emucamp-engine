@@ -12,7 +12,7 @@ font-family: 'Dosis', sans-serif;
 	<meta charset="utf-8">
 	<META NAME="description" CONTENT="@machine_name emulators on the most usual platforms.">
 	<META NAME="keywords" CONTENT="emulation, @machine_name, retrograming, binary, download, sourceforge">
-	<title>Emulation Camp, emulators for the @machine_name</title>
+	<title>Emulation Camp, yet another retrogaming resource.</title>
 	</head>
 <body>
     <div class="container">
@@ -41,10 +41,15 @@ font-family: 'Dosis', sans-serif;
     <div class="container">
         <div class="machine">
             <div><h3 style="margin-top:4px;">Update Log</h3></div>
-             <div><h4 style="line-height: 0.4;";>Release dates of each emulator found on Emulation Camp.</h4></div>
+             <div><h4 style="line-height: 0.4;";>Release dates of each emulator found on Emulation Camp.</h4><br></div>
             <center>
-            #for @emulator_update in @emulator_full_update_list:
-                @emulator_update.emulator_name, <a href="@emulator_update.machine_url">@emulator_update.machine_name</a> emulator for @emulator_update.emulator_platform was updated on @emulator_update.updated_on.<br>
+            #for @emulator_year_update in @emulator_full_update_list_by_year:
+                <div>
+                    <h4>@emulator_year_update.year</h4>
+                    #for @emulator_update in @emulator_year_update.update_list:
+                      @emulator_update.emulator_name, <a href="@emulator_update.machine_url">@emulator_update.machine_name</a> emulator for @emulator_update.emulator_platform was updated on @emulator_update.updated_on.<br>
+                    #end
+                </div>
             #end
             </center>
         </div>

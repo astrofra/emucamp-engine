@@ -7,7 +7,7 @@ machine_list		= sorted([	'apple_2', 'oric','google_android', 'amstrad_cpc', 'nin
 								'wonderswan'
 								])
 
-machine_update_only = ['nintendo_nes']
+machine_update_only = []
 
 RESOURCES_ROOT		= 'resources'
 RESOURCES_FOLDERS	= ['assets', 'extern']
@@ -20,5 +20,5 @@ OUTPUT_PAGES		= {'machine':{}	}
 
 quik_interface		= {	'machine_name':None, 'machine_filename':None, 'machine_type':None, 'machine_description_source_url':None, 'machine_description_source':None,
 						'emulator_list':[], 'machine_list':{'computer':[], 'console':[], 'arcade':[], 'environment':[]},
-						'emulator_update_list': [], 'emulator_full_update_list': []
+						'emulator_update_list': [], 'emulator_full_update_list': [], 'emulator_full_update_list_by_year': []
 						}
