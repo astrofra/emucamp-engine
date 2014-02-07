@@ -205,11 +205,11 @@ def main_emucamp_engine():
 				year_list = []
 				for emu_update in sorted_emulator_update_list:
 					if emu_update['updated_on'].find(str(_year)) != -1:
-						print(emu_update['updated_on'])
+						# print(emu_update['updated_on'])
 						year_list.append(emu_update)
 
 				if len(year_list) > 0:
-					print('found ' + str(len(year_list)) + ' emulators.')
+					logging.info('emulator_full_update_list_by_year[] : found ' + str(len(year_list)) + ' emulators.')
 					quik_interface['emulator_full_update_list_by_year'].append({'year':_year, 'update_list':year_list})
 
 
