@@ -21,6 +21,9 @@
 			<platform name="Android">
 					<source_url>https://play.google.com/store/apps/details?id=org.scummvm.scummvm</source_url>
 			</platform>
+			<platform name="Javascript">
+					<source_url>http://clb.demon.fi/html5scummvm/</source_url>
+			</platform>
 		</emulator>
 
 		<emulator name="DosBox">

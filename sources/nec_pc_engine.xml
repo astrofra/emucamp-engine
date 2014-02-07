@@ -34,6 +34,19 @@
 					<source_url start_with="Ootake" end_with=".exe">http://www.ouma.jp/file/?M=D</source_url>
 			</platform>
 		</emulator>
+
+		<emulator name="Mednafen">
+			<description>
+				<text><![CDATA[
+				Mednafen is a portable, utilizing OpenGL and SDL, argument(command-line)-driven multi-system emulator. Mednafen has the ability to remap hotkey functions and virtual system inputs to a keyboard, a joystick, or both simultaneously. Save states are supported, as is real-time game rewinding.
+				]]></text>
+				<source_url start_with="mednafen-" end_with="-win32.zip">http://mednafen.sourceforge.net/</source_url>
+			</description>
+
+			<platform name="Windows">
+					<source_url start_with="Ootake" end_with=".exe">http://mednafen.sourceforge.net/releases/</source_url>
+			</platform>
+		</emulator>
 		
 		<emulator name="Hu-Go!">
 			<description>

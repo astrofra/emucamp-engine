@@ -63,6 +63,18 @@
 			</platform>
 		</emulator>
 
+		<emulator name="Hataroid">
+			<description>
+				<text><![CDATA[
+				Hataroid is an (in development) Android port of the open source Atari ST / STE and Atari Falcon emulator Hatari.
+				]]></text>
+				<source_url>https://play.google.com/store/apps/details?id=com.RetroSoft.Hataroid</source_url>
+			</description>
+			<platform name="Android">
+					<source_url>https://play.google.com/store/apps/details?id=com.RetroSoft.Hataroid</source_url>
+			</platform>
+		</emulator>
+
 		<emulator name="EstyJS">
 			<description>
 				<text><![CDATA[
