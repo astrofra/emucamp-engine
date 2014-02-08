@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<data>
+	<machine name="TI-99" type="Computer" release_date="1981" discontinued="1983">
+
+		<emulator name="Classic99">
+			<description>
+				<text><![CDATA[
+				 Classic99 is a freeware TI-99/4A emulator for Windows 2000 and up. Classic99 runs most stuff fine. System ROMs and many cartridges are INCLUDED under license from Texas Instruments.
+				]]></text>
+				<source_url>http://www.harmlesslion.com/cgi-bin/showprog.cgi?search=classic99</source_url>
+			</description>
+			<platform name="Windows">
+					<source_url start_with = "classic" end_with = ".zip">http://www.harmlesslion.com/cgi-bin/showprog.cgi?search=classic99</source_url>
+			</platform>
+		</emulator>
+
+		<emulator name="TI-99/Sim">
+			<description>
+				<text><![CDATA[
+				TI-99/Sim emulated the TI-99/4A Home Computer on multiple platforms. It runs under Linux, Mac OS X, and Win32 (Windows 9X, Windows NT)
+				]]></text>
+				<source_url>http://www.mrousseau.org/programs/ti99sim/</source_url>
+			</description>
+			<platform name="Windows">
+				<source_url start_with="ti99sim" end_with = "win32.zip">http://www.mrousseau.org/programs/ti99sim/archives/?M=D</source_url>
+			</platform>
+		</emulator>
+
+		<emulator name="V9t9">
+			<description>
+				<text><![CDATA[
+				V9t9 emulates the TI-99/4A on your computer. It is fully written in Java and can run on Windows, Linux or OS X.
+				It requires the original Rom files. 
+				]]></text>
+				<source_url>http://eswartz.github.io/emul/</source_url>
+			</description>
+
+			<platform name="Bios">
+				<source_url start_with="ti99" end_with = "4a.zip">http://cominf0.narod.ru/mess123.htm</source_url>
+			</platform>
+
+			<platform name="Java">
+				<source_url start_with="v9t" end_with = ".zip">http://eswartz.github.io/emul/</source_url>
+			</platform>
+		</emulator>
+
+	</machine>
+</data>

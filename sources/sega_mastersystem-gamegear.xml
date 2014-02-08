@@ -52,5 +52,17 @@
 			</platform>
 		</emulator>
 
+		<emulator name="Miracle">
+			<description>
+				<text><![CDATA[
+				Miracle is a Javascript Sega Master System emulator that runs totally inside your browser.
+				]]></text>
+				<source_url>http://xania.org/miracle/miracle.html</source_url>
+			</description>
+			<platform name="Javascript">
+					<source_url>http://xania.org/miracle/miracle.html</source_url>
+			</platform>
+		</emulator>
+
 	</machine>
 </data>
