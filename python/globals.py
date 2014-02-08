@@ -4,10 +4,10 @@ SITE_ROOT			= '../www/'
 machine_list		= sorted([	'apple_2', 'oric','google_android', 'amstrad_cpc', 'nintendo_snes', 'pc_ms-dos', 'nintendo_gameboy', 'sega_mastersystem-gamegear',
 								'snk_neogeo_pocket', 'atari_st', 'atari_lynx', 'msx', 'thomson_mo_to', 'atari_800xl', 'nec_pc_engine', 'arcade', 'vectrex', 'sinclair_ql',
 								'nintendo_nes', 'sinclair_spectrum', 'snk_neogeo', 'acorn_archimedes', 'cbm_64', 'cbm_amiga', 'sega_megadrive', 'sega_saturn',
-								'wonderswan'
+								'wonderswan', 'ti-99', "sony_psx"
 								])
 
-machine_update_only = ['nec_pc_engine']
+machine_update_only = ['sony_psx']
 
 RESOURCES_ROOT		= 'resources'
 RESOURCES_FOLDERS	= ['assets', 'extern']

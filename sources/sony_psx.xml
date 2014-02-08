@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<data>
+	<machine name="Sony PSX" type="Console" release_date="1994" discontinued="2006">
+		<description>
+			<text><![CDATA[
+			 The PlayStation, officially abbreviated as PS, at the time referred to as PSX and also more commonly known as PS1 is a 32-bit video game console first released by Sony Computer Entertainment in Japan on December 3, 1994, with Western releases in September 1995. The PlayStation was the first of the PlayStation series of consoles and handheld game devices. As part of the fifth-generation of gaming, it primarily competed with the Nintendo 64 and the Sega Saturn. 
+			 ]]></text>
+			<source_url>https://en.wikipedia.org/wiki/PlayStation_%28console%29</source_url>
+		</description>
+
+		<emulator name="ePSXe">
+			<description>
+				<text><![CDATA[
+				ePSXe (enhanced PSX emulator) is a PlayStation emulator for x86-based PC hardware with Microsoft Windows or Linux, as well as devices running Android. It was written by three authors, using the aliases Calb, _Demo_ and Galtor. ePSXe is closed source with the exception of the application programming interface (API) for its plug-ins.
+				]]></text>
+				<source_url>https://en.wikipedia.org/wiki/EPSXe</source_url>
+			</description>
+			<platform name="Windows">
+					<source_url start_with="ePSXe" end_with=".zip">http://www.epsxe.com/download.php</source_url>
+			</platform>
+			<platform name="Linux">
+					<source_url start_with="epsxe" end_with="lin.zip">http://www.epsxe.com/download.php</source_url>
+			</platform>
+			<platform name="Android">
+					<source_url>https://play.google.com/store/apps/details?id=com.emulator.fpse</source_url>
+			</platform>
+		</emulator>
+
+		<emulator name="FPSE">
+			<description>
+				<text><![CDATA[
+				FPse is a PlayStation emulator for. your Windows Mobile or Android device. The name means First PlayStation Emulator for Windows CE/Android.
+				]]></text>
+				<source_url>http://fms.komkon.org/MG/</source_url>
+			</description>
+			<platform name="Windows Mobile">
+					<source_url start_with="FpseCE_" end_with=".zip">http://www.fpsece.net/download.html</source_url>
+			</platform>
+			<platform name="Android">
+					<source_url>https://play.google.com/store/apps/details?id=com.emulator.fpse</source_url>
+			</platform>
+		</emulator>
+
+	</machine>
+</data>
