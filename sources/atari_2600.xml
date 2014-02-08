@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<data>
+	<machine name="Atari 2600" type="Console" release_date="1977" discontinued="1983">
+		
+		<emulator name="z26">
+			<description>
+				<text><![CDATA[
+				z26 -- An Atari 2600 Emulator for Windows and Mac OS X.
+				]]></text>
+				<source_url>http://www.whimsey.com/z26/</source_url>
+			</description>
+			<platform name="Windows">
+					<source_url start_with="z26" end_with="x.zip">http://www.whimsey.com/z26/</source_url>
+			</platform>
+			<platform name="OS X">
+					<source_url start_with="z26" end_with="_snow_leopard.zip">http://www.whimsey.com/z26/</source_url>
+			</platform>
+		</emulator>
+
+		<emulator name="Stella">
+			<description>
+				<text><![CDATA[
+				The Atari 2600 Video Computer System (VCS), introduced in 1977, was the most popular home video game system of the early 1980's.  Now you can enjoy all of your favorite Atari 2600 games on your PC thanks to Stella!
+				]]></text>
+				<source_url>http://stella.sourceforge.net</source_url>
+			</description>
+			<platform name="Windows">
+					<source_url>http://stella.sourceforge.net/</source_url>
+			</platform>
+			<platform name="OS X">
+					<source_url>http://stella.sourceforge.net/</source_url>
+			</platform>
+			<platform name="Linux">
+					<source_url>http://stella.sourceforge.net/</source_url>
+			</platform>
+		</emulator>
+
+		<emulator name="PCAE">
+			<description>
+				<text><![CDATA[
+				PCAE, PC Atari Emulator, emulates the Atari 2600, bridging the gap between the technology of today and the memories of yesteryear.
+				]]></text>
+				<source_url>http://pcae.vg-network.com/</source_url>
+			</description>
+			<platform name="Windows">
+					<source_url>http://www.vg-network.com/ed/pc-atari/</source_url>
+			</platform>
+		</emulator>
+		
+	</machine>
+</data>
