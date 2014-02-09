@@ -56,7 +56,7 @@ def download_emulator_binary(xml_branch, extract_local_path):
 			if download_page_url is not None:
 				print('DownloadEmulatorBinary() : download_page_url = ' + download_page_url)
 
-				if download_page_url.find('sourceforge.net') > -1:
+				if download_page_url.find('sourceforge.net') != -1:
 					download_result = generic_binary_download(download_page_url, extract_local_path, force_mime=True)
 					return {'emulator_local_filename': download_result['emulator_local_filename'],
 					        'emulator_filename': download_result['emulator_filename'],

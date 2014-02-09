@@ -11,6 +11,7 @@ from globals import *
 from quik import FileLoader
 from data_caching import *
 from operator import itemgetter
+from machine_timeline import build_machine_timeline
 
 ##-------------------------
 ##	Start to build the site
@@ -28,7 +29,6 @@ def init_mime_detection():
 
 
 def main_emucamp_engine():
-
 	logging.info('Emucamp-Engine')
 
 	##	Copy the Twitter Boostrap to the www root
@@ -120,7 +120,7 @@ def main_emucamp_engine():
 										if download_result['emulator_local_filename'] is not None:
 											emulator_download_url = conform_string_to_filename(machine_name) + '/' +  conform_string_to_filename(emulator_name) + '/' + conform_string_to_filename(platform_name) + '/' + download_result['emulator_filename']
 										else:
-											##  Fetch the previous binary from disk
+											##  Fetch the previous binary from local disk
 											previous_download_result = fetch_previous_binary_from_disk(platform, platform_root_path)
 											if previous_download_result is not None:    ## UNFINISHED
 												download_result['emulator_filename'] = previous_download_result['emulator_filename']
@@ -240,4 +240,5 @@ def main_emucamp_engine():
 
 # If the script is not imported, execute the main function
 if __name__ == "__main__":
+	# build_machine_timeline(machine_list)
 	main_emucamp_engine()

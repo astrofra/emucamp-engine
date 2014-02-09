@@ -7,7 +7,7 @@ machine_list		= sorted([	'apple_2', 'oric','google_android', 'amstrad_cpc', 'nin
 								'wonderswan', 'ti-99', 'sony_psx', 'atari_2600'
 								])
 
-machine_update_only = ['atari_2600']
+machine_update_only = []
 
 RESOURCES_ROOT		= 'resources'
 RESOURCES_FOLDERS	= ['assets', 'extern']
