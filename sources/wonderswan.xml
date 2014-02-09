@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <data>
-	<machine name="WonderSwan" type="Console">
+	<machine name="WonderSwan" type="Console" release_date="1999" discontinued="2003">
 
 		<emulator name="Cygne">
 			<description>

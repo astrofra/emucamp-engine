@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <data>
-	<machine name="Nintendo NES/Famicom" type="Console">
+	<machine name="Nintendo NES/Famicom" type="Console" release_date="1983" discontinued="2003">
 		<description>
 			<text><![CDATA[
 			The Nintendo Entertainment System (also abbreviated as NES) is an 8-bit video game console that was developed and manufactured by Nintendo. It was initially released in Japan as the Family Computer, also known as the Famicom.

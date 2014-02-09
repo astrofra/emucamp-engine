@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <data>
-	<machine name="Sega MasterSystem/GameGear" type="Console">
+	<machine name="Sega MasterSystem/GameGear" type="Console" release_date="1986" discontinued="1996">
 		<description>
 			<text><![CDATA[
 			The Sega Master System is a video game console made in 1986. It was not very popular in North America and Japan but was very popular in Brazil. One of the most popular game of the Sega Master System was Sonic the Hedgehog.

@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <data>
-	<machine name="Arcade" type="Arcade">
+	<machine name="Arcade" type="Arcade" release_date="1972">
 		<description>
 			<text><![CDATA[An arcade game (or coin-op) is a coin-operated entertainment machine, usually installed in public businesses, such as restaurants, bars, and particularly amusement arcades. Most arcade games are video games, pinball machines, electro-mechanical games, redemption games, and merchandisers.
 			]]></text>

@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <data>
-	<machine name="SNK NeoGeo Pocket" type="Console">
+	<machine name="SNK NeoGeo Pocket" type="Console" release_date="1998" discontinued="1999">
 
 		<description>
 			<text><![CDATA[

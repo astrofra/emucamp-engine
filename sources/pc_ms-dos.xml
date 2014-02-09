@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <data>
-	<machine name="PC MS-DOS" type="Environment">
+	<machine name="PC MS-DOS" type="Environment" release_date="1981" discontinued="2000">
 		<description>
 			<text><![CDATA[
 			MS-DOS is an operating system for x86-based personal computers. It  was the main operating system for IBM PC compatible personal computers during the 1980s to the mid-1990.

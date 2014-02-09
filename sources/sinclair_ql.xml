@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <data>
-	<machine name="Sinclair QL" type="Computer" release_date="1984">
+	<machine name="Sinclair QL" type="Computer" release_date="1984" discontinued="1986">
 		<description>
 			<text><![CDATA[
 		The Sinclair QL (for Quantum Leap), is a personal computer launched by Sinclair Research in 1984, as an upper-end addition to the Sinclair ZX Spectrum. The QL was aimed at the serious home user and professional and executive users markets from small to large businesses and higher educational establishments.

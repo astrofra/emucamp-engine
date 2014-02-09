@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <data>
-	<machine name="Amstrad CPC" type="Computer">
+	<machine name="Amstrad CPC" type="Computer" release_date="1984" discontinued="1990">
 		<description>
 			<text><![CDATA[
 		The Amstrad CPC (short for Colour Personal Computer) is a series of 8-bit home computers produced by Amstrad between 1984 and 1990. It was designed to compete in the mid-1980s home computer market dominated by the Commodore 64 and the Sinclair ZX Spectrum, where it successfully established itself primarily in the United Kingdom, France, Spain, and the German-speaking parts of Europe.

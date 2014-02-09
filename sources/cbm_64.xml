@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <data>
-	<machine name="Commodore 64" type="Computer">
+	<machine name="Commodore 64" type="Computer" release_date="1982" discontinued="1994">
 		<description>
 			<text><![CDATA[
 			The Commodore 64 was a bestselling, 8-bit home computer from the 1980s. It was created by Commodore International, and it entered the market in 1982. Around 17 million units are believed to have been sold.

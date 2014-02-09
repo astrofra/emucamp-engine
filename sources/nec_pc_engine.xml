@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <data>
-	<machine name="Nec PC Engine" type="Console">
+	<machine name="Nec PC Engine" type="Console" release_date="1987" discontinued="1995">
 		<description>
 			<text><![CDATA[
 			 The TurboGrafx-16 Entertainment SuperSystem, originally known in Japan as the PC Engine, is a video game console joint-developed by Hudson Soft and NEC. It was the first console released in the 16-bit era, albeit still utilizing an 8-bit CPU.

@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <data>
-	<machine name="GCE Vectrex" type="Console">
+	<machine name="GCE Vectrex" type="Console" release_date="1982" discontinued="1984">
 		<description>
 			<text><![CDATA[
 			 The Vectrex, unlike other non-portable video game consoles which connected to televisions and rendered raster graphics, has an integrated vector monitor which displays vector graphics. It is monochrome and uses plastic screen overlays to simulate color and various static graphics and decorations.

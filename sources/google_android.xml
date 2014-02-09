@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <data>
-	<machine name="Google Android" type="Environment">
+	<machine name="Google Android" type="Environment" release_date="2008">
 		
 		<emulator name="BlueStacks">
 			<description>

@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <data>
-	<machine name="Sega Megadrive" type="Console">
+	<machine name="Sega Megadrive" type="Console" release_date="1988" discontinued="1999">
 		<description>
 			<text><![CDATA[
 			The Sega Mega Drive (Mega Doraibu), called the Sega Genesis in North America is a 16-bit video game console made by Sega.<br><br>

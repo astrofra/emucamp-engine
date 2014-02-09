@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <data>
-	<machine name="Sinclair Spectrum" type="Computer">
+	<machine name="Sinclair Spectrum" type="Computer" release_date="1982" discontinued="1992">
 		<description>
 			<text><![CDATA[
 		The ZX Spectrum is an 8-bit personal home computer released in the United Kingdom in 1982 by Sinclair Research Ltd.

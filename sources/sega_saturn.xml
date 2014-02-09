@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <data>
-	<machine name="Sega Saturn" type="Console">
+	<machine name="Sega Saturn" type="Console" release_date="1994" discontinued="2000">
 
 		<emulator name="SSF">
 			<description>

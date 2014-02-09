@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <data>
-	<machine name="Atari ST" type="Computer">
+	<machine name="Atari ST" type="Computer" release_date="1985" discontinued="1993">
 		<description>
 			<text><![CDATA[
 			The Atari ST is a home computer released by Atari Corporation in June 1985. Development machines were distributed around May 1985 and it was available commercially from that summer into the early 1990s.
