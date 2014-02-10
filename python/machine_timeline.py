@@ -45,6 +45,7 @@ def build_machine_timeline(_machine_list):
 
 	# crawl every year and search for a machine introduction / discontinuation
 
+	max_row = 0
 	for _year in range(first_release_date, last_discontinued_date):
 		current_row = []
 		for machine_dict in machine_dict_array:
@@ -78,3 +79,7 @@ def build_machine_timeline(_machine_list):
 			_str += current_machine['data']['machine']['@name'] + ','
 
 		print('Year ' + str(_year) + ' : ' + _str)
+		if len(current_row) > max_row:
+			max_row = len(current_row)
+
+	print('build_machine_timeline() max_row = ' + str(max_row))

@@ -236,9 +236,12 @@ def main_emucamp_engine():
 	f.write(html_output)
 	f.close()
 
+	##
+	## timeline
+	build_machine_timeline(machine_list)
+
 	##	soup = BeautifulSoup(html_doc)
 
 # If the script is not imported, execute the main function
 if __name__ == "__main__":
-	# build_machine_timeline(machine_list)
 	main_emucamp_engine()
