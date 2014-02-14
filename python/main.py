@@ -4,6 +4,7 @@ import shutil
 import logging
 import wikipedia
 import datetime
+import codecs
 
 from utils import *
 from data_extraction import *
@@ -14,6 +15,8 @@ from quik import FileLoader
 from data_caching import *
 from operator import itemgetter
 from machine_timeline import build_machine_timeline
+
+
 
 ##-------------------------
 ##	Start to build the site
@@ -148,7 +151,7 @@ def main_emucamp_engine():
 						if not found_a_description:
 							try:
 								wiki_page = wikipedia.page(machine_name)
-								quik_interface['machine_description'] = wikipedia.summary(machine_name, sentences = 3)
+								quik_interface['machine_description'] = wikipedia.summary(machine_name, sentences = 3) ##.encode('utf-8')
 								quik_interface['machine_description_source_url'] = wiki_page.url
 								quik_interface['machine_description_source'] = wiki_page.url
 							except Exception: ##wikipedia.exceptions.DisambiguationError as e:
@@ -168,9 +171,9 @@ def main_emucamp_engine():
 						print('Creates the new machine page')
 						##	Creates the new 'machine' page
 						##	Render the new html page
-						html_output = template_machine.render(quik_interface, quik_loader).encode('utf-8')
+						html_output = template_machine.render(quik_interface, quik_loader) ##.encode('utf-8')
 						##	Saves the page as a html file
-						f = open(os.path.join(SITE_ROOT, conform_string_to_filename(machine_name) + '.html'), 'w')
+						f = codecs.open(os.path.join(SITE_ROOT, conform_string_to_filename(machine_name) + '.html'), 'w', 'utf-8')
 						f.write(html_output)
 						f.close()
 
@@ -225,13 +228,13 @@ def main_emucamp_engine():
 
 		template_index = quik_loader.load_template(INPUT_PAGES['index'])
 		html_output = template_index.render(quik_interface, quik_loader).encode('utf-8')
-		f = open(os.path.join(SITE_ROOT, 'index.html'), 'w')
+		f = codecs.open(os.path.join(SITE_ROOT, 'index.html'), 'w', 'utf-8')
 		f.write(html_output)
 		f.close()
 
 		template_index = quik_loader.load_template(INPUT_PAGES['update_log'])
 		html_output = template_index.render(quik_interface, quik_loader).encode('utf-8')
-		f = open(os.path.join(SITE_ROOT, 'update_log.html'), 'w')
+		f = codecs.open(os.path.join(SITE_ROOT, 'update_log.html'), 'w', 'utf-8')
 		f.write(html_output)
 		f.close()
 
@@ -241,7 +244,7 @@ def main_emucamp_engine():
 	##	Builds the about page
 	template_about = quik_loader.load_template(INPUT_PAGES['about'])
 	html_output = template_about.render(quik_interface, quik_loader).encode('utf-8')
-	f = open(os.path.join(SITE_ROOT, 'about.html'), 'w')
+	f = codecs.open(os.path.join(SITE_ROOT, 'about.html'), 'w', 'utf-8')
 	f.write(html_output)
 	f.close()
 
