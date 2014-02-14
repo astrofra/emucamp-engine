@@ -8,6 +8,8 @@ import datetime
 from utils import *
 from data_extraction import *
 from globals import *
+from pouet_bridge import machine_get_pouet_prods
+
 from quik import FileLoader
 from data_caching import *
 from operator import itemgetter
@@ -50,8 +52,8 @@ def main_emucamp_engine():
 	else:
 		download_machine_list = machine_list
 
-	for machine_name in download_machine_list:
-		tree = parse_machine_from_xml_source(machine_name)
+	for machine_short_name in download_machine_list:
+		tree = parse_machine_from_xml_source(machine_short_name)
 		if tree is not None:
 			root = tree.getroot()
 			if root.tag == 'data':
@@ -142,19 +144,28 @@ def main_emucamp_engine():
 
 								(quik_interface['emulator_list']).append(current_emulator)
 
+						##  Get the description of the machine
 						if not found_a_description:
 							try:
 								wiki_page = wikipedia.page(machine_name)
 								quik_interface['machine_description'] = wikipedia.summary(machine_name, sentences = 3)
 								quik_interface['machine_description_source_url'] = wiki_page.url
 								quik_interface['machine_description_source'] = wiki_page.url
-							except wikipedia.exceptions.DisambiguationError as e:
-								print e.options
+							except Exception: ##wikipedia.exceptions.DisambiguationError as e:
+								##  print e.options
 								quik_interface['machine_description'] = "No description found :'("
 								quik_interface['machine_description_source_url'] = ""
 								quik_interface['machine_description_source'] = ""
 								pass
 
+						##  Connect to Pouet and see if there's any prod (game, demo) to download
+						print('----------------------------------------------------------------------')
+						print('Connect to Pouet and see if there is any prod (game, demo) to download')
+						machine_get_pouet_prods(machine_short_name)
+						print('----------------------------------------------------------------------')
+
+						print('----------------------------')
+						print('Creates the new machine page')
 						##	Creates the new 'machine' page
 						##	Render the new html page
 						html_output = template_machine.render(quik_interface, quik_loader).encode('utf-8')
@@ -163,7 +174,7 @@ def main_emucamp_engine():
 						f.write(html_output)
 						f.close()
 
-						print('-------------------------------------')
+						print('------------------------------')
 
 	##
 	## index.html
@@ -211,8 +222,6 @@ def main_emucamp_engine():
 				if len(year_list) > 0:
 					logging.info('emulator_full_update_list_by_year[] : found ' + str(len(year_list)) + ' emulators.')
 					quik_interface['emulator_full_update_list_by_year'].append({'year':_year, 'update_list':year_list})
-
-
 
 		template_index = quik_loader.load_template(INPUT_PAGES['index'])
 		html_output = template_index.render(quik_interface, quik_loader).encode('utf-8')
