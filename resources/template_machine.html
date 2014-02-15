@@ -10,9 +10,10 @@ font-family: 'Dosis', sans-serif;
       }
     </style>
 	<meta charset="utf-8">
-	<META NAME="description" CONTENT="@machine_name emulators on the most usual platforms.">
-	<META NAME="keywords" CONTENT="emulation, @machine_name, retrograming, binary, download, sourceforge">
-	<title>Emulation Camp, emulators for the @machine_name</title>
+	<META NAME="description" CONTENT="@machine_name emulators on the Windows, OS X or Linux, including #for @emulator in @emulator_list:@emulator.name, #end... recently updated.">
+	<META NAME="keywords" CONTENT="emulation, @machine_name, retrograming, #for @emulator in @emulator_list:@emulator.name, #end
+    binary, download, sourceforge,     windows,linux,osx,amigaos,wii,pc,download,updated,nintendo,atari,sega,commodore">
+	<title>Emulation Camp, emulators for the @machine_name (#for @emulator in @emulator_list:@emulator.name, #end...)</title>
 	</head>
 <body>
     <div class="container">
@@ -25,7 +26,7 @@ font-family: 'Dosis', sans-serif;
             <table>
                 <tr>
                     <td>
-						<div class="span1"><a href="http://www.emucamp.com"><img src="assets/logo_emu_camp_100px.png"></a></div>
+						<div class="span1"><a href="http://www.emucamp.com"><img src="assets/logo_emu_camp_100px.png" alt="Emulation Camp small Logo"></a></div>
                     </td>
                     <td>
 						<div class="span9"><h1>&nbsp;Emulation Camp</h1></div>
@@ -92,7 +93,7 @@ font-family: 'Dosis', sans-serif;
     <div class="container"><div>&nbsp;</div>
    <center>
 	<table with="250px">
-		<tr><td with="250px"><img class="img-rounded" style="align:center;" src="assets/machine_@{machine_filename}.jpg" width="250px"></td></tr>
+		<tr><td with="250px"><img class="img-rounded" style="align:center;" src="assets/machine_@{machine_filename}.jpg" width="250px" alt="Photo of a @{machine_name} courtesy of Wikipedia.org"></td></tr>
 		<tr><td align="right" with="250px"><h6>(Photo Wikipedia.org)</h6></td></tr>
 	</table>
    </center>
