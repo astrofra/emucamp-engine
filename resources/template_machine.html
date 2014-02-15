@@ -61,9 +61,9 @@ font-family: 'Dosis', sans-serif;
                         <td width="10%">@emulator_version.emulator_platform</td>
                         <td width="30%">
                         #if (@emulator_version.emulator_size > 0)
-                        	<a href="@emulator_version.emulator_download_url"><button type="button" class="btn btn-primary btn-xs">@emulator_version.emulator_filename</button></a>
+                        	<a href="@emulator_version.emulator_download_url" class="btn btn-primary btn-xs">@emulator_version.emulator_filename</a>
                         #else
-							<a href="@emulator_version.emulator_download_page" target="_blank"><button type="button" class="btn btn-primary btn-xs" style="background-color: #808080; border-color: #707070;">Direct link.</button></a>
+							<a href="@emulator_version.emulator_download_page" target="_blank" class="btn btn-primary btn-xs" style="background-color: #808080; border-color: #707070;">Direct link.</a>
                         #end
                         </td>
                         <td width="20%"><a href="@emulator_version.emulator_download_page" target="_blank">@emulator_version.emulator_download_page_truncated</a></td>
