@@ -10,6 +10,7 @@ from utils import *
 from data_extraction import *
 from globals import *
 from pouet_bridge import machine_get_pouet_prods
+from binary_downloader import better_binary_download
 
 from quik import FileLoader
 from data_caching import *
@@ -122,6 +123,22 @@ def main_emucamp_engine():
 
 										##	Tries to download the binary
 										download_result = download_emulator_binary(platform, platform_root_path)
+
+										##  If the previous method failed, try another technique
+										if download_result['emulator_local_filename'] is None:
+											for platform_child in platform:
+												if platform_child.tag == 'source_url':
+													download_page_url = platform_child.text
+													if download_page_url is not None:
+														print('DownloadEmulatorBinary() : download_page_url = ' + download_page_url)
+														download_page_url = download_page_url.strip()
+														start_with = child.get('start_with')
+														end_with = child.get('end_with')
+														download_result = better_binary_download({'machine':  {'short_name': machine_short_name, 'name': machine_name },
+																			                        'emulator': {'name': emulator_name,},
+																			                        'platform': {'name': platform_name, 'root_path': platform_root_path   },
+																			                        'url':      {'download_page': download_page_url, 'start': start_with, 'end': end_with}})
+
 										if download_result['emulator_local_filename'] is not None:
 											emulator_download_url = conform_string_to_filename(machine_name) + '/' +  conform_string_to_filename(emulator_name) + '/' + conform_string_to_filename(platform_name) + '/' + download_result['emulator_filename']
 										else:
@@ -164,7 +181,7 @@ def main_emucamp_engine():
 						##  Connect to Pouet and see if there's any prod (game, demo) to download
 						print('----------------------------------------------------------------------')
 						print('Connect to Pouet and see if there is any prod (game, demo) to download')
-						machine_get_pouet_prods(machine_short_name)
+						# machine_get_pouet_prods(machine_short_name)
 						print('----------------------------------------------------------------------')
 
 						print('----------------------------')
@@ -250,7 +267,7 @@ def main_emucamp_engine():
 
 	##
 	## timeline
-	build_machine_timeline(machine_list)
+	# build_machine_timeline(machine_list)
 
 	##	soup = BeautifulSoup(html_doc)
 
