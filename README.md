@@ -36,7 +36,7 @@ Get pip on http://www.pip-installer.org/
 
 Once you have python and pip installed, you can run:
 ```bash
-pip install -f requirements.txt
+pip install -r requirements.txt
 ```
 It will install the python modules required by the project.
 
