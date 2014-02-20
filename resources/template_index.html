@@ -27,11 +27,11 @@ h1,h2,h3,h4,h5,h6 {
     </div>
     <div class="container">
         <div class="jumbotron">
-			<div align = "middle" style="padding-top: 0px; padding-bottom: 16px;">
+			<div style="padding-top: 0px; padding-bottom: 16px; text-align:center;">
 			<img src="assets/logo_emu_camp_300px.png" alt="Emulation Camp Logo">
             <div class="row"><h1>Emulation Camp</h1></div>
 			<div class="row"><h4 style="line-height: 0.1;">&nbsp;Yet Another Retrogaming Resource</h4></div>
-            </div> <div style="line-height:110%; padding-bottom:4px;"><center><table>
+            </div> <div style="line-height:110%; padding-bottom:4px; text-align:center;"><table>
             	<!--	computers	-->
             	<tr><td><center>
             	#for @machine in @machine_list.computer:
@@ -50,18 +50,16 @@ h1,h2,h3,h4,h5,h6 {
                 	<a href="@machine.page_url" class="btn btn-primarygreen btn-xs">@machine.name</a>
                 #end
             	</center></td></tr>
-                </table></center></div>
+                </table></div>
         </div>
 	</div>
 
 	<!-- $begin_log -->
     <div class="container">
-        <div class="machine">
-            <center>
+        <div class="machine" style="text-align:center">
             #for @emulator_update in @emulator_update_list:
                 @emulator_update.emulator_name, <a href="@emulator_update.machine_url">@emulator_update.machine_name</a> emulator for @emulator_update.emulator_platform was updated on @emulator_update.updated_on.<br>
             #end
-            </center>
              <div style="text-align:right;margin-right:10px;margin-top:-8px;line-height: 0.8;"><a href="update_log.html">More ...</a></div>
         </div>
     </div>
