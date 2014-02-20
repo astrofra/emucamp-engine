@@ -33,7 +33,7 @@ h1,h2,h3,h4,h5,h6 {
 			<div class="row"><h4 style="line-height: 0.1;">&nbsp;Yet Another Retrogaming Resource</h4></div>
             </div> <div style="line-height:110%; padding-bottom:4px; text-align:center;"><table>
             	<!--	computers	-->
-            	<tr><td><center>
+            	<tr><td style="text-align:center;">
             	#for @machine in @machine_list.computer:
                 	<a href="@machine.page_url" class="btn btn-primary btn-xs">@machine.name</a>
                 #end
@@ -49,7 +49,7 @@ h1,h2,h3,h4,h5,h6 {
             	#for @machine in @machine_list.environment:
                 	<a href="@machine.page_url" class="btn btn-primarygreen btn-xs">@machine.name</a>
                 #end
-            	</center></td></tr>
+            	</td></tr>
                 </table></div>
         </div>
 	</div>
