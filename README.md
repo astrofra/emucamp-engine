@@ -67,4 +67,6 @@ start_meta_ratings.bat
 
  The website is a static site (pure HTML, no PHP, no SQL). Everything is built on the local machine that runs the engine, and then uploaded to a given location.
 
- The files is a mix or html, css, png and binary files.
+ The files are a mix or html, css, png and binary files.
+
+ ![](http://www.astrofra.com/posts/misc/2014-07-20_080904.jpg)
