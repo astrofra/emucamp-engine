@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<data>
+	<machine name="Philips CD-i" type="Console" release_date="1991" discontinued="1998">
+
+		<emulator name="AppleWin">
+			<description>
+				<text><![CDATA[
+				AppleWin is an Apple IIe Emulator for Windows]]></text>
+				<source_url>http://applewin.berlios.de/</source_url>
+			</description>
+			<platform name="Windows">
+					<source_url start_with="AppleWin" end_with=".zip">http://applewin.berlios.de/</source_url>
+			</platform>
+		</emulator>
+
+	</machine>
+</data>

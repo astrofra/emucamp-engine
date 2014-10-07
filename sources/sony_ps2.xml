@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<data>
+	<machine name="Sony PS2" type="Console" release_date="2000" discontinued="2013">
+		<description>
+			<text><![CDATA[
+			 The PlayStation 2 (PS2) is a video game console that was manufactured by Sony Computer Entertainment. It is Sony's second installment in the PlayStation Series. It was released on March 4, 2000, in Japan followed by North America and Europe later the same year. The sixth-generation console competed with the Sega Dreamcast, Microsoft Xbox, and Nintendo GameCube. 
+			 ]]></text>
+			<source_url>https://en.wikipedia.org/wiki/PlayStation_2</source_url>
+		</description>
+
+		<emulator name="PCSX2">
+			<description>
+				<text><![CDATA[
+				PCSX2 is a free and open-source PlayStation 2 emulator for Windows, Linux and OS X and currently the only known Playstation 2 emulator capable of running commercial games.
+				]]></text>
+				<source_url>https://en.wikipedia.org/wiki/PCSX2</source_url>
+			</description>
+			<platform name="Windows">
+					<source_url>http://pcsx2.net/download/releases/windows.html</source_url>
+			</platform>
+			<platform name="OS X">
+					<source_url>http://pcsx2.net/download/releases/mac.html</source_url>
+			</platform>
+			<platform name="Linux">
+					<source_url>http://pcsx2.net/download/releases/linux.html</source_url>
+			</platform>
+		</emulator>
+
+	</machine>
+</data>
