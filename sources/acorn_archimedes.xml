@@ -12,10 +12,10 @@
 					<source_url>http://home.tiscali.nl/~jandboer/support2.zip</source_url>
 			</platform>
 			<platform name="Windows">
-					<source_url>http://sourceforge.net/projects/arcem/files/latest/download</source_url>
+					<source_url sourceforge_id="arcem">http://sourceforge.net/projects/arcem/files/latest/download</source_url>
 			</platform>
 			<platform name="OS X">
-					<source_url>http://sourceforge.net/projects/arcem/files/arcem/</source_url>
+					<source_url sourceforge_id="arcem">http://sourceforge.net/projects/arcem/files/arcem/</source_url>
 			</platform>
 			<platform name="AmigaOS4">
 					<source_url>http://aminet.net/misc/emu/arcem_os4.lha</source_url>

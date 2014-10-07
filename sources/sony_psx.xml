@@ -8,6 +8,21 @@
 			<source_url>https://en.wikipedia.org/wiki/PlayStation_%28console%29</source_url>
 		</description>
 
+		<emulator name="PCSX-Reloaded">
+			<description>
+				<text><![CDATA[
+				PCSX-Reloaded is a PlayStation Emulator based on PCSX-df 1.9, with support for Windows, GNU/Linux and Mac OS X as well as many bugfixes and improvements.
+				]]></text>
+				<source_url>http://pcsxr.codeplex.com/</source_url>
+			</description>
+			<platform name="Windows">
+					<source_url start_with="pcsxr" end_with="win32.zip">http://pcsxr.codeplex.com/releases/view/111309</source_url>
+			</platform>
+			<platform name="OS X">
+					<source_url start_with="pcsxr" end_with="osx.zip">http://pcsxr.codeplex.com/releases/view/111309</source_url>
+			</platform>
+		</emulator>
+
 		<emulator name="ePSXe">
 			<description>
 				<text><![CDATA[

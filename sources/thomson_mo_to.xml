@@ -47,5 +47,16 @@
 			</platform>
 		</emulator>
 
+		<emulator name="Teo-Emulator">
+			<description>
+				<text><![CDATA[
+			Teo is an emulator of the Thomson TO8 microcomputer.]]></text>
+				<source_url>http://sourceforge.net/projects/teoemulator/</source_url>
+			</description>
+			<platform name="Windows">
+					<source_url>http://sourceforge.net/projects/teoemulator/files/windows/1.8.2/teo-1.8.2-setup.exe/download</source_url>
+			</platform>
+		</emulator>		
+
 	</machine>
 </data>
