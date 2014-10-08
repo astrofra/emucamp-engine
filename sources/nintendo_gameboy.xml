@@ -2,6 +2,18 @@
 <data>
 	<machine name="Nintendo GameBoy" type="Console" release_date="1989" discontinued="2003">
 	
+		<emulator name="Gambatte">
+			<description>
+				<text><![CDATA[
+				Gambatte is a portable, open-source Game Boy Color emulator..
+				]]></text>
+				<source_url>http://gambatte.sourceforge.net/</source_url>
+			</description>
+			<platform name="Windows">
+					<source_url>http://sourceforge.net/projects/gambatte/</source_url>
+			</platform>
+		</emulator>
+
 		<emulator name="VisualBoyAdvance">
 			<description>
 				<text><![CDATA[

@@ -185,6 +185,8 @@ def generic_binary_download(download_url, local_path, force_mime = False):
 		while urlopen_retry < 5:
 			try:
 				req = urllib2.urlopen(download_url)
+				# req.addheaders = [('User-agent', 'Mozilla/5.0 (Windows NT 6.3; WOW64; rv:32.0) Gecko/20100101 Firefox/32.0')]
+
 			except Exception: ##urllib2.HTTPError, e:
 				logging.warning('GenericBinaryDownload() download_url = ' + download_url + ' raised an error')  # + e.msg)
 				logging.warning('GenericBinaryDownload() urlopen_retry = ' + str(urlopen_retry))
