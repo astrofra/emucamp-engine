@@ -2,31 +2,7 @@
 <data>
 	<machine name="Nintendo GameBoy" type="Console" release_date="1989" discontinued="2003">
 
-		<emulator name="GBA.js">
-			<description>
-				<text><![CDATA[
-				Game Boy Advance in the Browser.<br>
-				For legal reasons, GBA.js is presented without any included games. The emulation if fairly decent, though. Most games run and are playable.]]></text>
-				<source_url>http://jpfau.github.io/gbajs/</source_url>
-			</description>
-			<platform name="Javascript">
-					<source_url>http://jpfau.github.io/gbajs/</source_url>
-			</platform>
-		</emulator>		
-	
 		<emulator name="VGBA">
-			<description>
-				<text><![CDATA[
-				Gambatte is a portable, open-source Game Boy Color emulator..
-				]]></text>
-				<source_url>http://gambatte.sourceforge.net/</source_url>
-			</description>
-			<platform name="Windows">
-					<source_url>http://sourceforge.net/projects/gambatte/</source_url>
-			</platform>
-		</emulator>
-
-		<emulator name="VisualBoyAdvance">
 			<description>
 				<text><![CDATA[
 				Virtual GameBoy Advance (VGBA) is a program that emulates Nintendo's GameBoy Advance on your computer. It runs GameBoy Advance games on PCs, TVs, phones, tabets, or just about any other sufficiently fast gadget.
@@ -42,6 +18,30 @@
 			<platform name="Android">
 					<source_url>https://market.android.com/details?id=com.fms.vgba</source_url>
 			</platform>					
+		</emulator>	
+	
+		<emulator name="Gambatte">
+			<description>
+				<text><![CDATA[
+				Gambatte is a portable, open-source Game Boy Color emulator..
+				]]></text>
+				<source_url>http://gambatte.sourceforge.net/</source_url>
+			</description>
+			<platform name="Windows">
+					<source_url>http://sourceforge.net/projects/gambatte/</source_url>
+			</platform>
+		</emulator>
+
+		<emulator name="VisualBoyAdvance">
+			<description>
+				<text><![CDATA[
+				VisualBoyAdvance (commonly abbreviated as VBA) is a free emulator of the Game Boy, Game Boy Color, and Game Boy Advance handheld game consoles as well as of Super Game Boy and Super Game Boy.
+				]]></text>
+				<source_url>http://sourceforge.net/projects/vba/</source_url>
+			</description>
+			<platform name="Windows">
+					<source_url>http://sourceforge.net/projects/vba/</source_url>
+			</platform>
 		</emulator>
 
 		<emulator name="BGB">
