@@ -13,7 +13,7 @@
 					<source_url start_with="VGBA" end_with="Windows-bin.zip">http://fms.komkon.org/VGBA/</source_url>
 			</platform>
 			<platform name="Linux">
-					<source_url start_with="VGBA" end_with="Ubuntu-bin.zip">http://fms.komkon.org/VGBA/</source_url>
+					<source_url start_with="VGBA" end_with="Ubuntu-bin.tgz">http://fms.komkon.org/VGBA/</source_url>
 			</platform>			
 			<platform name="Android">
 					<source_url>https://market.android.com/details?id=com.fms.vgba</source_url>
