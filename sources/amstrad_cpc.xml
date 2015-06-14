@@ -42,6 +42,18 @@ Arnold aims for maximum emulation accuracy across the whole CPC and CPC+ range, 
 			</platform>
 		</emulator>
 
+		<emulator name="Sugarbox">
+			<description>
+				<text><![CDATA[
+			Sugarbox is a CPC emulator that runs on Windows. 
+				]]></text>
+				<source_url>http://sugarbox.free.fr/</source_url>
+			</description>
+			<platform name="Windows">
+				<source_url start_with="Sugarbox" end_with=".exe">http://sugarbox.free.fr</source_url>
+			</platform>
+		</emulator>		
+
 		<emulator name="XCPC">
 			<description>
 				<text><![CDATA[
