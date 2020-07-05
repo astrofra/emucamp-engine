@@ -2,6 +2,6 @@ beautifulsoup4
 wikipedia==1.1
 
 xmltodict==0.8.6
+
 ddg3
 wget
-quik
