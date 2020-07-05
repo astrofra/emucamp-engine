@@ -17,7 +17,7 @@ from data_caching import *
 from operator import itemgetter
 from machine_timeline import build_machine_timeline
 
-
+from urllib.parse import parse_qsl, urljoin, urlparse
 
 ##-------------------------
 ##	Start to build the site
@@ -68,7 +68,7 @@ def main_emucamp_engine():
 						machine = child
 						machine_name = machine.get('name')
 						machine_type = machine.get('type')
-						print('Found this machine : ' + machine_name)
+						print(('Found this machine : ' + machine_name))
 						print('-------------------------------------')
 						##	Creates a new html template
 						template_machine = quik_loader.load_template(INPUT_PAGES['machine'])
@@ -115,7 +115,7 @@ def main_emucamp_engine():
 									if emulator_child.tag == 'platform':
 										platform = emulator_child
 										platform_name = platform.get('name')
-										print(emulator_name + ', found a version for the ' + platform_name + ' platform.')
+										print((emulator_name + ', found a version for the ' + platform_name + ' platform.'))
 
 										platform_root_path = os.path.join(emulator_root_path, conform_string_to_filename(platform_name))
 										safe_makedir(platform_root_path)
@@ -130,7 +130,7 @@ def main_emucamp_engine():
 												if platform_child.tag == 'source_url':
 													download_page_url = platform_child.text
 													if download_page_url is not None:
-														print('DownloadEmulatorBinary() : download_page_url = ' + download_page_url)
+														print(('DownloadEmulatorBinary() : download_page_url = ' + download_page_url))
 														download_page_url = download_page_url.strip()
 														start_with = child.get('start_with')
 														end_with = child.get('end_with')
@@ -158,7 +158,7 @@ def main_emucamp_engine():
 																							'emulator_download_url': emulator_download_url,
 																							'emulator_size': download_result['emulator_size'],
 																							'emulator_download_page': download_result['emulator_download_page'],
-																							'emulator_download_page_truncated': urlparse.urlsplit(download_result['emulator_download_page']).netloc,
+																							'emulator_download_page_truncated': urlparse(download_result['emulator_download_page']).netloc,
 																							'emulator_updated_on': download_result['emulator_updated_on']
 																							})
 
@@ -245,13 +245,13 @@ def main_emucamp_engine():
 
 		template_index = quik_loader.load_template(INPUT_PAGES['index'])
 		html_output = template_index.render(quik_interface, quik_loader).encode('utf-8')
-		f = codecs.open(os.path.join(SITE_ROOT, 'index.html'), 'w', 'utf-8')
+		f = codecs.open(os.path.join(SITE_ROOT, 'index.html'), 'wb', 'utf-8')
 		f.write(html_output)
 		f.close()
 
 		template_index = quik_loader.load_template(INPUT_PAGES['update_log'])
 		html_output = template_index.render(quik_interface, quik_loader).encode('utf-8')
-		f = codecs.open(os.path.join(SITE_ROOT, 'update_log.html'), 'w', 'utf-8')
+		f = codecs.open(os.path.join(SITE_ROOT, 'update_log.html'), 'wb', 'utf-8')
 		f.write(html_output)
 		f.close()
 
@@ -261,7 +261,7 @@ def main_emucamp_engine():
 	##	Builds the about page
 	template_about = quik_loader.load_template(INPUT_PAGES['about'])
 	html_output = template_about.render(quik_interface, quik_loader).encode('utf-8')
-	f = codecs.open(os.path.join(SITE_ROOT, 'about.html'), 'w', 'utf-8')
+	f = codecs.open(os.path.join(SITE_ROOT, 'about.html'), 'wb', 'utf-8')
 	f.write(html_output)
 	f.close()
 

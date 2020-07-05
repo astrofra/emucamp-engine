@@ -25,19 +25,19 @@ def cache_fetch_emulators_update(machine_site_path):
 			if file_name == 'updated_on.txt':
 				f = open(os.path.join(root, file_name), 'r')
 				updated_on = str(f.read())
-				inferred_emulator_platform = string.replace(root, '\\', '/').split('/')[-1]
-				inferred_emulator_platform = string.replace(inferred_emulator_platform, '_', ' ')
+				inferred_emulator_platform = root.replace('\\', '/').split('/')[-1]
+				inferred_emulator_platform = inferred_emulator_platform.replace('_', ' ')
 				inferred_emulator_platform = inferred_emulator_platform.title()
 
-				inferred_emulator_name = string.replace(root, '\\', '/').split('/')[-2]
-				inferred_emulator_name = string.replace(inferred_emulator_name, '_', ' ')
+				inferred_emulator_name = root.replace('\\', '/').split('/')[-2]
+				inferred_emulator_name = inferred_emulator_name.replace('_', ' ')
 				inferred_emulator_name = inferred_emulator_name.title()
 
-				inferred_machine_name = string.replace(root, '\\', '/').split('/')[-3]
-				inferred_machine_name = string.replace(inferred_machine_name, '_', ' ')
+				inferred_machine_name = root.replace('\\', '/').split('/')[-3]
+				inferred_machine_name = inferred_machine_name.replace('_', ' ')
 				inferred_machine_name = inferred_machine_name.title()
 
-				inferred_machine_url = string.replace(root, '\\', '/').split('/')[-3]
+				inferred_machine_url = root.replace('\\', '/').split('/')[-3]
 				inferred_machine_url += '.html'
 
 				if inferred_emulator_platform.lower().find('firmware') == -1 \

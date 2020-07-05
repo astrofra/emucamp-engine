@@ -40,8 +40,8 @@ def build_machine_timeline(_machine_list):
 				if last_discontinued_date < datetime.date.today().year:
 					last_discontinued_date = datetime.date.today().year
 
-	print('build_machine_timeline() : first_release_date = ' + str(first_release_date))
-	print('build_machine_timeline() : last_discontinued_date = ' + str(last_discontinued_date))
+	print(('build_machine_timeline() : first_release_date = ' + str(first_release_date)))
+	print(('build_machine_timeline() : last_discontinued_date = ' + str(last_discontinued_date)))
 
 	# crawl every year and search for a machine introduction / discontinuation
 
@@ -78,8 +78,8 @@ def build_machine_timeline(_machine_list):
 		for current_machine in current_row:
 			_str += current_machine['data']['machine']['@name'] + ','
 
-		print('Year ' + str(_year) + ' : ' + _str)
+		print(('Year ' + str(_year) + ' : ' + _str))
 		if len(current_row) > max_row:
 			max_row = len(current_row)
 
-	print('build_machine_timeline() max_row = ' + str(max_row))
+	print(('build_machine_timeline() max_row = ' + str(max_row)))

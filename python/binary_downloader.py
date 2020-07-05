@@ -2,7 +2,7 @@
 
 import logging
 import wget
-import urllib2
+import urllib.request, urllib.error, urllib.parse
 import shutil
 import os
 import time
@@ -21,13 +21,13 @@ def better_binary_download(req):
 	if req['url']['start'] is None and req['url']['end'] is None:
 		if req['url']['download_page'].lower().find('cgi?') > -1:
 			local_filename = wget.download(req['url']['download_page'])
-			print("local_filename = " + local_filename)
+			print(("local_filename = " + local_filename))
 			target_filename = local_filename
 
 			##  wget could not find the proper name for this file
 			##  infer the file from and urllib2 request (url)
 			if target_filename.find('.cgi') > -1:
-				opener = urllib2.build_opener()
+				opener = urllib.request.build_opener()
 				opener.addheaders = [('User-agent', 'Mozilla/5.0')]
 				response = opener.open(req['url']['download_page'])
 				target_filename = response.url.split('/')[-1].split('#')[0].split('?')[0]
@@ -35,7 +35,7 @@ def better_binary_download(req):
 			##  previous method could not find the proper name for this file
 			##  infer the file from and urllib2 request (filetype found in the header)
 			if target_filename.find('.cgi') > -1:
-				opener = urllib2.build_opener()
+				opener = urllib.request.build_opener()
 				opener.addheaders = [('User-agent', 'Mozilla/5.0')]
 				response = opener.open(req['url']['download_page'])
 				file_ext = guess_file_extension_from_header(response.headers.type)
@@ -51,7 +51,7 @@ def better_binary_download(req):
 				if byte_size > 1024 * 10:
 
 					##  Check modified date
-					opener = urllib2.build_opener()
+					opener = urllib.request.build_opener()
 					opener.addheaders = [('User-agent', 'Mozilla/5.0')]
 					response = opener.open(req['url']['download_page'])
 					file_date = response.info()

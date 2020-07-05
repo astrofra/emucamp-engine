@@ -8,7 +8,7 @@ pouet_machine_dict = {'cbm_amiga':['Amiga+OCS%2FECS'],
 
 
 def machine_get_pouet_prods(machine):
-	print('machine_get_pouet_prods() machine = ' + machine)
+	print(('machine_get_pouet_prods() machine = ' + machine))
 	# if machine in pouet_machine_dict:
 	# 	pouet_url = 'http://www.pouet.net' ## 'http://www.pouet.net/prodlist.php?platform[]=' + pouet_machine_dict[machine][0] + '&page=1&order=thumbup'
 	# 	print('url = ' + pouet_url)

@@ -1,10 +1,10 @@
 # set of functions in charge of the data extraction (emulators...) from the listed web url
 
 import logging
-import urllib2
+import urllib.request, urllib.error, urllib.parse
 import time
 import mimetypes
-import urlparse
+import urllib.parse
 import xml.etree.ElementTree as ET
 
 from utils import *
@@ -49,12 +49,12 @@ def extract_source_url(xml_branch, extract_local_path, file_name='source.url'):
 
 
 def download_emulator_binary(xml_branch, extract_local_path):
-	print('DownloadEmulatorBinary() extract_local_path = ' + extract_local_path)
+	print(('DownloadEmulatorBinary() extract_local_path = ' + extract_local_path))
 	for child in xml_branch:
 		if child.tag == 'source_url':
 			download_page_url = child.text
 			if download_page_url is not None:
-				print('DownloadEmulatorBinary() : download_page_url = ' + download_page_url)
+				print(('DownloadEmulatorBinary() : download_page_url = ' + download_page_url))
 
 				if download_page_url.find('sourceforge.net') != -1:
 					download_result = generic_binary_download(download_page_url, extract_local_path, force_mime=True)
@@ -81,7 +81,7 @@ def download_emulator_binary(xml_branch, extract_local_path):
 					req = None
 					while urlopen_retry < 5:
 						try:
-							req = urllib2.urlopen(download_page_url)
+							req = urllib.request.urlopen(download_page_url)
 						except Exception: ##urllib2.HTTPError, e:
 							logging.warning(
 								'DownloadEmulatorBinary() download_url = ' + download_page_url + ' raised an error') ## + e.msg)
@@ -106,10 +106,10 @@ def download_emulator_binary(xml_branch, extract_local_path):
 							download_url = link.get('href')
 							if download_url is not None:
 								logging.debug('DownloadEmulatorBinary() download_url = ' + download_url)
-								start_index = string.find(download_url, start_with)
-								end_index = string.find(download_url, end_with)
+								start_index = download_url.find(start_with)
+								end_index = download_url.find(end_with)
 								if end_index > start_index > -1:
-									download_url = urlparse.urljoin(download_page_url, download_url)
+									download_url = urllib.parse.urljoin(download_page_url, download_url)
 									logging.debug('download_url = ' + download_url)
 
 									download_result = generic_binary_download(download_url, extract_local_path)
@@ -127,14 +127,14 @@ def download_emulator_binary(xml_branch, extract_local_path):
 
 
 def generic_binary_download(download_url, local_path, force_mime = False):
-	print('GenericBinaryDownload() download_url = ' + download_url + ', local_path = ' + local_path)
+	print(('GenericBinaryDownload() download_url = ' + download_url + ', local_path = ' + local_path))
 	##	Is this an emulator binary ?
 	mime = mimetypes.guess_type(download_url)
 	download_type = None
 
 	if force_mime or (mime[0] is not None and mime[0].find('application') > -1):
 		if mime[0] is not None:
-			print('DownloadEmulatorBinary() : mime type = ' + mime[0])
+			print(('DownloadEmulatorBinary() : mime type = ' + mime[0]))
 		download_type = 'binary'
 	else:
 		logging.warning('GenericBinaryDownload() : mime type is unknown for url : ' + download_url)
@@ -146,7 +146,7 @@ def generic_binary_download(download_url, local_path, force_mime = False):
 		f.close()
 
 		#	Get the filename of the binary
-		file_radical, file_ext = os.path.splitext(os.path.basename(urlparse.urlsplit(download_url).path))
+		file_radical, file_ext = os.path.splitext(os.path.basename(urllib.parse.urlsplit(download_url).path))
 		filename = file_radical + file_ext
 		if filename.find('.php') > -1:
 			logging.warning('GenericBinaryDownload() : found a \'php\' string in the binary filename : ' + filename)
@@ -157,7 +157,8 @@ def generic_binary_download(download_url, local_path, force_mime = False):
 			for bin_ext in ['.exe', '.zip', '.rar', '.dmg', '.gz', '.deb', '.lha', '.bin', '.prg', '.apk']:
 				if download_url.find(bin_ext) > -1:
 					##	There's a binary filename inside the url
-					url_split_by_dot = string.split(string.replace(string.replace(download_url, '/', '.'), '?', '.'), '.')
+#					url_split_by_dot = string.split(string.replace(string.replace(download_url, '/', '.'), '?', '.'), '.')
+					url_split_by_dot = download_url.replace('/', '.').replace('?', '.').split('.')
 					extension_idx = 0
 					for url_split_part in url_split_by_dot:
 						logging.debug('GenericBinaryDownload() : url_split_part = ' + url_split_part)
@@ -167,10 +168,10 @@ def generic_binary_download(download_url, local_path, force_mime = False):
 
 					if extension_idx > 1:
 						filename = url_split_by_dot[extension_idx - 2] + bin_ext
-						print('Alternate filename found : ' + filename)
+						print(('Alternate filename found : ' + filename))
 						break
 
-		filename = string.replace(filename, '%20', ' ')
+		filename = filename.replace('%20', ' ')
 
 		logging.debug('GenericBinaryDownload() : filename = ' + filename)
 
@@ -184,7 +185,7 @@ def generic_binary_download(download_url, local_path, force_mime = False):
 
 		while urlopen_retry < 5:
 			try:
-				req = urllib2.urlopen(download_url)
+				req = urllib.request.urlopen(download_url)
 				# req.addheaders = [('User-agent', 'Mozilla/5.0 (Windows NT 6.3; WOW64; rv:32.0) Gecko/20100101 Firefox/32.0')]
 
 			except Exception: ##urllib2.HTTPError, e:
@@ -202,8 +203,8 @@ def generic_binary_download(download_url, local_path, force_mime = False):
 		if req is not None:
 			##	No 404 error, we go on.
 			##	Get the modification date
-			url_info = req.info()
-			file_date = url_info.getdate('last-modified')
+			# url_info = req.info()
+			file_date = req.headers['last-modified'] # url_info.getdate('last-modified')
 			if file_date is not None:
 				# Date using the ISO format.
 				emulator_updated_on = str(file_date[0]) + '-' + str(file_date[1]).zfill(2) + '-' + str(file_date[2]).zfill(2)
@@ -212,15 +213,15 @@ def generic_binary_download(download_url, local_path, force_mime = False):
 
 			if force_mime:
 				file_url = req.geturl()
-				print('req.geturl() = ' + file_url)
-				filename, file_extension = os.path.splitext(os.path.basename(urlparse.urlsplit(file_url).path))
+				print(('req.geturl() = ' + file_url))
+				filename, file_extension = os.path.splitext(os.path.basename(urllib.parse.urlsplit(file_url).path))
 				filename += file_extension
 				local_filename = os.path.join(local_path, filename)
 				if (local_filename[-1] == '/') or (local_filename[-1] == '\\' or (local_filename.find('.html') > -1)):
 					local_filename = None
 
 			if local_filename is not None:
-				print('GenericBinaryDownload() : local_filename = ' + local_filename)
+				print(('GenericBinaryDownload() : local_filename = ' + local_filename))
 
 				##	Read the bytes, chunk by chunk
 				CHUNK = 128 * 1024
@@ -228,7 +229,7 @@ def generic_binary_download(download_url, local_path, force_mime = False):
 				with open(local_filename, 'wb') as fp:
 					while True:
 						chunk = req.read(CHUNK)
-						print '.',
+						print('.', end=' ')
 						if not chunk:
 							break
 						fp.write(chunk)
