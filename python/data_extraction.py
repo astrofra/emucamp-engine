@@ -222,6 +222,9 @@ def generic_binary_download(download_url, local_path, force_mime = False):
 
 			if local_filename is not None:
 				print(('GenericBinaryDownload() : local_filename = ' + local_filename))
+				if download_url.find("ftp://") > -1:
+					print('ftp url!')
+					time.sleep(2.0)
 
 				##	Read the bytes, chunk by chunk
 				CHUNK = 128 * 1024

@@ -245,13 +245,13 @@ def main_emucamp_engine():
 
 		template_index = quik_loader.load_template(INPUT_PAGES['index'])
 		html_output = template_index.render(quik_interface, quik_loader).encode('utf-8')
-		f = codecs.open(os.path.join(SITE_ROOT, 'index.html'), 'wb', 'utf-8')
+		f = codecs.open(os.path.join(SITE_ROOT, 'index.html'), 'wb')
 		f.write(html_output)
 		f.close()
 
 		template_index = quik_loader.load_template(INPUT_PAGES['update_log'])
 		html_output = template_index.render(quik_interface, quik_loader).encode('utf-8')
-		f = codecs.open(os.path.join(SITE_ROOT, 'update_log.html'), 'wb', 'utf-8')
+		f = codecs.open(os.path.join(SITE_ROOT, 'update_log.html'), 'wb')
 		f.write(html_output)
 		f.close()
 
@@ -261,7 +261,7 @@ def main_emucamp_engine():
 	##	Builds the about page
 	template_about = quik_loader.load_template(INPUT_PAGES['about'])
 	html_output = template_about.render(quik_interface, quik_loader).encode('utf-8')
-	f = codecs.open(os.path.join(SITE_ROOT, 'about.html'), 'wb', 'utf-8')
+	f = codecs.open(os.path.join(SITE_ROOT, 'about.html'), 'wb')
 	f.write(html_output)
 	f.close()
 
