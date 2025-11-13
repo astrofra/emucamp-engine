@@ -1,29 +1,30 @@
-import os
-import time
 import logging
-import duckduckgo
-import string
-
-from utils import *
+from duckduckgo_search import DDGS
 
 
-def ComputeMetaRatings(object_common_name = 'MAME', topic_keyword_array = ['arcade', 'emulator']):
+def ComputeMetaRatings(object_common_name='MAME', topic_keyword_array=None, max_results=5):
+	if topic_keyword_array is None:
+		topic_keyword_array = ['arcade', 'emulator']
+
 	print('ComputeMetaRatings() object_common_name = ' + object_common_name)
-	seach_string = object_common_name
-	for s_keyword in topic_keyword_array:
-		seach_string = seach_string + ' ' + s_keyword
+	search_string = ' '.join([object_common_name] + topic_keyword_array)
+	print('search_string = ' + search_string)
 
-	##seach_string = string.replace(seach_string, ' ', ',')
+	results = []
+	try:
+		with DDGS() as ddgs:
+			for result in ddgs.text(search_string, max_results=max_results):
+				results.append(result)
+	except Exception as exc:
+		logging.warning("DuckDuckGo search failed: %s", exc)
+		return []
 
-	print('seach_string = ' + seach_string)
+	for result in results:
+		url = result.get('href') or result.get('url') or ''
+		if url:
+			print('url found : ' + url)
 
-	r = duckduckgo.query(seach_string)
-	print(r.type)
-	print(r.answer.text)
-
-	if (r.type == 'answer'):
-		for result in r.results:
-			print('url found : ' + result.url)
+	return results
 
 
 # If the script is not imported, execute the main function
