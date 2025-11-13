@@ -1,15 +1,39 @@
 # set of functions in charge of the data extraction (emulators...) from the listed web url
 
 import logging
-import urllib2
 import time
 import mimetypes
-import urlparse
+import os
 import xml.etree.ElementTree as ET
+from email.utils import parsedate_to_datetime
+from urllib import parse, request
+from urllib.error import URLError, HTTPError
 
 from utils import *
 from globals import *
 from bs4 import BeautifulSoup
+
+USER_AGENT = 'EmuCampEngine/1.0 (+https://github.com/emucamp)'
+MAX_URL_RETRIES = 5
+RETRY_DELAY_SECONDS = 2
+
+
+def _request_with_headers(url):
+	return request.Request(url, headers={'User-Agent': USER_AGENT})
+
+
+def _open_url_with_retries(url, retries=MAX_URL_RETRIES):
+	last_error = None
+	for attempt in range(retries):
+		try:
+			return request.urlopen(_request_with_headers(url))
+		except (HTTPError, URLError, ValueError) as exc:
+			last_error = exc
+			logging.warning("Failed to fetch %s (attempt %s/%s): %s", url, attempt + 1, retries, exc)
+			time.sleep(RETRY_DELAY_SECONDS)
+	if last_error:
+		logging.warning("Giving up fetching %s after %s attempts.", url, retries)
+	return None
 
 
 def parse_machine_from_xml_source(machine_name):
@@ -28,9 +52,8 @@ def extract_text(xml_branch, extract_local_path, file_name='description.txt'):
 			description_text = description_child.text
 			if description_text is not None:
 				description_text = description_text.strip()
-				f = open(os.path.join(extract_local_path, file_name), 'w')
-				f.write(description_text)
-				f.close()
+				with open(os.path.join(extract_local_path, file_name), 'w', encoding='utf-8') as file_handle:
+					file_handle.write(description_text)
 				return description_text
 	return None
 
@@ -41,9 +64,8 @@ def extract_source_url(xml_branch, extract_local_path, file_name='source.url'):
 			source_url = child.text
 			if source_url is not None:
 				source_url = source_url.strip()
-				f = open(os.path.join(extract_local_path, file_name), 'w')
-				f.write(source_url)
-				f.close()
+				with open(os.path.join(extract_local_path, file_name), 'w', encoding='utf-8') as file_handle:
+					file_handle.write(source_url)
 				return source_url
 	return None
 
@@ -77,27 +99,11 @@ def download_emulator_binary(xml_branch, extract_local_path):
 					logging.debug('start_with = ' + start_with)
 					logging.debug('end_with = ' + end_with)
 
-					urlopen_retry = 0
-					req = None
-					while urlopen_retry < 5:
-						try:
-							req = urllib2.urlopen(download_page_url)
-						except Exception: ##urllib2.HTTPError, e:
-							logging.warning(
-								'DownloadEmulatorBinary() download_url = ' + download_page_url + ' raised an error') ## + e.msg)
-							logging.warning('DownloadEmulatorBinary() urlopen_retry = ' + str(urlopen_retry))
-							req = None
-							time.sleep(2)
-							pass
-
-						urlopen_retry += 1
-
-						if req is not None:
-							break
+					req = _open_url_with_retries(download_page_url)
 
 					if req is not None:
 						download_page = req.read()
-						soup = BeautifulSoup(download_page)
+						soup = BeautifulSoup(download_page, 'html.parser')
 						#	f = open(os.path.join(extract_local_path, 'download_page.html'), 'w')
 						#	f.write(download_page)
 						#	f.close()
@@ -106,10 +112,10 @@ def download_emulator_binary(xml_branch, extract_local_path):
 							download_url = link.get('href')
 							if download_url is not None:
 								logging.debug('DownloadEmulatorBinary() download_url = ' + download_url)
-								start_index = string.find(download_url, start_with)
-								end_index = string.find(download_url, end_with)
+								start_index = download_url.find(start_with)
+								end_index = download_url.find(end_with)
 								if end_index > start_index > -1:
-									download_url = urlparse.urljoin(download_page_url, download_url)
+									download_url = parse.urljoin(download_page_url, download_url)
 									logging.debug('download_url = ' + download_url)
 
 									download_result = generic_binary_download(download_url, extract_local_path)
@@ -141,12 +147,11 @@ def generic_binary_download(download_url, local_path, force_mime = False):
 
 	if local_path.lower().find('javascript') == -1 and download_type == 'binary':
 		##	Store the download url
-		f = open(os.path.join(local_path, 'binary.url'), 'w')
-		f.write(download_url)
-		f.close()
+		with open(os.path.join(local_path, 'binary.url'), 'w', encoding='utf-8') as file_handle:
+			file_handle.write(download_url)
 
 		#	Get the filename of the binary
-		file_radical, file_ext = os.path.splitext(os.path.basename(urlparse.urlsplit(download_url).path))
+		file_radical, file_ext = os.path.splitext(os.path.basename(parse.urlsplit(download_url).path))
 		filename = file_radical + file_ext
 		if filename.find('.php') > -1:
 			logging.warning('GenericBinaryDownload() : found a \'php\' string in the binary filename : ' + filename)
@@ -157,7 +162,7 @@ def generic_binary_download(download_url, local_path, force_mime = False):
 			for bin_ext in ['.exe', '.zip', '.rar', '.dmg', '.gz', '.deb', '.lha', '.bin', '.prg', '.apk']:
 				if download_url.find(bin_ext) > -1:
 					##	There's a binary filename inside the url
-					url_split_by_dot = string.split(string.replace(string.replace(download_url, '/', '.'), '?', '.'), '.')
+					url_split_by_dot = download_url.replace('/', '.').replace('?', '.').split('.')
 					extension_idx = 0
 					for url_split_part in url_split_by_dot:
 						logging.debug('GenericBinaryDownload() : url_split_part = ' + url_split_part)
@@ -170,7 +175,7 @@ def generic_binary_download(download_url, local_path, force_mime = False):
 						print('Alternate filename found : ' + filename)
 						break
 
-		filename = string.replace(filename, '%20', ' ')
+		filename = filename.replace('%20', ' ')
 
 		logging.debug('GenericBinaryDownload() : filename = ' + filename)
 
@@ -179,41 +184,23 @@ def generic_binary_download(download_url, local_path, force_mime = False):
 		local_filename = os.path.join(local_path, filename)
 		logging.debug('GenericBinaryDownload() : download_url = ' + download_url)
 
-		urlopen_retry = 0
-		req = None
-
-		while urlopen_retry < 5:
-			try:
-				req = urllib2.urlopen(download_url)
-				# req.addheaders = [('User-agent', 'Mozilla/5.0 (Windows NT 6.3; WOW64; rv:32.0) Gecko/20100101 Firefox/32.0')]
-
-			except Exception: ##urllib2.HTTPError, e:
-				logging.warning('GenericBinaryDownload() download_url = ' + download_url + ' raised an error')  # + e.msg)
-				logging.warning('GenericBinaryDownload() urlopen_retry = ' + str(urlopen_retry))
-				req = None
-				time.sleep(2)
-				pass
-
-			urlopen_retry += 1
-
-			if req is not None:
-				break
+		req = _open_url_with_retries(download_url)
 
 		if req is not None:
 			##	No 404 error, we go on.
 			##	Get the modification date
-			url_info = req.info()
-			file_date = url_info.getdate('last-modified')
-			if file_date is not None:
-				# Date using the ISO format.
-				emulator_updated_on = str(file_date[0]) + '-' + str(file_date[1]).zfill(2) + '-' + str(file_date[2]).zfill(2)
-			else:
-				emulator_updated_on = ' '
+			header_date = req.headers.get('Last-Modified')
+			emulator_updated_on = ' '
+			if header_date:
+				try:
+					emulator_updated_on = parsedate_to_datetime(header_date).strftime('%Y-%m-%d')
+				except (TypeError, ValueError):
+					emulator_updated_on = ' '
 
 			if force_mime:
 				file_url = req.geturl()
 				print('req.geturl() = ' + file_url)
-				filename, file_extension = os.path.splitext(os.path.basename(urlparse.urlsplit(file_url).path))
+				filename, file_extension = os.path.splitext(os.path.basename(parse.urlsplit(file_url).path))
 				filename += file_extension
 				local_filename = os.path.join(local_path, filename)
 				if (local_filename[-1] == '/') or (local_filename[-1] == '\\' or (local_filename.find('.html') > -1)):
@@ -228,7 +215,7 @@ def generic_binary_download(download_url, local_path, force_mime = False):
 				with open(local_filename, 'wb') as fp:
 					while True:
 						chunk = req.read(CHUNK)
-						print '.',
+						print('.', end='', flush=True)
 						if not chunk:
 							break
 						fp.write(chunk)
@@ -240,21 +227,18 @@ def generic_binary_download(download_url, local_path, force_mime = False):
 				##	Store the download url
 				if (len(filename) > 0):
 					if filename.find('.htm') == -1 and filename.find('.php') == -1 and filename.find('.cgi') == -1:
-						f = open(os.path.join(local_path, 'binary_filename.txt'), 'w')
-						f.write(filename)
-						f.close()
+						with open(os.path.join(local_path, 'binary_filename.txt'), 'w', encoding='utf-8') as file_handle:
+							file_handle.write(filename)
 
 				##	Get the size of the file
 				byte_size = format_byte_size_to_string(byte_size)
 
-				f = open(os.path.join(local_path, 'file_size.txt'), 'w')
-				f.write(byte_size)
-				f.close()
+				with open(os.path.join(local_path, 'file_size.txt'), 'w', encoding='utf-8') as file_handle:
+					file_handle.write(byte_size)
 
 				if emulator_updated_on != ' ':
-					f = open(os.path.join(local_path, 'updated_on.txt'), 'w')
-					f.write(emulator_updated_on)
-					f.close()
+					with open(os.path.join(local_path, 'updated_on.txt'), 'w', encoding='utf-8') as file_handle:
+						file_handle.write(emulator_updated_on)
 
 				return {'emulator_local_filename': local_filename, 'emulator_filename': filename, 'emulator_size': byte_size, 'emulator_updated_on': emulator_updated_on}
 

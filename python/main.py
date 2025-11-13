@@ -4,7 +4,8 @@ import shutil
 import logging
 import wikipedia
 import datetime
-import codecs
+import mimetypes
+from urllib import parse
 
 from utils import *
 from data_extraction import *
@@ -153,12 +154,18 @@ def main_emucamp_engine():
 											else:
 												emulator_download_url = None
 
+										download_page_url = download_result.get('emulator_download_page')
+										if download_page_url:
+											emulator_download_page_truncated = parse.urlsplit(download_page_url).netloc
+										else:
+											emulator_download_page_truncated = ''
+
 										(current_emulator['emulator_version_list']).append({'emulator_platform':platform_name,
 																							'emulator_filename': download_result['emulator_filename'],
 																							'emulator_download_url': emulator_download_url,
 																							'emulator_size': download_result['emulator_size'],
-																							'emulator_download_page': download_result['emulator_download_page'],
-																							'emulator_download_page_truncated': urlparse.urlsplit(download_result['emulator_download_page']).netloc,
+																							'emulator_download_page': download_page_url,
+																							'emulator_download_page_truncated': emulator_download_page_truncated,
 																							'emulator_updated_on': download_result['emulator_updated_on']
 																							})
 
@@ -168,7 +175,7 @@ def main_emucamp_engine():
 						if not found_a_description:
 							try:
 								wiki_page = wikipedia.page(machine_name)
-								quik_interface['machine_description'] = wikipedia.summary(machine_name, sentences = 3) ##.encode('utf-8')
+								quik_interface['machine_description'] = wikipedia.summary(machine_name, sentences = 3)
 								quik_interface['machine_description_source_url'] = wiki_page.url
 								quik_interface['machine_description_source'] = wiki_page.url
 							except Exception: ##wikipedia.exceptions.DisambiguationError as e:
@@ -188,11 +195,10 @@ def main_emucamp_engine():
 						print('Creates the new machine page')
 						##	Creates the new 'machine' page
 						##	Render the new html page
-						html_output = template_machine.render(quik_interface, quik_loader) ##.encode('utf-8')
+						html_output = template_machine.render(quik_interface, quik_loader)
 						##	Saves the page as a html file
-						f = codecs.open(os.path.join(SITE_ROOT, conform_string_to_filename(machine_name) + '.html'), 'w', 'utf-8')
-						f.write(html_output)
-						f.close()
+						with open(os.path.join(SITE_ROOT, conform_string_to_filename(machine_name) + '.html'), 'w', encoding='utf-8') as file_handle:
+							file_handle.write(html_output)
 
 						print('------------------------------')
 
@@ -244,26 +250,23 @@ def main_emucamp_engine():
 					quik_interface['emulator_full_update_list_by_year'].append({'year':_year, 'update_list':year_list})
 
 		template_index = quik_loader.load_template(INPUT_PAGES['index'])
-		html_output = template_index.render(quik_interface, quik_loader).encode('utf-8')
-		f = codecs.open(os.path.join(SITE_ROOT, 'index.html'), 'w', 'utf-8')
-		f.write(html_output)
-		f.close()
+		html_output = template_index.render(quik_interface, quik_loader)
+		with open(os.path.join(SITE_ROOT, 'index.html'), 'w', encoding='utf-8') as file_handle:
+			file_handle.write(html_output)
 
 		template_index = quik_loader.load_template(INPUT_PAGES['update_log'])
-		html_output = template_index.render(quik_interface, quik_loader).encode('utf-8')
-		f = codecs.open(os.path.join(SITE_ROOT, 'update_log.html'), 'w', 'utf-8')
-		f.write(html_output)
-		f.close()
+		html_output = template_index.render(quik_interface, quik_loader)
+		with open(os.path.join(SITE_ROOT, 'update_log.html'), 'w', encoding='utf-8') as file_handle:
+			file_handle.write(html_output)
 
 	##
 	## about.html
 	##
 	##	Builds the about page
 	template_about = quik_loader.load_template(INPUT_PAGES['about'])
-	html_output = template_about.render(quik_interface, quik_loader).encode('utf-8')
-	f = codecs.open(os.path.join(SITE_ROOT, 'about.html'), 'w', 'utf-8')
-	f.write(html_output)
-	f.close()
+	html_output = template_about.render(quik_interface, quik_loader)
+	with open(os.path.join(SITE_ROOT, 'about.html'), 'w', encoding='utf-8') as file_handle:
+		file_handle.write(html_output)
 
 	##
 	## timeline

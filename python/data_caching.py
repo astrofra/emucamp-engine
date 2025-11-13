@@ -1,9 +1,10 @@
 #   Set of functions in charge of reading the data saved locally
 
-from utils import *
-import string
-import os
 import logging
+import os
+
+from utils import *
+
 
 def fetch_previous_binary_from_disk(platform, platform_root_path):
 	logging.warning('fetch_previous_binary_from_disk() platform_root_path = ' + platform_root_path)
@@ -23,22 +24,16 @@ def cache_fetch_emulators_update(machine_site_path):
 	for root, sub_folders, files in os.walk(machine_site_path):
 		for file_name in files:
 			if file_name == 'updated_on.txt':
-				f = open(os.path.join(root, file_name), 'r')
-				updated_on = str(f.read())
-				inferred_emulator_platform = string.replace(root, '\\', '/').split('/')[-1]
-				inferred_emulator_platform = string.replace(inferred_emulator_platform, '_', ' ')
-				inferred_emulator_platform = inferred_emulator_platform.title()
-
-				inferred_emulator_name = string.replace(root, '\\', '/').split('/')[-2]
-				inferred_emulator_name = string.replace(inferred_emulator_name, '_', ' ')
-				inferred_emulator_name = inferred_emulator_name.title()
-
-				inferred_machine_name = string.replace(root, '\\', '/').split('/')[-3]
-				inferred_machine_name = string.replace(inferred_machine_name, '_', ' ')
-				inferred_machine_name = inferred_machine_name.title()
-
-				inferred_machine_url = string.replace(root, '\\', '/').split('/')[-3]
-				inferred_machine_url += '.html'
+				with open(os.path.join(root, file_name), 'r', encoding='utf-8') as file_handle:
+					updated_on = file_handle.read().strip()
+				normalized_root = root.replace('\\', '/')
+				path_parts = normalized_root.split('/')
+				if len(path_parts) < 3:
+					continue
+				inferred_emulator_platform = path_parts[-1].replace('_', ' ').title()
+				inferred_emulator_name = path_parts[-2].replace('_', ' ').title()
+				inferred_machine_name = path_parts[-3].replace('_', ' ').title()
+				inferred_machine_url = path_parts[-3] + '.html'
 
 				if inferred_emulator_platform.lower().find('firmware') == -1 \
 					and inferred_emulator_platform.lower().find('bios') == -1 \

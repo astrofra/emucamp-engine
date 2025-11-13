@@ -1,14 +1,24 @@
 ##
 
 import logging
-import wget
-import urllib2
-import shutil
 import os
+import shutil
 import time
+from email.utils import parsedate_to_datetime
+from urllib import request
+
+import wget
 
 from utils import *
 from globals import *
+
+USER_AGENT = 'EmuCampEngine/1.0 (+https://github.com/emucamp)'
+
+
+def _open_with_user_agent(url):
+	opener = request.build_opener()
+	opener.addheaders = [('User-agent', USER_AGENT)]
+	return opener.open(url)
 
 def better_binary_download(req):
 	logging.warning('better_binary_download() : download_page = ' + req['url']['download_page'])
@@ -27,18 +37,20 @@ def better_binary_download(req):
 			##  wget could not find the proper name for this file
 			##  infer the file from and urllib2 request (url)
 			if target_filename.find('.cgi') > -1:
-				opener = urllib2.build_opener()
-				opener.addheaders = [('User-agent', 'Mozilla/5.0')]
-				response = opener.open(req['url']['download_page'])
-				target_filename = response.url.split('/')[-1].split('#')[0].split('?')[0]
+				response = _open_with_user_agent(req['url']['download_page'])
+				try:
+					target_filename = response.url.split('/')[-1].split('#')[0].split('?')[0]
+				finally:
+					response.close()
 
 			##  previous method could not find the proper name for this file
 			##  infer the file from and urllib2 request (filetype found in the header)
 			if target_filename.find('.cgi') > -1:
-				opener = urllib2.build_opener()
-				opener.addheaders = [('User-agent', 'Mozilla/5.0')]
-				response = opener.open(req['url']['download_page'])
-				file_ext = guess_file_extension_from_header(response.headers.type)
+				response = _open_with_user_agent(req['url']['download_page'])
+				try:
+					file_ext = guess_file_extension_from_header(response.headers.get_content_type())
+				finally:
+					response.close()
 				if file_ext is not None:
 					target_filename = conform_string_to_filename(req['emulator']['name']) + file_ext
 
@@ -51,40 +63,34 @@ def better_binary_download(req):
 				if byte_size > 1024 * 10:
 
 					##  Check modified date
-					opener = urllib2.build_opener()
-					opener.addheaders = [('User-agent', 'Mozilla/5.0')]
-					response = opener.open(req['url']['download_page'])
-					file_date = response.info()
+					response = _open_with_user_agent(req['url']['download_page'])
+					try:
+						header_date = response.headers.get('Last-Modified')
+					finally:
+						response.close()
 
-					if 'last-modified' in file_date:
-						# Date using the ISO format.
-						file_date = file_date['last-modified']
-						## 'Sat, 27 Sep 2008 15:25:27 GMT'
-						file_date = file_date.split(',')[1].strip()
-						file_date = file_date.split(' ')[0] + ' ' + file_date.split(' ')[1] + ' ' + file_date.split(' ')[2]
-						file_date = time.strptime(file_date, "%d %b %Y")
-						file_date = time.strftime("%Y-%b-%d", file_date)
-					else:
-						file_date = ' '
+					file_date = ' '
+					if header_date:
+						try:
+							file_date = parsedate_to_datetime(header_date).strftime("%Y-%b-%d")
+						except (TypeError, ValueError):
+							file_date = ' '
 
 					##  copy the binary from the temp folder to the final folder
 					shutil.copy(local_filename, os.path.join(req['platform']['root_path'], target_filename))
 
 					##	Store the size
 					byte_size = format_byte_size_to_string(byte_size)
-					f = open(os.path.join(req['platform']['root_path'], 'file_size.txt'), 'w')
-					f.write(byte_size)
-					f.close()
+					with open(os.path.join(req['platform']['root_path'], 'file_size.txt'), 'w', encoding='utf-8') as file_handle:
+						file_handle.write(byte_size)
 
 					##	Store the filename
-					f = open(os.path.join(req['platform']['root_path'], 'binary_filename.txt'), 'w')
-					f.write(target_filename)
-					f.close()
+					with open(os.path.join(req['platform']['root_path'], 'binary_filename.txt'), 'w', encoding='utf-8') as file_handle:
+						file_handle.write(target_filename)
 
 					if file_date != ' ':
-						f = open(os.path.join(req['platform']['root_path'], 'updated_on.txt'), 'w')
-						f.write(file_date)
-						f.close()
+						with open(os.path.join(req['platform']['root_path'], 'updated_on.txt'), 'w', encoding='utf-8') as file_handle:
+							file_handle.write(file_date)
 
 					os.remove(local_filename)
 
