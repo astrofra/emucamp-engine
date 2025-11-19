@@ -3,9 +3,11 @@
 import logging
 import os
 import shutil
+import ssl
 import time
 from email.utils import parsedate_to_datetime
 from urllib import request
+from urllib.error import URLError
 
 import wget
 
@@ -20,6 +22,19 @@ def _open_with_user_agent(url):
 	opener.addheaders = [('User-agent', USER_AGENT)]
 	return opener.open(url)
 
+
+def _wget_download_with_unverified_ssl(url):
+	"""Retry wget.download() with certificate validation disabled."""
+	if not hasattr(ssl, '_create_unverified_context'):
+		return wget.download(url)
+	default_context = ssl._create_default_https_context
+	ssl._create_default_https_context = ssl._create_unverified_context
+	try:
+		return wget.download(url)
+	finally:
+		ssl._create_default_https_context = default_context
+
+
 def better_binary_download(req):
 	logging.warning('better_binary_download() : download_page = ' + req['url']['download_page'])
 	return_dict = {'emulator_local_filename': None,
@@ -30,7 +45,15 @@ def better_binary_download(req):
 
 	if req['url']['start'] is None and req['url']['end'] is None:
 		if req['url']['download_page'].lower().find('cgi?') > -1:
-			local_filename = wget.download(req['url']['download_page'])
+			try:
+				local_filename = wget.download(req['url']['download_page'])
+			except URLError as exc:
+				if isinstance(getattr(exc, 'reason', None), ssl.SSLCertVerificationError):
+					logging.warning('better_binary_download() : SSL verification failed for %s, retrying without validation.', req['url']['download_page'])
+					local_filename = _wget_download_with_unverified_ssl(req['url']['download_page'])
+				else:
+					logging.warning('better_binary_download() : Failed to download %s (%s)', req['url']['download_page'], exc)
+					return return_dict
 			print("local_filename = " + local_filename)
 			target_filename = local_filename
 
