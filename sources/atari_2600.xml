@@ -10,10 +10,10 @@
 				<source_url>http://www.whimsey.com/z26/</source_url>
 			</description>
 			<platform name="Windows">
-					<source_url start_with="z26" end_with="x.zip">http://www.whimsey.com/z26/</source_url>
+					<source_url start_with="z26" end_with="win10.zip">http://www.whimsey.com/z26/</source_url>
 			</platform>
 			<platform name="OS X">
-					<source_url start_with="z26" end_with="_snow_leopard.zip">http://www.whimsey.com/z26/</source_url>
+					<source_url start_with="z26" end_with="_mac_i64.zip">http://www.whimsey.com/z26/</source_url>
 			</platform>
 		</emulator>
 

@@ -500,15 +500,7 @@ class FormalReference(_Element):
             if self.silent: value = ''
             else: value = self.my_text()
 
-        try:
-            basestring
-            def is_string(s):
-                return isinstance(s, basestring)
-        except NameError:
-            def is_string(s):
-                return type(s) == type('')
-
-        if is_string(value):
+        if isinstance(value, str):
             stream.write(value)
         else:
             stream.write(str(value))
