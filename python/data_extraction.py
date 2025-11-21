@@ -8,6 +8,7 @@ import xml.etree.ElementTree as ET
 from email.utils import parsedate_to_datetime
 from urllib import parse, request
 from urllib.error import URLError, HTTPError
+import http.client as http_client
 
 from utils import *
 from globals import *
@@ -27,7 +28,7 @@ def _open_url_with_retries(url, retries=MAX_URL_RETRIES):
 	for attempt in range(retries):
 		try:
 			return request.urlopen(_request_with_headers(url))
-		except (HTTPError, URLError, ValueError) as exc:
+		except (HTTPError, URLError, ValueError, http_client.RemoteDisconnected) as exc:
 			last_error = exc
 			logging.warning("Failed to fetch %s (attempt %s/%s): %s", url, attempt + 1, retries, exc)
 			time.sleep(RETRY_DELAY_SECONDS)

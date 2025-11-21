@@ -7,7 +7,7 @@ import ssl
 import time
 from email.utils import parsedate_to_datetime
 from urllib import request
-from urllib.error import URLError
+from urllib.error import HTTPError, URLError
 
 import wget
 
@@ -20,7 +20,16 @@ USER_AGENT = 'EmuCampEngine/1.0 (+https://github.com/emucamp)'
 def _open_with_user_agent(url):
 	opener = request.build_opener()
 	opener.addheaders = [('User-agent', USER_AGENT)]
-	return opener.open(url)
+	try:
+		return opener.open(url)
+	except URLError as exc:
+		# Some environments miss CA roots; retry once with verification disabled.
+		if isinstance(getattr(exc, 'reason', None), ssl.SSLCertVerificationError) and hasattr(ssl, '_create_unverified_context'):
+			logging.warning('_open_with_user_agent() : SSL verification failed for %s, retrying without validation.', url)
+			insecure_opener = request.build_opener(request.HTTPSHandler(context = ssl._create_unverified_context()))
+			insecure_opener.addheaders = [('User-agent', USER_AGENT)]
+			return insecure_opener.open(url)
+		raise
 
 
 def _wget_download_with_unverified_ssl(url):
@@ -33,6 +42,30 @@ def _wget_download_with_unverified_ssl(url):
 		return wget.download(url)
 	finally:
 		ssl._create_default_https_context = default_context
+
+
+def _download_with_user_agent(url, insecure_ssl=False):
+	"""
+	Fetch a URL with our user-agent, optionally disabling SSL verification.
+	Returns the local filename the response was written to.
+	"""
+	headers = [('User-agent', USER_AGENT)]
+	context = ssl._create_unverified_context() if (insecure_ssl and hasattr(ssl, '_create_unverified_context')) else None
+	opener = request.build_opener(request.HTTPSHandler(context=context)) if context else request.build_opener()
+	opener.addheaders = headers
+
+	with opener.open(url) as response:
+		filename = (wget.filename_from_headers(response.headers) or
+					wget.filename_from_url(response.url) or
+					wget.filename_from_url(url) or
+					'download.bin')
+		if os.path.exists(filename):
+			filename = wget.filename_fix_existing(filename)
+
+		with open(filename, 'wb') as file_handle:
+			shutil.copyfileobj(response, file_handle)
+
+		return filename
 
 
 def better_binary_download(req):
@@ -50,7 +83,18 @@ def better_binary_download(req):
 			except URLError as exc:
 				if isinstance(getattr(exc, 'reason', None), ssl.SSLCertVerificationError):
 					logging.warning('better_binary_download() : SSL verification failed for %s, retrying without validation.', req['url']['download_page'])
-					local_filename = _wget_download_with_unverified_ssl(req['url']['download_page'])
+					try:
+						local_filename = _wget_download_with_unverified_ssl(req['url']['download_page'])
+					except URLError as retry_exc:
+						logging.warning('better_binary_download() : unverified wget download failed for %s (%s), trying direct download with UA.', req['url']['download_page'], retry_exc)
+						try:
+							local_filename = _download_with_user_agent(req['url']['download_page'], insecure_ssl = True)
+						except Exception as final_exc:  # avoid breaking the whole engine
+							logging.warning('better_binary_download() : final download attempt failed for %s (%s)', req['url']['download_page'], final_exc)
+							return return_dict
+				elif isinstance(exc, HTTPError) and exc.code == 404:
+					logging.warning('better_binary_download() : %s returned 404, skipping download.', req['url']['download_page'])
+					return return_dict
 				else:
 					logging.warning('better_binary_download() : Failed to download %s (%s)', req['url']['download_page'], exc)
 					return return_dict
