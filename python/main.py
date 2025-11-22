@@ -140,19 +140,28 @@ def main_emucamp_engine():
 																			                        'platform': {'name': platform_name, 'root_path': platform_root_path   },
 																			                        'url':      {'download_page': download_page_url, 'start': start_with, 'end': end_with}})
 
+										emulator_filename = download_result.get('emulator_filename')
+										emulator_download_url = None
+
 										if download_result['emulator_local_filename'] is not None:
-											emulator_download_url = conform_string_to_filename(machine_name) + '/' +  conform_string_to_filename(emulator_name) + '/' + conform_string_to_filename(platform_name) + '/' + download_result['emulator_filename']
+											emulator_filename = download_result['emulator_filename']
 										else:
 											##  Fetch the previous binary from local disk
 											previous_download_result = fetch_previous_binary_from_disk(platform, platform_root_path)
 											if previous_download_result is not None:    ## UNFINISHED
-												download_result['emulator_filename'] = previous_download_result['emulator_filename']
+												emulator_filename = previous_download_result['emulator_filename']
+												download_result['emulator_filename'] = emulator_filename
 												download_result['emulator_size'] = previous_download_result['emulator_size']
 												# download_result['emulator_download_page'] = '' ## previous_download_result['emulator_download_page']
-												emulator_download_url = platform_root_path + '/' + previous_download_result['emulator_filename']
 												download_result['emulator_updated_on'] = previous_download_result['emulator_updated_on']
-											else:
-												emulator_download_url = None
+
+										if emulator_filename is not None:
+											emulator_download_url = '/'.join([
+												conform_string_to_filename(machine_name),
+												conform_string_to_filename(emulator_name),
+												conform_string_to_filename(platform_name),
+												emulator_filename
+											])
 
 										download_page_url = download_result.get('emulator_download_page')
 										if download_page_url:
