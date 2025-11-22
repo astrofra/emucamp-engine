@@ -1,7 +1,7 @@
 <html>
 <head>
-	<link href='http://fonts.googleapis.com/css?family=Homenaje|Dosis' rel='stylesheet' type='text/css'>
-        <link rel="stylesheet" type="text/css" media="all" href="http://www.emucamp.com/extern/bootstrap/css/bootstrap.css">
+	<link href='https://fonts.googleapis.com/css?family=Homenaje|Dosis' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" type="text/css" media="all" href="https://www.emucamp.com/extern/bootstrap/css/bootstrap.css">
     <style>
       body {
 font-family: 'Homenaje', sans-serif;
@@ -15,7 +15,7 @@ h1,h2,h3,h4,h5,h6 {
 }
     </style>
 <title>Emulation Camp, 404 error.</title>
-<meta http-equiv="refresh" content="10; URL=http://www.emucamp.com">
+<meta http-equiv="refresh" content="10; URL=https://www.emucamp.com">
 </head>
 
 <body>
@@ -23,9 +23,9 @@ h1,h2,h3,h4,h5,h6 {
 <center>
 <br>
 <h3>404 ERROR</h3>
-<img src="http://www.emucamp.com/assets/error_404.gif"><br>
+<img src="https://www.emucamp.com/assets/error_404.gif"><br>
 <h4>The page www.emucamp.com<!--#echo var="REQUEST_URI" --> does not exist anymore.</h4>
-<h5><a href="http://www.emucamp.com">You will be redirected to the frontpage.</a></h4>
+<h5><a href="https://www.emucamp.com">You will be redirected to the frontpage.</a></h4>
 </center>
 </p>
 </body>
