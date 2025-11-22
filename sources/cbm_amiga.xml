@@ -22,6 +22,18 @@
 			</platform>
 		</emulator>
 
+			<emulator name="vAmiga">
+			<description>
+				<text><![CDATA[
+				vAmiga emulates the classic Commodore Amiga computers on macOS with a strong focus on compatibility and usability.
+				]]></text>
+				<source_url>https://dirkwhoffmann.github.io/vAmiga/</source_url>
+			</description>
+			<platform name="OS X">
+					<source_url start_with = "https://github.com/" end_with = ".app.zip">https://dirkwhoffmann.github.io/vAmiga</source_url>
+			</platform>
+		</emulator>
+
 		<emulator name="FS-UAE">
 			<description>
 				<text><![CDATA[
